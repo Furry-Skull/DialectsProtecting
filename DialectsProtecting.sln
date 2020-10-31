@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "DialectsProtecting", "DialectsProtecting\DialectsProtecting.pyproj", "{AF32E61A-760F-4670-8BAD-563B4A96DA71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF32E61A-760F-4670-8BAD-563B4A96DA71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF32E61A-760F-4670-8BAD-563B4A96DA71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF32E61A-760F-4670-8BAD-563B4A96DA71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF32E61A-760F-4670-8BAD-563B4A96DA71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51002105-F481-41D1-BC36-873D688D0B5E}
+	EndGlobalSection
+EndGlobal
