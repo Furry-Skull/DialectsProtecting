@@ -25,6 +25,7 @@ a{
 .nav{
     float: left;
     margin-left: 60px;
+    margin-bottom: 20px;
 }
 .nav ul li{
     float: left;
@@ -33,7 +34,7 @@ a{
 .nav ul li a{
     display: block;
     height: 25px;
-    padding: -100px 10px;
+    padding: 0px 10px;
     line-height: 10px;
     font-size: 18px;
     color: #0094ff;
@@ -41,4 +42,8 @@ a{
 .nav ul li a:hover{
     border-bottom: 2px solid #0094ff;
     color: #0094ff;
+}
+.user_box {
+    padding: 10px 20px;
+    float: right;
 }

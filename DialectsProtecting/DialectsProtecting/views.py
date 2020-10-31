@@ -9,7 +9,7 @@ def home():
     if a.register(7,8)==0:
         print ("cnmd")
     #主页
-    if a.login(3,9)==2:
+    if a.login(7,8)==2:
         print (2)
     elif a.login(3,3)==1:
         print (1)
