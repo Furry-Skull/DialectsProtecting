@@ -1,0 +1,44 @@
+.w{
+    width: 1200px;
+    margin: auto;
+}
+.header{
+    height: 42px;
+    background-color: #c5c5c5;
+    margin: 30px auto; 
+}
+.logo{
+    float: left;
+    width: 198px;
+    height: 42px;
+    background-color: #ff0000;
+}
+.logo img{
+    height: 42px;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.nav{
+    float: left;
+    margin-left: 60px;
+}
+.nav ul li{
+    float: left;
+    margin: 0 15px;
+}
+.nav ul li a{
+    display: block;
+    height: 25px;
+    padding: -100px 10px;
+    line-height: 10px;
+    font-size: 18px;
+    color: #0094ff;
+}
+.nav ul li a:hover{
+    border-bottom: 2px solid #0094ff;
+    color: #0094ff;
+}

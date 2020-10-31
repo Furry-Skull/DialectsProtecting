@@ -11,6 +11,5 @@ from DialectsProtecting import app
 def home():
     #主页
     return render_template(
-        'index.html',
-        projectName='DialectsProtecting',
+        'register.html',
     )
