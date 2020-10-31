@@ -38,12 +38,17 @@
     <Folder Include="DialectsProtecting\" />
     <Folder Include="DialectsProtecting\static\" />
     <Folder Include="DialectsProtecting\static\content\" />
+    <Folder Include="DialectsProtecting\static\content\css\" />
+    <Folder Include="DialectsProtecting\static\content\image\" />
     <Folder Include="DialectsProtecting\static\fonts\" />
     <Folder Include="DialectsProtecting\static\scripts\" />
     <Folder Include="DialectsProtecting\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DialectsProtecting\static\content\css\register.css" />
+    <Content Include="DialectsProtecting\static\content\image\logo.jpg" />
     <Content Include="DialectsProtecting\templates\index.html" />
+    <Content Include="DialectsProtecting\templates\register.html" />
     <Content Include="DialectsProtecting\templates\test.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />

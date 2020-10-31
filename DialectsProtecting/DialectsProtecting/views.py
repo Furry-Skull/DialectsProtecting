@@ -16,6 +16,5 @@ def home():
     elif a.login(3,3)==0:
         print (0)
     return render_template(
-        'index.html',
-        projectName='DialectsProtecting',
+        'register.html',
     )
