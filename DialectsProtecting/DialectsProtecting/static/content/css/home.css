@@ -1,0 +1,92 @@
+.w{
+    width: 1200px;
+    margin: auto;
+}
+.header{
+    position: relative;
+    height: 42px;
+    background-color: #c5c5c5;
+    margin: 30px auto; 
+}
+.logo{
+    position: absolute;
+    float: left;
+    width: 83px;
+    height: 42px;
+    background-color: #ff0000;
+}
+.logo a{
+    display: block;
+    margin: -21px auto;
+    width: 83px;
+    height: 42px;
+    background: url(../image/logo.jpg) no-repeat;
+    font-size: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.nav{
+    float: left;
+    margin-left: 60px;
+}
+.nav ul li{
+    float: left;
+    margin: 0 15px;
+}
+.nav ul li a{
+    display: block;
+    height: 25px;
+    padding: 0 10px;
+    line-height: 10px;
+    font-size: 18px;
+    color: #000000;
+}
+.nav ul li a:hover{
+    border-bottom: 2px solid #0094ff;
+    color: #0094ff;
+}
+.search{
+    float: left;
+    width: 412px;
+    height: 42px;
+    margin-left: 50px;
+    background-color: #0094ff;
+}
+.search input{
+    float: left;
+    width: 345px;
+    height: 38px;
+    border: 1px solid #0094ff;
+    border-right: 0;
+    font-size: 14px;
+    padding-left: 15px;
+}
+.search button{
+    float: left;
+    width: 50px;
+    height: 42px;
+    background-color:#b900ff;
+    border: 0;
+}
+.user{
+    float: right;
+    line-height: 42px;
+}
+.user a{
+    color: #ff0000;
+}
+.user ul li {
+    float: left;
+    margin: 0 5px;
+}
+.user ul li a {
+    display: block;
+    height: 25px;
+    padding: 0 5px;
+    line-height: 10px;
+    font-size: 18px;
+}

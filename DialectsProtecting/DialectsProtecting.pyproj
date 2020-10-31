@@ -42,9 +42,11 @@
     <Folder Include="DialectsProtecting\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DialectsProtecting\static\content\css\home.css" />
     <Content Include="DialectsProtecting\static\content\css\register.css" />
     <Content Include="DialectsProtecting\static\content\image\logo.jpg" />
     <Content Include="DialectsProtecting\templates\index.html" />
+    <Content Include="DialectsProtecting\templates\home.html" />
     <Content Include="DialectsProtecting\templates\register.html" />
     <Content Include="DialectsProtecting\templates\test.html" />
   </ItemGroup>
