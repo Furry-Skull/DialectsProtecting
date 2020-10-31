@@ -16,7 +16,7 @@ def home():
     elif a.login(3,3)==0:
         print (0)
     return render_template(
-        'register.html',
+        'home.html',
     )
 
 @app.route('/login', methods=(["GET","POST"]))
