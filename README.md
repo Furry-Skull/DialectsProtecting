@@ -35,6 +35,6 @@
 #需要提供一个python类Database，以下为需要有的函数原型（私有函数和变量需要在函数名/变量名加__，构造函数是__init__）
 
 class Database:
-    def login(userName, password)  #返回是否登录成功true/false
-    def register(userName, password)   #注册一个账号并返回是否注册成功
+    def login(self, userName, password)  #返回是否登录成功true/false
+    def register(self, userName, password)   #注册一个账号并返回是否注册成功
 ```
