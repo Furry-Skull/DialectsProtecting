@@ -9,7 +9,7 @@ from DialectsProtecting import app
 @app.route('/')
 @app.route('/home')
 def home():
-    #主页
+    #主页y
     return render_template(
         'index.html',
         projectName='DialectsProtecting',
