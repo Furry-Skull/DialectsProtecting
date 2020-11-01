@@ -51,7 +51,7 @@ a{
 }
 .search{
     float: left;
-    width: 412px;
+    width: 430px;
     height: 42px;
     margin-left: 50px;
     background-color: #0094ff;
@@ -65,11 +65,11 @@ a{
     font-size: 14px;
     padding-left: 15px;
 }
-.search button{
+.search input[type=button]{
     float: left;
-    width: 50px;
+    padding-right:0;
+    width: 67px;
     height: 42px;
-    background-color:#b900ff;
     border: 0;
 }
 .user{
