@@ -5,6 +5,9 @@ from DialectsProtecting import Database
 @app.route('/')
 @app.route('/home')
 def home():
+    return render_template(
+        'register.html',
+    )
     a=Database.Database()
     if a.register(7,8)==0:
         print ("cnmd")
@@ -15,9 +18,7 @@ def home():
         print (1)
     elif a.login(3,3)==0:
         print (0)
-    return render_template(
-        'register.html',
-    )
+
 
 @app.route('/login', methods=(["GET","POST"]))
 def login():

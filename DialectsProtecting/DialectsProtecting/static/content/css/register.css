@@ -2,48 +2,76 @@
     width: 1200px;
     margin: auto;
 }
-.header{
-    height: 42px;
-    background-color: #c5c5c5;
-    margin: 30px auto; 
+header{
+    height: 84px;
+    border-bottom: 2px solid #0094ff;
 }
 .logo{
-    float: left;
-    width: 198px;
+    margin-top: 18px;
+}
+.registerarea{
+    height: 522px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+.registerarea h3{
     height: 42px;
-    background-color: #ff0000;
+    border-bottom: 1px solid #ccc;
+    background-color: #e3e3e3;
+    margin-top: 0;
+    line-height: 42px;
+    padding: 0 10px;
+    font-weight: 400;
 }
-.logo img{
-    height: 42px;
+.login{
+    float: right;
+    font-size: 14px;
 }
-li{
-    list-style: none;
+.login a{
+    color: #ff0000;
 }
-a{
-    text-decoration: none;
+.reg_form{
+    width: 600px;
+    margin: 50px auto 0;
 }
-.nav{
-    float: left;
-    margin-left: 60px;
+.reg_form form ul li{
     margin-bottom: 20px;
 }
-.nav ul li{
-    float: left;
-    margin: 0 15px;
+li{
+    list-style-type: none;
 }
-.nav ul li a{
-    display: block;
-    height: 25px;
-    padding: 0px 10px;
-    line-height: 10px;
-    font-size: 18px;
+.reg_form form ul li label{
+    display: inline-block;
+    width: 88px;
+    text-align: right;
+    font-size: 14px;
+}
+.reg_form form ul li .inp{
+    width: 242px;
+    height: 37px;
+    border: 1px solid #ccc;
+}
+.error{
+    color: #ff0000;
+}
+.success{
+    color: green;
+}
+.agree{
+    padding-top: 20px;
+    padding-left: 100px;
+}
+.agree input{
+    vertical-align: middle;
+}
+.agree a{
     color: #0094ff;
 }
-.nav ul li a:hover{
-    border-bottom: 2px solid #0094ff;
-    color: #0094ff;
-}
-.user_box {
-    padding: 10px 20px;
-    float: right;
+.btn{
+    width: 200px;
+    height: 34px;
+    background-color: red;
+    font-size: 14px;
+    color: white;
+    margin: 30px 0 0 150px;
 }
