@@ -15,6 +15,11 @@ def home():
 def loginPage():
     return render_template('/login.html')
 
+#注册界面
+@app.route('/register')
+def registerPage():
+    return render_template('/register.html')
+
 #提交登录信息
 @app.route('/form/login', methods=(["GET","POST"]))
 def loginForm():
