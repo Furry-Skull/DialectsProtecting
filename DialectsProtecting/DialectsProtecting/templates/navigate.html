@@ -1,55 +1,38 @@
-﻿{# 导航条模板，需要导航条功能的继承自此模板 #}
-<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title>{% block title %}方言保护计划{% endblock %}</title>
-    <!--头格式-->
-    <link rel="stylesheet" href="../static/content/css/home.css" />
-    {# 需要另外导入的css样式文件 #}
-    {% block css %}
-    {% endblock %}
-</head>
-<body>
-    <div class="header w">
-        <!--logo-->
-        <div class="logo">
-            <h1>
-                <a href="" title="主界面"></a>
-            </h1>
-        </div>
-        <!--导航栏-->
-        <div class="nav">
-            <ul>
-                <li><a href="">导航1</a></li>
-                <li><a href="">导航2</a></li>
-                <li><a href="">导航3</a></li>
-                <li><a href="">导航4</a></li>
-            </ul>
-        </div>
-        <!--搜索框-->
-        <div class="search">
-            <input type="text" value="输入关键词" />
-            <input type="button" value="搜索">
-        </div>
-        <!--用户登录/注册-->
-        {% if isLogin %}
-        <div class="user">
-            <ul>
-                <li><a href="">{{ userName }}</a></li>
-            </ul>
-        </div>
-        {% else %}
-        <div class="user">
-            <ul>
-                <li><a href="register">注册</a></li>
-                <li><a href="login">登录</a></li>
-            </ul>
-        </div>
-        {% endif %}
+﻿{# 导航条，需要导航条功能的include自此模板 #}
+<div class="header w">
+    <!--logo-->
+    <div class="logo">
+        <h1>
+            <a href="" title="主界面"></a>
+        </h1>
     </div>
-    {% block body %}
-    {% endblock %}
-</body>
-</html>
+    <!--导航栏-->
+    <div class="nav">
+        <ul>
+            <li><a href="">导航1</a></li>
+            <li><a href="">导航2</a></li>
+            <li><a href="">导航3</a></li>
+            <li><a href="">导航4</a></li>
+        </ul>
+    </div>
+    <!--搜索框-->
+    <div class="search">
+        <input type="text" value="输入关键词" />
+        <input type="button" value="搜索">
+    </div>
+    <!--用户登录/注册-->
+    {% if isLogin %}
+    <div class="user">
+        <ul>
+            <li><a href="">{{ userName }}</a></li>
+        </ul>
+    </div>
+    {% else %}
+    <div class="user">
+        <ul>
+            <li><a href="register">注册</a></li>
+            <li><a href="login">登录</a></li>
+        </ul>
+    </div>
+    {% endif %}
+</div>

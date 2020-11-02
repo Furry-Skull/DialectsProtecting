@@ -1,22 +1,40 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>登录</title>
+    <title>个人登录</title>
     <!--头格式-->
-    <link rel="stylesheet" href="../static/content/css/login.css" />
+    <link rel="stylesheet" href="../static/content/css/register.css" />
 </head>
 <body>
-    <div class="inputbox">
-        <form action="form/login" method="post" enctype="multipart/form-data">
-            用户名:<br>
-            <input type="text" name="username">
-            <br>
-            密码:<br>
-            <input type="password" name="password"><br>
-            <input type="submit" value="登录">
-        </form>
+    <div class="w">
+        <header>
+            <div class="logo">
+                <a href="home.html"><img src="../static/content/image/r_logo.jpg" alt="" /></a>
+            </div>
+        </header>
+        <div class="registerarea">
+            <h3>注册
+                <div class="login">还没有账号,去<a href="register">注册</a></div>
+            </h3>
+            <div class="reg_form">
+                <form method="post" action="form/login">
+                    <ul>
+                        <li>
+                            <label for="">输入用户名：</label><input type="text" name="用户名" class="inp" />
+                        </li>
+                        <li>
+                            <label for="">输入密码：</label><input type="password" name="密码" class="inp" />
+                        </li>
+                    </ul>
+                    <input type="submit" name="登录" value="登录" class="btn" />
+                </form>
+            </div>
+        </div>
+        <footer>
+            底部
+        </footer>
     </div>
 </body>
 </html>

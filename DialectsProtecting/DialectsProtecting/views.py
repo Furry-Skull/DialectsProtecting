@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request
 from DialectsProtecting import app
 from DialectsProtecting import Database
 
@@ -25,10 +25,13 @@ def registerPage():
 def loginForm():
     if request.method == 'POST':
         form = request.form
-        user = User(username=form['username'],email=form['email'],password=form['password'])
-        db.session.add(user)
-        db.session.commit()
-        return jsonify(form)
+        username = form["用户名"]
+        password = form["密码"]
+        database = Database.Database()
+        if database.login(username, password):
+            return 'login success'
+        else:
+            return 'login failed'
     return render_template('/account/login.html')
 
 #提交注册信息

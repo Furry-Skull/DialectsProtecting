@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <title>个人注册</title>
@@ -16,10 +16,10 @@
         </header>
         <div class="registerarea">
             <h3>注册
-                <div class="login">已有账号,去<a href="">登录</a></div>
+                <div class="login">已有账号,去<a href="login">登录</a></div>
             </h3>
             <div class="reg_form">
-                <form method="post" action="/register">
+                <form method="post" action="form/register">
                     <ul>
                         <li>
                             <label for="">输入用户名：</label><input type="text" name="用户名" class="inp" />
@@ -37,9 +37,7 @@
                             同意用户条例<a href="">《用户协议》</a>
                         </li>
                     </ul>
-                    <li>
-                        <input type="submit" name="同意" value="提交注册" class="btn" />
-                    </li>
+                    <input type="submit" name="同意" value="提交注册" class="btn" />
                 </form>
             </div>
         </div>

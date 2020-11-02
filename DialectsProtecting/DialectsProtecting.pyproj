@@ -47,13 +47,12 @@
   <ItemGroup>
     <Content Include="DialectsProtecting\static\content\css\home.css" />
     <Content Include="DialectsProtecting\static\content\css\register.css" />
-    <Content Include="DialectsProtecting\static\content\css\login.css" />
     <Content Include="DialectsProtecting\static\content\image\logo.jpg" />
     <Content Include="DialectsProtecting\static\content\image\r_logo.jpg" />
-    <Content Include="DialectsProtecting\templates\home.html" />
-    <Content Include="DialectsProtecting\templates\register.html" />
     <Content Include="DialectsProtecting\templates\login.html" />
+    <Content Include="DialectsProtecting\templates\register.html" />
     <Content Include="DialectsProtecting\templates\navigate.html" />
+    <Content Include="DialectsProtecting\templates\home.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
