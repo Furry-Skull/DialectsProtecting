@@ -5,17 +5,18 @@
     <meta charset="utf-8" />
     <title>个人注册</title>
     <!--头格式-->
+    <link rel="stylesheet" href="../static/content/css/navigate.css" />
     <link rel="stylesheet" href="../static/content/css/register.css" />
 </head>
 <body>
+    {% include 'navigate.html' %}
     <div class="w">
         <header>
-            <div class="logo">
-                <a href="home.html"><img src="../static/content/image/r_logo.jpg" alt="" /></a>
-            </div>
+           
         </header>
         <div class="registerarea">
-            <h3>注册
+            <h3>
+                注册
                 <div class="login">已有账号,去<a href="login">登录</a></div>
             </h3>
             <div class="reg_form">
@@ -33,7 +34,8 @@
                             <label for="">确认密码：</label><input type="password" name="确认密码" class="inp" />
                             <span class="success">密码正确</span>
                         </li>
-                        <li class="agree"><input type="checkbox" name="用户条例" />
+                        <li class="agree">
+                            <input type="checkbox" name="用户条例" />
                             同意用户条例<a href="">《用户协议》</a>
                         </li>
                     </ul>
