@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>个人注册</title>
+    <!--头格式-->
+    <link rel="stylesheet" href="../static/content/css/login.css" />
+</head>
+<body>
+    <div class="w">
+        <header>
+            <div class="logo">
+                <a href="home.html"><img src="../static/content/image/r_logo.jpg" alt="" /></a>
+            </div>
+        </header>
+        <div class="loginarea">
+            <h3>
+                登录
+                <div class="login">未拥有账号,去<a href="register.html">注册</a></div>
+            </h3>
+            <div class="log_form">
+                <form method="post" action="/login">
+                    <ul>
+                        <li>
+                            <label for="">输入用户名：</label><input type="text" name="用户名" class="inp" />
+                        </li>
+                        <li>
+                            <label for="">输入密码：</label><input type="password" name="输入密码" class="inp" />
+                        </li>
+                    </ul>
+                    <li>
+                        <span class="error">账号或密码错误</span>
+                    </li>
+                    <li>
+                        <input type="submit" name="登录" value="登录" class="btn" />
+                    </li>
+                </form>
+            </div>
+        </div>
+        <footer>
+            底部
+        </footer>
+    </div>
+</body>
+</html>

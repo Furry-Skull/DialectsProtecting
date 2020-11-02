@@ -6,7 +6,7 @@ from DialectsProtecting import Database
 @app.route('/home')
 def home():
     return render_template(
-        'register.html',
+        'login.html',
     )
     a=Database.Database()
     if a.register(7,8)==0:
