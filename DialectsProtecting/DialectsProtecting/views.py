@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request
 from DialectsProtecting import app
 from DialectsProtecting import Database
 
@@ -6,32 +6,37 @@ from DialectsProtecting import Database
 @app.route('/home')
 def home():
     return render_template(
-        'login.html',
+        'home.html',
+        isLogin = False,
     )
-    a=Database.Database()
-    if a.register(7,8)==0:
-        print ("cnmd")
-    #主页
-    if a.login(7,8)==2:
-        print (2)
-    elif a.login(3,3)==1:
-        print (1)
-    elif a.login(3,3)==0:
-        print (0)
 
+#登录界面
+@app.route('/login')
+def loginPage():
+    return render_template('/login.html')
 
-@app.route('/login', methods=(["GET","POST"]))
-def login():
+#注册界面
+@app.route('/register')
+def registerPage():
+    return render_template('/register.html')
+
+#提交登录信息
+@app.route('/form/login', methods=(["GET","POST"]))
+def loginForm():
     if request.method == 'POST':
         form = request.form
-        user = User(username=form['username'],email=form['email'],password=form['password'])
-        db.session.add(user)
-        db.session.commit()
-        return jsonify(form)
+        username = form["用户名"]
+        password = form["密码"]
+        database = Database.Database()
+        if database.login(username, password):
+            return 'login success'
+        else:
+            return 'login failed'
     return render_template('/account/login.html')
 
-@app.route('/register', methods=(["GET","POST"]))
-def register():
+#提交注册信息
+@app.route('/form/register', methods=(["GET","POST"]))
+def registerForm():
     if request.method == 'POST':
         form = request.form
         user = User(username=form['username'],email=form['email'],password=form['password'])

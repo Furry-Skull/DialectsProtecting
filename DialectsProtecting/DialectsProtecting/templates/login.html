@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>个人注册</title>
+    <title>个人登录</title>
     <!--头格式-->
-    <link rel="stylesheet" href="../static/content/css/login.css" />
+    <link rel="stylesheet" href="../static/content/css/register.css" />
 </head>
 <body>
     <div class="w">
@@ -14,27 +14,21 @@
                 <a href="home.html"><img src="../static/content/image/r_logo.jpg" alt="" /></a>
             </div>
         </header>
-        <div class="loginarea">
-            <h3>
-                登录
-                <div class="login">未拥有账号,去<a href="register.html">注册</a></div>
+        <div class="registerarea">
+            <h3>注册
+                <div class="login">还没有账号,去<a href="register">注册</a></div>
             </h3>
-            <div class="log_form">
-                <form method="post" action="/login">
+            <div class="reg_form">
+                <form method="post" action="form/login">
                     <ul>
                         <li>
                             <label for="">输入用户名：</label><input type="text" name="用户名" class="inp" />
                         </li>
                         <li>
-                            <label for="">输入密码：</label><input type="password" name="输入密码" class="inp" />
+                            <label for="">输入密码：</label><input type="password" name="密码" class="inp" />
                         </li>
                     </ul>
-                    <li>
-                        <span class="error">账号或密码错误</span>
-                    </li>
-                    <li>
-                        <input type="submit" name="登录" value="登录" class="btn" />
-                    </li>
+                    <input type="submit" name="登录" value="登录" class="btn" />
                 </form>
             </div>
         </div>
