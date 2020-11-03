@@ -108,8 +108,9 @@ body {
 
 
 .side-logo {
-    position: absolute;
     float: left;
+    position: absolute;
+    top: 42px;
 }
 
     .side-logo a {
@@ -126,7 +127,7 @@ body {
 .sidebar {
     position: absolute;
     float: left;
-    top: 300px;
+    top: 342px;
     left: 30px;
     width: 170px;
     height: auto;

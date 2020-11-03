@@ -31,22 +31,33 @@
                         }
                     }
                 </script>
+                {# errorStatus==2 密码过短 #}
+                {# errorStatus==1 账号名称不合法 #}
+                {# errorStatus==0 账号已经存在 #}
                 <form method="post" action="register" onsubmit="return check()">
                     <ul>
                         <li>
-                            <label for="">输入用户名：</label><input type="text" name="用户名" class="inp" />
+                            <label for="">输入用户名：</label>
+                            <input type="text" name="用户名" class="inp" />
                             {# 用户名如果已经存在，则显示以下内容 #}
-                            {% if errorUsername %}
+                            {% if errorStatus == 0 %}
                             <span class="error">用户名已存在</span>
+                            {% else %}
+                                {% if errorStatus == 1 %}
+                                <span class="error">用户名过短</span>
+                                {% endif %}
                             {% endif %}
                         </li>
                         <li>
                             <label for="">输入密码：</label>
-                            <input type="password" name="密码" class="inp" id="password1"/>
+                            <input type="password" name="密码" class="inp" id="password1" />
+                            {% if errorStatus == 2 %}
+                            <span class="error">密码过短</span>
+                            {% endif %}
                         </li>
                         <li>
                             <label for="">确认密码：</label>
-                            <input type="password" name="确认密码" class="inp" id="password2"/>
+                            <input type="password" name="确认密码" class="inp" id="password2" />
                             <span class="success" id="samePassword"></span>
                         </li>
                         <li class="agree">

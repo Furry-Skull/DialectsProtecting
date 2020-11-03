@@ -51,6 +51,23 @@ def loginPage():
         #访问登录页面
         return render_template('/login.html', errorStatus = 2)
 
+
+#检验用户名有效性
+def checkUsernameValidity(username):
+    #用户名长度不得小于4
+    if len(username) < 4:
+        return False
+    else:
+        return True
+
+#检验密码有效性
+def checkPasswordValidity(password):
+    #密码长度不得小于6
+    if len(password) < 6:
+        return False
+    else:
+        return True
+
 #注册界面
 @app.route('/register', methods=['GET', 'POST'])
 def registerPage():
@@ -60,10 +77,15 @@ def registerPage():
         username = form["用户名"]
         password = form["密码"]
 
+        if not checkUsernameValidity(username):
+            return render_template('/register.html', errorStatus = 1)
+        if not checkPasswordValidity(password):
+            return render_template('/register.html', errorStatus = 2)
+
         status = database.register(username, password)
         if (status == 0):
             #用户名已经存在
-            return render_template('/register.html', errorUsername = True)
+            return render_template('/register.html', errorStatus = 0)
         elif (status == 1):
             #注册后自动登录成功，保存session
             session['username'] = username
