@@ -5,6 +5,10 @@ from DialectsProtecting import Database
 @app.route('/')
 @app.route('/home')
 def home():
+    database = Database.Database()
+    database.register(2,2)
+    database.importDialect(5,"app.avi","fanyi",["a","b","c"])
+    database.searchTag("a")
     return render_template(
         'home.html',
         isLogin = False,
