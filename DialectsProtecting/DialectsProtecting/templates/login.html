@@ -7,48 +7,46 @@
     <!--头格式-->
     <link rel="stylesheet" href="../static/content/css/navigate.css" />
     <link rel="stylesheet" href="../static/content/css/register.css" />
+    <link rel="stylesheet" href="../static/content/css/contentBox.css" />
 </head>
 <body>
     {% include 'navigate.html' %}
-    <div class="w">
-        <header>
-            
-        </header>
-        <div class="registerarea">
-            <h3>
-                登录
-                <span class="login">还没有账号,去<a href="register">注册</a></span>
-            </h3>
-            <div class="reg_form">
-                <form method="post" action="login">
-                    <ul>
-                        <li>
-                            <label for="">输入用户名：</label><input type="text" name="用户名" class="inp" />
-                        </li>
-                        <li>
-                            <label for="">输入密码：</label><input type="password" name="密码" class="inp" />
-                        </li>
-                    </ul>
-                    <input type="submit" name="登录" value="登录" class="btn" />
-                </form>
-                {# errorStatus==2 密码正确 #}
-                {# errorStatus==1 密码错误 #}
-                {# errorStatus==0 账号不存在 #}
-                {% if errorStatus == 1 %}
-                <div class="error">
-                    密码错误
-                </div>
-                {% endif %}
-                {% if errorStatus == 0 %}
-                <div class="error">
-                    账号不存在
-                </div>
-                {% endif %}
-            </div>
+    <header>
+    </header>
+    <div class="content">
+        <div class="heading">
+            登录
+            <span class="login">还没有账号,去<a href="register">注册</a></span>
         </div>
-        <footer>
-            底部
-        </footer>
+        <div class="reg_form">
+            <form method="post" action="login">
+                <ul>
+                    <li>
+                        <label for="">输入用户名：</label><input type="text" name="用户名" class="inp" />
+                    </li>
+                    <li>
+                        <label for="">输入密码：</label><input type="password" name="密码" class="inp" />
+                    </li>
+                </ul>
+                <input type="submit" name="登录" value="登录" class="btn" />
+            </form>
+            {# errorStatus==2 密码正确 #}
+            {# errorStatus==1 密码错误 #}
+            {# errorStatus==0 账号不存在 #}
+            {% if errorStatus == 1 %}
+            <div class="error">
+                密码错误
+            </div>
+            {% endif %}
+            {% if errorStatus == 0 %}
+            <div class="error">
+                账号不存在
+            </div>
+            {% endif %}
+        </div>
     </div>
+    <footer>
+        底部
+    </footer>
 </body>
 </html>

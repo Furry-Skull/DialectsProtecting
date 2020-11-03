@@ -8,8 +8,9 @@ a {
 
 body {
     /*
+    需要背景图
     background-image: url(../image/map.png);
-    background-size: cover;
+    background-size: 100%;
     background-attachment: fixed;
     */
     /*全局颜色*/
@@ -106,30 +107,12 @@ body {
             font-size: 14px;
         }
 
-
-.side-logo {
-    float: left;
-    position: absolute;
-    top: 42px;
-}
-
-    .side-logo a {
-        display: block;
-        margin: 0 0;
-        width: 300px;
-        height: 300px;
-        background: url(../image/map.png) no-repeat;
-        background-position: center center;
-        background-size: contain;
-        font-size: 0;
-    }
-
 .sidebar {
     position: absolute;
     float: left;
-    top: 342px;
-    left: 30px;
-    width: 170px;
+    top: 62px;
+    left: 20px;
+    width: 100px;
     height: auto;
 }
 
@@ -138,10 +121,10 @@ body {
         margin: 2px;
         background-color: var(--themecolor1);
         border: 2px solid var(--themecolor3);
-        border-bottom-right-radius: 3px;
-        border-top-right-radius: 3px;
-        border-bottom-left-radius: 3px;
-        border-top-left-radius: 3px;
+        border-bottom-right-radius: 2px;
+        border-top-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+        border-top-left-radius: 2px;
         position: relative;
         font-size: 16px;
         padding-left: 0;

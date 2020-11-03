@@ -47,6 +47,7 @@
     <Folder Include="DialectsProtecting\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DialectsProtecting\static\content\css\contentBox.css" />
     <Content Include="DialectsProtecting\static\content\css\navigate.css" />
     <Content Include="DialectsProtecting\static\content\image\map.png">
       <Publish>False</Publish>
