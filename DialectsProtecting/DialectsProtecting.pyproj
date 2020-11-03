@@ -17,6 +17,8 @@
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
     <Name>DialectsProtecting</Name>
     <RootNamespace>DialectsProtecting</RootNamespace>
+    <InterpreterId>
+    </InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,7 +47,10 @@
     <Folder Include="DialectsProtecting\templates\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DialectsProtecting\static\content\css\home.css" />
+    <Content Include="DialectsProtecting\static\content\css\navigate.css" />
+    <Content Include="DialectsProtecting\static\content\image\map.png">
+      <Publish>False</Publish>
+    </Content>
     <Content Include="DialectsProtecting\static\content\css\register.css" />
     <Content Include="DialectsProtecting\static\content\image\logo.jpg" />
     <Content Include="DialectsProtecting\static\content\image\r_logo.jpg" />
