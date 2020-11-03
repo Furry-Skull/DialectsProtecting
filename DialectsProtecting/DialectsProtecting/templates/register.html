@@ -20,19 +20,31 @@
                 <div class="login">已有账号,去<a href="login">登录</a></div>
             </h3>
             <div class="reg_form">
-                <form method="post" action="form/register">
+                <script>
+                    function check() {
+                        if (password1.value == password2.value) {
+                            return true;
+                        }
+                        else {
+                            document.getElementById("samePassword").innerHTML = '两次输入的密码不一致';
+                            return false;
+                        }
+                    }
+                </script>
+                <form method="post" action="register" onsubmit="return check()">
                     <ul>
                         <li>
                             <label for="">输入用户名：</label><input type="text" name="用户名" class="inp" />
                             <span class="error">用户名已存在</span>
                         </li>
                         <li>
-                            <label for="">输入密码：</label><input type="password" name="输入密码" class="inp" />
-                            <span class="success">密码正确</span>
+                            <label for="">输入密码：</label>
+                            <input type="password" name="密码" class="inp" id="password1"/>
                         </li>
                         <li>
-                            <label for="">确认密码：</label><input type="password" name="确认密码" class="inp" />
-                            <span class="success">密码正确</span>
+                            <label for="">确认密码：</label>
+                            <input type="password" name="确认密码" class="inp" id="password2"/>
+                            <span class="success" id="samePassword"></span>
                         </li>
                         <li class="agree">
                             <input type="checkbox" name="用户条例" />
