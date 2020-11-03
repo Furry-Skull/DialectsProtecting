@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DialectsProtecting\" />
+    <Folder Include="DialectsProtecting\uploads\" />
     <Folder Include="DialectsProtecting\static\" />
     <Folder Include="DialectsProtecting\static\content\" />
     <Folder Include="DialectsProtecting\static\content\css\" />
