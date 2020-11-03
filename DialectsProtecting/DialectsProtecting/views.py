@@ -96,3 +96,17 @@ def registerPage():
     elif request.method == 'GET':
         #访问注册页面
         return render_template('/register.html', errorUsername = False)
+
+#上传音频界面
+@app.route('/upload', methods=['GET', 'POST'])
+def uploadAudio():
+    if request.method == 'POST':
+        f = request.files['record_upload']
+        #计算服务器本地地址
+        basePath = os.path.dirname(__file__)
+        uploadPath = os.path.join(basePath, 'uploads', f.filename)
+        f.save(uploadPath)
+        return redirect(url_for('uploadAudio'))
+    elif request.method == 'GET':
+        #TODO:访问界面
+        return render_template('home.html')
