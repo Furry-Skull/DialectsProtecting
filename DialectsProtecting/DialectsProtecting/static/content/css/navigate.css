@@ -12,12 +12,16 @@ body {
     background-size: cover;
     background-attachment: fixed;
     */
+    /*È«¾ÖÑÕÉ«*/
+    --themecolor1: #b5e154;
+    --themecolor3: #3a7b84;
+    --textcolor1: black;
 }
 
 .header {
     position: absolute;
     height: 42px;
-    background-color: #add060;
+    background-color: var(--themecolor1);
     width: 100%;
     top: 0;
     left: 0;
@@ -106,14 +110,13 @@ body {
 .side-logo {
     position: absolute;
     float: left;
-    height: 300px;
 }
 
     .side-logo a {
         display: block;
-        margin: 50px 0px;
-        width: 250px;
-        height: 250px;
+        margin: 0 0;
+        width: 300px;
+        height: 300px;
         background: url(../image/map.png) no-repeat;
         background-position: center center;
         background-size: contain;
@@ -123,13 +126,42 @@ body {
 .sidebar {
     position: absolute;
     float: left;
-    display: inline-block;
     top: 300px;
-    width: 250px;
-    height: 1200px;
-    background-color: black;
+    left: 30px;
+    width: 170px;
+    height: auto;
 }
 
-    .sidebar{
+    .sidebar ul {
+        list-style: none none;
+        margin: 2px;
+        background-color: var(--themecolor1);
+        border: 2px solid var(--themecolor3);
+        border-bottom-right-radius: 3px;
+        border-top-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+        border-top-left-radius: 3px;
+        position: relative;
+        font-size: 16px;
+        padding-left: 0;
+        height: 100%;
+    }
 
+    .sidebar li {
+        height: 36px;
+        border-top: solid 1.5px var(--themecolor3);
+    }
+
+        .sidebar li:first-child {
+            border: none;
+        }
+
+    .sidebar ul li a {
+        text-align: center;
+        display: block;
+        width: auto;
+        height: 100%;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        color: var(--textcolor1);
     }
