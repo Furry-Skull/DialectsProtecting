@@ -108,4 +108,5 @@ class Database:
             return 0;
         conn.commit()
         conn.close()
+        return 1
 

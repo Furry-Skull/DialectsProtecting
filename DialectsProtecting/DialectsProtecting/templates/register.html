@@ -5,35 +5,63 @@
     <meta charset="utf-8" />
     <title>个人注册</title>
     <!--头格式-->
+    <link rel="stylesheet" href="../static/content/css/navigate.css" />
     <link rel="stylesheet" href="../static/content/css/register.css" />
 </head>
 <body>
+    {% include 'navigate.html' %}
     <div class="w">
         <header>
-            <div class="logo">
-                <a href="home.html"><img src="../static/content/image/r_logo.jpg" alt="" /></a>
-            </div>
+           
         </header>
         <div class="registerarea">
-            <h3>注册
-                <div class="login">已有账号,去<a href="login">登录</a></div>
+            <h3>
+                注册
+                <span class="login">已有账号,去<a href="login">登录</a></span>
             </h3>
             <div class="reg_form">
-                <form method="post" action="form/register">
+                <script>
+                    function check() {
+                        if (password1.value == password2.value) {
+                            return true;
+                        }
+                        else {
+                            document.getElementById("samePassword").innerHTML = '两次输入的密码不一致';
+                            return false;
+                        }
+                    }
+                </script>
+                {# errorStatus==2 密码过短 #}
+                {# errorStatus==1 账号名称不合法 #}
+                {# errorStatus==0 账号已经存在 #}
+                <form method="post" action="register" onsubmit="return check()">
                     <ul>
                         <li>
-                            <label for="">输入用户名：</label><input type="text" name="用户名" class="inp" />
+                            <label for="">输入用户名：</label>
+                            <input type="text" name="用户名" class="inp" />
+                            {# 用户名如果已经存在，则显示以下内容 #}
+                            {% if errorStatus == 0 %}
                             <span class="error">用户名已存在</span>
+                            {% else %}
+                                {% if errorStatus == 1 %}
+                                <span class="error">用户名过短</span>
+                                {% endif %}
+                            {% endif %}
                         </li>
                         <li>
-                            <label for="">输入密码：</label><input type="password" name="输入密码" class="inp" />
-                            <span class="success">密码正确</span>
+                            <label for="">输入密码：</label>
+                            <input type="password" name="密码" class="inp" id="password1" />
+                            {% if errorStatus == 2 %}
+                            <span class="error">密码过短</span>
+                            {% endif %}
                         </li>
                         <li>
-                            <label for="">确认密码：</label><input type="password" name="确认密码" class="inp" />
-                            <span class="success">密码正确</span>
+                            <label for="">确认密码：</label>
+                            <input type="password" name="确认密码" class="inp" id="password2" />
+                            <span class="success" id="samePassword"></span>
                         </li>
-                        <li class="agree"><input type="checkbox" name="用户条例" />
+                        <li class="agree">
+                            <input type="checkbox" name="用户条例" />
                             同意用户条例<a href="">《用户协议》</a>
                         </li>
                     </ul>

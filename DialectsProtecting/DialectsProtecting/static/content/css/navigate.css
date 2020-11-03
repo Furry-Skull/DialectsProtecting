@@ -1,0 +1,178 @@
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    /*
+    background-image: url(../image/map.png);
+    background-size: cover;
+    background-attachment: fixed;
+    */
+    /*È«¾ÖÑÕÉ«*/
+    --themecolor1: #b5e154;
+    --themecolor3: #3a7b84;
+    --textcolor1: black;
+}
+
+.header {
+    position: absolute;
+    height: 42px;
+    background-color: var(--themecolor1);
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.nav-logo {
+    position: absolute;
+    float: left;
+    width: 83px;
+    height: 42px;
+}
+
+    .nav-logo a {
+        display: block;
+        margin: -21px auto;
+        width: 83px;
+        height: 42px;
+        background: url(../image/logo.jpg) no-repeat;
+        font-size: 0;
+    }
+
+.search {
+    position: absolute;
+    right: 160px;
+    float: right;
+    width: auto;
+    height: 42px;
+}
+
+    .search input {
+        float: left;
+        width: 345px;
+        height: 38px;
+        border: 1px solid #0094ff;
+        font-size: 14px;
+        padding-left: 15px;
+    }
+
+        .search input[type=text] {
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+
+        .search input[type=button] {
+            float: left;
+            text-align: center;
+            padding-left: 0;
+            padding-right: 0;
+            font-size: 15px;
+            width: 60px;
+            height: 42px;
+            border: 0;
+        }
+
+            .search input[type=button]:hover {
+                background-color: #dedede;
+            }
+
+.user {
+    position: absolute;
+    float: right;
+    right: 0;
+    height: 42px;
+}
+
+    .user a {
+        color: #000000;
+    }
+
+    .user ul li {
+        float: left;
+        margin-right: 5px;
+    }
+
+        .user ul li a {
+            display: block;
+            height: 25px;
+            padding-right: 5px;
+            line-height: 10px;
+            font-size: 14px;
+        }
+
+
+.side-logo {
+    float: left;
+    position: absolute;
+    top: 42px;
+}
+
+    .side-logo a {
+        display: block;
+        margin: 0 0;
+        width: 300px;
+        height: 300px;
+        background: url(../image/map.png) no-repeat;
+        background-position: center center;
+        background-size: contain;
+        font-size: 0;
+    }
+
+.sidebar {
+    position: absolute;
+    float: left;
+    top: 342px;
+    left: 30px;
+    width: 170px;
+    height: auto;
+}
+
+    .sidebar ul {
+        list-style: none none;
+        margin: 2px;
+        background-color: var(--themecolor1);
+        border: 2px solid var(--themecolor3);
+        border-bottom-right-radius: 3px;
+        border-top-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+        border-top-left-radius: 3px;
+        position: relative;
+        font-size: 16px;
+        padding-left: 0;
+        height: 100%;
+    }
+
+    .sidebar li {
+        height: 36px;
+        border-top: solid 1.5px var(--themecolor3);
+        transition: 0.14s all ease-in;
+    }
+
+        .sidebar li:first-child {
+            border: none;
+        }
+
+        .sidebar li:hover {
+            background-color: #1a602a;
+        }
+
+    .sidebar ul li a {
+        text-align: center;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        color: var(--textcolor1);
+        transition: 0.14s all ease-in;
+    }
+
+        .sidebar ul li a:hover {
+            color: white;
+        }

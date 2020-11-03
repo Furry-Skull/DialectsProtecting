@@ -5,21 +5,22 @@
     <meta charset="utf-8" />
     <title>个人登录</title>
     <!--头格式-->
+    <link rel="stylesheet" href="../static/content/css/navigate.css" />
     <link rel="stylesheet" href="../static/content/css/register.css" />
 </head>
 <body>
+    {% include 'navigate.html' %}
     <div class="w">
         <header>
-            <div class="logo">
-                <a href="home.html"><img src="../static/content/image/r_logo.jpg" alt="" /></a>
-            </div>
+            
         </header>
         <div class="registerarea">
-            <h3>注册
-                <div class="login">还没有账号,去<a href="register">注册</a></div>
+            <h3>
+                登录
+                <span class="login">还没有账号,去<a href="register">注册</a></span>
             </h3>
             <div class="reg_form">
-                <form method="post" action="form/login">
+                <form method="post" action="login">
                     <ul>
                         <li>
                             <label for="">输入用户名：</label><input type="text" name="用户名" class="inp" />
@@ -30,6 +31,19 @@
                     </ul>
                     <input type="submit" name="登录" value="登录" class="btn" />
                 </form>
+                {# errorStatus==2 密码正确 #}
+                {# errorStatus==1 密码错误 #}
+                {# errorStatus==0 账号不存在 #}
+                {% if errorStatus == 1 %}
+                <div class="error">
+                    密码错误
+                </div>
+                {% endif %}
+                {% if errorStatus == 0 %}
+                <div class="error">
+                    账号不存在
+                </div>
+                {% endif %}
             </div>
         </div>
         <footer>

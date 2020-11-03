@@ -1,19 +1,10 @@
-﻿{# 导航条，需要导航条功能的include自此模板 #}
-<div class="header w">
+﻿{# 导航条和侧边栏，需要导航条和侧边栏功能的include自此模板 #}
+<div class="header">
     <!--logo-->
-    <div class="logo">
+    <div class="nav-logo">
         <h1>
-            <a href="" title="主界面"></a>
+            <a href="home" title="主界面"></a>
         </h1>
-    </div>
-    <!--导航栏-->
-    <div class="nav">
-        <ul>
-            <li><a href="">导航1</a></li>
-            <li><a href="">导航2</a></li>
-            <li><a href="">导航3</a></li>
-            <li><a href="">导航4</a></li>
-        </ul>
     </div>
     <!--搜索框-->
     <div class="search">
@@ -24,7 +15,7 @@
     {% if isLogin %}
     <div class="user">
         <ul>
-            <li><a href="">{{ userName }}</a></li>
+            <li><a href="">欢迎，{{ userName }}</a></li>
         </ul>
     </div>
     {% else %}
@@ -35,4 +26,40 @@
         </ul>
     </div>
     {% endif %}
+    <!--logo-->
+    <div class="side-logo">
+            <a href="" title="主界面"></a>
+    </div>
+    <!--侧边栏-->
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="">官话</a>
+            </li>
+            <li>
+                <a href="">晋语</a>
+            </li>
+            <li>
+                <a href="">吴语</a>
+            </li>
+            <li>
+                <a href="">徽语</a>
+            </li>
+            <li>
+                <a href="">赣语</a>
+            </li>
+            <li>
+                <a href="">湘语</a>
+            </li>
+            <li>
+                <a href="">闽语</a>
+            </li>
+            <li>
+                <a href="">平话</a>
+            </li>
+            <li>
+                <a href="">客家话</a>
+            </li>
+        </ul>
+    </div>
 </div>
