@@ -35,7 +35,10 @@
                     <ul>
                         <li>
                             <label for="">输入用户名：</label><input type="text" name="用户名" class="inp" />
+                            {# 用户名如果已经存在，则显示以下内容 #}
+                            {% if errorUsername %}
                             <span class="error">用户名已存在</span>
+                            {% endif %}
                         </li>
                         <li>
                             <label for="">输入密码：</label>
