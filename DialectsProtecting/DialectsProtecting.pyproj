@@ -74,8 +74,7 @@
     <Folder Include="DialectsProtecting\user\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DialectsProtecting\static\content\css\contentBox.css" />
-    <Content Include="DialectsProtecting\static\content\css\navigate.css" />
+    <Content Include="DialectsProtecting\static\content\css\basic.css" />
     <Content Include="DialectsProtecting\static\content\image\map.png">
       <Publish>False</Publish>
     </Content>
@@ -83,6 +82,7 @@
     <Content Include="DialectsProtecting\static\content\image\logo.jpg" />
     <Content Include="DialectsProtecting\static\content\image\r_logo.jpg" />
     <Content Include="DialectsProtecting\static\content\fonts\FZQKBYSJT.TTF" />
+    <Content Include="DialectsProtecting\templates\footer.html" />
     <Content Include="DialectsProtecting\templates\login.html" />
     <Content Include="DialectsProtecting\templates\register.html" />
     <Content Include="DialectsProtecting\templates\navigate.html" />
