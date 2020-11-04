@@ -18,7 +18,7 @@ app.config['SECRET_KEY'] = urandom(24)
 app.register_blueprint(user, url_prefix = '/user')
 app.register_blueprint(my, url_prefix = '/my')
 
-
+#主页
 @app.route('/')
 @app.route('/home')
 def home():
@@ -28,3 +28,7 @@ def home():
         userName = getUser()
     )
 
+#404页面
+@app.errorhandler(404)
+def pageNotFound(e):
+    return render_template('page404.html'), 404
