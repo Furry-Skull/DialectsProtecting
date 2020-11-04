@@ -14,9 +14,9 @@ body {
     background-attachment: fixed;
     */
     /*全局颜色*/
-    --themecolor1: #b5e154;
-    --themecolor3: #3a7b84;
-    --themecolor2: #1a602a;
+    --themecolor1: #89b034;
+    --themecolor3: #34747d;
+    --themecolor2: #113f1b;
 }
 
 @font-face {
@@ -24,14 +24,17 @@ body {
     src: url('../fonts/FZQKBYSJT.TTF') format('truetype');
 }
 
-.header {
+header {
     position: absolute;
-    height: 42px;
-    background-color: var(--themecolor1);
-    border-bottom: 2px solid var(--themecolor3);
+    height: 64px;
+    /*
+        background-color: var(--themecolor1);
+        border-bottom: 2px solid var(--themecolor3);
+    */
     width: 100%;
     top: 0;
     left: 0;
+    background-image: linear-gradient(var(--themecolor1), white);
 }
 
 .nav-logo {
@@ -121,7 +124,7 @@ body {
     position: absolute;
     float: left;
     top: 62px;
-    left: 20px;
+    left: -2px;
     width: 100px;
     height: auto;
 }
@@ -131,10 +134,9 @@ body {
         margin: 2px;
         background-color: var(--themecolor1);
         border: 2px solid var(--themecolor3);
+        border-left: none;
         border-bottom-right-radius: 2px;
         border-top-right-radius: 2px;
-        border-bottom-left-radius: 2px;
-        border-top-left-radius: 2px;
         position: relative;
         font-size: 16px;
         padding-left: 0;
@@ -173,20 +175,19 @@ body {
 
 .content {
     background: url(../image/map.png) repeat;
-    background-size: 168px;
+    background-size: 648px;
     margin-top: 38px;
-    margin-left: 140px;
+    margin-left: 118px;
     margin-right: 20px;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-bottom: 20px;
-    padding-right: 20px;
+    padding: 20px;
     height: 100%;
     border: 2px solid var(--themecolor3);
     border-bottom-right-radius: 2px;
     border-top-right-radius: 2px;
     border-bottom-left-radius: 2px;
     border-top-left-radius: 2px;
+    /*测试用*/
+    height: 1000px;
 }
 
     .content .heading {
@@ -196,3 +197,16 @@ body {
         padding: 0 0;
         border-bottom: 1.5px solid var(--themecolor3);
     }
+
+footer {
+    position: relative;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    text-align: center;
+    background-color: #0d3115db;
+    color: white;
+    font-family: "consolas";
+    font-size: 12px;
+    left: 30%;
+    width: 40%;
+}
