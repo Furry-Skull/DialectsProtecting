@@ -18,7 +18,8 @@
 
     .content .heading {
         overflow: visible;
+        font-family: FZQKBYSJT;
         font-size: 22px;
         padding: 0 0;
-        border-bottom: 2px solid var(--themecolor3);
+        border-bottom: 1.5px solid var(--themecolor3);
     }
