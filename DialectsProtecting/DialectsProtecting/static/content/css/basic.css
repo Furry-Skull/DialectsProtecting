@@ -16,13 +16,19 @@ body {
     /*È«¾ÖÑÕÉ«*/
     --themecolor1: #b5e154;
     --themecolor3: #3a7b84;
-    --textcolor1: black;
+    --themecolor2: #1a602a;
+}
+
+@font-face {
+    font-family: FZQKBYSJT;
+    src: url('../fonts/FZQKBYSJT.TTF') format('truetype');
 }
 
 .header {
     position: absolute;
     height: 42px;
     background-color: var(--themecolor1);
+    border-bottom: 2px solid var(--themecolor3);
     width: 100%;
     top: 0;
     left: 0;
@@ -37,7 +43,7 @@ body {
 
     .nav-logo a {
         display: block;
-        margin: -21px auto;
+        margin: -22px auto;
         width: 83px;
         height: 42px;
         background: url(../image/logo.jpg) no-repeat;
@@ -49,23 +55,26 @@ body {
     right: 160px;
     float: right;
     width: auto;
-    height: 42px;
+    height: 36px;
+    border: 1.5px solid var(--themecolor3);
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    top: 2px;
 }
 
     .search input {
         float: left;
         width: 345px;
-        height: 38px;
-        border: 1px solid #0094ff;
+        height: 36px;
         font-size: 14px;
         padding-left: 15px;
     }
 
         .search input[type=text] {
-            border-bottom-left-radius: 6px;
-            border-bottom-right-radius: 6px;
-            border-top-left-radius: 6px;
-            border-top-right-radius: 6px;
+            border: 0;
+            height: 34px;
         }
 
         .search input[type=button] {
@@ -73,13 +82,14 @@ body {
             text-align: center;
             padding-left: 0;
             padding-right: 0;
-            font-size: 15px;
+            font-size: 14px;
             width: 60px;
-            height: 42px;
+            height: 36px;
             border: 0;
         }
 
             .search input[type=button]:hover {
+                border: 0;
                 background-color: #dedede;
             }
 
@@ -142,7 +152,7 @@ body {
         }
 
         .sidebar li:hover {
-            background-color: #1a602a;
+            background-color: var(--themecolor2);
         }
 
     .sidebar ul li a {
@@ -150,12 +160,39 @@ body {
         display: block;
         width: 100%;
         height: 100%;
-        padding-top: 6px;
+        padding-top: 10px;
         padding-bottom: 6px;
-        color: var(--textcolor1);
+        color: black;
         transition: 0.14s all ease-in;
+        font-family: FZQKBYSJT;
     }
 
         .sidebar ul li a:hover {
             color: white;
         }
+
+.content {
+    background: url(../image/map.png) repeat;
+    background-size: 168px;
+    margin-top: 38px;
+    margin-left: 140px;
+    margin-right: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    height: 100%;
+    border: 2px solid var(--themecolor3);
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+    .content .heading {
+        overflow: visible;
+        font-family: FZQKBYSJT;
+        font-size: 22px;
+        padding: 0 0;
+        border-bottom: 1.5px solid var(--themecolor3);
+    }
