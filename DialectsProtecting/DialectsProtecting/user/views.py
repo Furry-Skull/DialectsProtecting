@@ -20,9 +20,9 @@ def loginPage():
             #返回主页
             return redirect(url_for('home'))
         elif status == 1:
-            return render_template('/login.html', errorStatus = 1)
+            return render_template('/login.html', userName = getUser(), errorStatus = 1)
         elif status == 0:
-            return render_template('/login.html', errorStatus = 0)
+            return render_template('/login.html', userName = getUser(), errorStatus = 0)
 
     elif request.method == 'GET':
         #访问登录页面
@@ -38,14 +38,14 @@ def registerPage():
         password = form["密码"]
 
         if not checkUsernameValidity(username):
-            return render_template('/register.html')
+            return render_template('/register.html', userName = getUser())
         if not checkPasswordValidity(password):
-            return render_template('/register.html')
+            return render_template('/register.html', userName = getUser())
 
         status = db.register(username, password)
         if (status == 0):
             #用户名已经存在
-            return render_template('/register.html')
+            return render_template('/register.html', userName = getUser())
         elif (status == 1):
             #注册后自动登录成功，保存session
             sessionLogin(username,password)
@@ -56,6 +56,7 @@ def registerPage():
         #访问注册页面
         return render_template('/register.html', userName = getUser())
 
+#ajax请求：检测用户名是否合法
 @user.route('/checkUserName', methods=['GET'])
 def checkUserName():
     username = request.values.get('username')

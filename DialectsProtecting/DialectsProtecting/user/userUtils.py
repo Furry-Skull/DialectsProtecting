@@ -1,6 +1,9 @@
 #用户相关操作，主要管理session
 
 from flask import session
+import os
+
+from DialectsProtecting.config import UPLOAD_FOLDER
 
 #登录账户，在session留下记录
 def sessionLogin(username, password):
@@ -30,4 +33,13 @@ def checkPasswordValidity(password):
     else:
         return True
 
-
+#使用当前登录的账户上传文件
+def uploadFileByCurrentUser(file):
+    if 'username' in session:
+        #计算服务器上传文件夹的地址
+        uploadFolderPath = os.path.join(UPLOAD_FOLDER, session['username'])
+        #创建必要的文件夹
+        if not os.path.exists(uploadFolderPath):
+            os.makedirs(uploadFolderPath)
+        uploadPath = os.path.join(UPLOAD_FOLDER, session['username'], file.filename)
+        file.save(uploadPath)
