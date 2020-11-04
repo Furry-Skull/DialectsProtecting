@@ -5,6 +5,7 @@ from os import urandom
 from DialectsProtecting import app
 from DialectsProtecting.user import user
 from DialectsProtecting.my import my
+from DialectsProtecting.database import db
 
 from os import environ
 
@@ -23,6 +24,11 @@ app.register_blueprint(my, url_prefix = '/my')
 @app.route('/')
 @app.route('/home')
 def home():
+    db
+    db.importDialect('aa','sd','sd','sd')
+    db.delectDialect('sdd')
+    db.searchUserPublish('aa')
+    print (db.accountExist(9))
     if 'username' in session:
         #服务器已有数据，说明已经登录
         return render_template(
