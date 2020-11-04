@@ -45,6 +45,9 @@
     <Compile Include="DialectsProtecting\my\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DialectsProtecting\user\userUtils.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DialectsProtecting\user\views.py">
       <SubType>Code</SubType>
     </Compile>
