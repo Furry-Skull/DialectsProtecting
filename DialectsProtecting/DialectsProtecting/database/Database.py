@@ -6,7 +6,6 @@ class Database:
         conn = sqlite3.connect('user.db')
         c = conn.cursor()
         try:
-            print ("cnmd")
             c.execute('''create table user_account
                 (account char(16) primary key not null,
                 password char(20) not null);''')
