@@ -1,6 +1,8 @@
-from flask import render_template, request, session, redirect, url_for
+from flask import render_template, request, session, redirect, url_for, abort
 from DialectsProtecting.user import user
 from DialectsProtecting.database import db
+
+from DialectsProtecting.user.userUtils import *
 
 #登录界面
 @user.route('/login', methods=['GET', 'POST'])
@@ -14,8 +16,7 @@ def loginPage():
         status = db.login(username, password)
         if status == 2:
             #登录成功，保存session
-            session['username'] = username
-            session['password'] = password
+            sessionLogin(username,password)
             #返回主页
             return redirect(url_for('home'))
         elif status == 1:
@@ -25,24 +26,7 @@ def loginPage():
 
     elif request.method == 'GET':
         #访问登录页面
-        return render_template('/login.html', errorStatus = 2)
-
-
-#检验用户名有效性
-def checkUsernameValidity(username):
-    #用户名长度不得小于4
-    if len(username) < 4:
-        return False
-    else:
-        return True
-
-#检验密码有效性
-def checkPasswordValidity(password):
-    #密码长度不得小于6
-    if len(password) < 6:
-        return False
-    else:
-        return True
+        return render_template('/login.html', userName = getUser(), errorStatus = 2)
 
 #注册界面
 @user.route('/register', methods=['GET', 'POST'])
@@ -54,21 +38,32 @@ def registerPage():
         password = form["密码"]
 
         if not checkUsernameValidity(username):
-            return render_template('/register.html', errorStatus = 1)
+            return render_template('/register.html')
         if not checkPasswordValidity(password):
-            return render_template('/register.html', errorStatus = 2)
+            return render_template('/register.html')
 
         status = db.register(username, password)
         if (status == 0):
             #用户名已经存在
-            return render_template('/register.html', errorStatus = 0)
+            return render_template('/register.html')
         elif (status == 1):
             #注册后自动登录成功，保存session
-            session['username'] = username
-            session['password'] = password
+            sessionLogin(username,password)
             #返回主页
             return redirect(url_for('home'))
 
     elif request.method == 'GET':
         #访问注册页面
-        return render_template('/register.html', errorUsername = False)
+        return render_template('/register.html', userName = getUser())
+
+@user.route('/checkUserName', methods=['GET'])
+def checkUserName():
+    username = request.values.get('username')
+    if username == None:
+        return render_template('/page404.html')
+    #检查用户名是否存在
+    if not checkUsernameValidity(username):
+        return '用户名过短'
+    if True:
+        return '用户名已存在'
+    return '用户名合法'

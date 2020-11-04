@@ -1,9 +1,9 @@
-﻿{# 导航条和侧边栏，需要导航条和侧边栏功能的include自此模板 #}
+﻿{# 导航条，需要导航条功能的include自此模板 #}
 <div class="header">
     <!--logo-->
     <div class="nav-logo">
         <h1>
-            <a href="home" title="主界面"></a>
+            <a href="/home" title="主界面"></a>
         </h1>
     </div>
     <!--搜索框-->
@@ -12,10 +12,10 @@
         <input type="button" value="搜索">
     </div>
     <!--用户登录/注册-->
-    {% if isLogin %}
+    {% if userName != None %}
     <div class="user">
         <ul>
-            <li><a href="">欢迎，{{ userName }}</a></li>
+            <li><a href="my/{{ userName }}">欢迎，{{ userName }}</a></li>
         </ul>
     </div>
     {% else %}
@@ -26,36 +26,4 @@
         </ul>
     </div>
     {% endif %}
-    <!--侧边栏-->
-    <div class="sidebar">
-        <ul>
-            <li>
-                <a href="">官话</a>
-            </li>
-            <li>
-                <a href="">晋语</a>
-            </li>
-            <li>
-                <a href="">吴语</a>
-            </li>
-            <li>
-                <a href="">徽语</a>
-            </li>
-            <li>
-                <a href="">赣语</a>
-            </li>
-            <li>
-                <a href="">湘语</a>
-            </li>
-            <li>
-                <a href="">闽语</a>
-            </li>
-            <li>
-                <a href="">平话</a>
-            </li>
-            <li>
-                <a href="">客家话</a>
-            </li>
-        </ul>
-    </div>
 </div>

@@ -3,6 +3,11 @@ import os
 
 from DialectsProtecting.my import my
 
+#用户个人主页
+@my.route('/<username>')
+def userSpace(username):
+    return username + '的主页'
+
 #上传音频界面
 @my.route('/upload', methods=['GET', 'POST'])
 def uploadAudio():

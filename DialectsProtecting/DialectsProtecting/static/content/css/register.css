@@ -5,14 +5,11 @@ header {
     */
 }
 
-.logo {
-    margin-top: 18px;
-}
-
 .login {
     float: right;
+    font-family: none;
     font-size: 14px;
-    padding-top: 8px;
+    padding-top: 4px;
 }
 
     .login a {
@@ -69,8 +66,15 @@ li {
 .btn {
     width: 200px;
     height: 34px;
-    background-color: red;
+    background-color: var(--themecolor1);
     font-size: 14px;
-    color: white;
+    color: black;
     margin: 30px 0 40px 150px;
+    border: 1.5px solid var(--themecolor3);
+    transition: 0.14s all ease-in;
 }
+
+    .btn:hover {
+        color: white;
+        background-color: var(--themecolor2);
+    }

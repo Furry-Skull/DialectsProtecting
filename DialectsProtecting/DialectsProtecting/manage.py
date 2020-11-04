@@ -5,9 +5,8 @@ from os import urandom
 from DialectsProtecting import app
 from DialectsProtecting.user import user
 from DialectsProtecting.my import my
-from DialectsProtecting.database import db
 
-from os import environ
+from DialectsProtecting.user.userUtils import getUser
 
 #服务器设置
 #session有效期为1天
@@ -15,31 +14,21 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=1)
 #设置秘钥为随机24字节的数
 app.config['SECRET_KEY'] = urandom(24)
 
-
 #注册蓝图，新增模块在这里注册
 app.register_blueprint(user, url_prefix = '/user')
 app.register_blueprint(my, url_prefix = '/my')
 
-
+#主页
 @app.route('/')
 @app.route('/home')
 def home():
-    db
-    db.importDialect('aa','sd','sd','sd')
-    db.delectDialect('sdd')
-    db.searchUserPublish('aa')
-    print (db.accountExist(9))
-    if 'username' in session:
-        #服务器已有数据，说明已经登录
-        return render_template(
-            'home.html',
-            isLogin = True,
-            userName = session['username'],
-        )
-    else:
-        #服务器没有数据，未登录
-        return render_template(
-            'home.html',
-            isLogin = False,
-        )
+    #获取用户状态，显示页面
+    return render_template(
+        'home.html',
+        userName = getUser()
+    )
 
+#404页面
+@app.errorhandler(404)
+def pageNotFound(e):
+    return render_template('page404.html'), 404
