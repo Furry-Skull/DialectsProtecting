@@ -16,8 +16,8 @@ def getUser():
 
 #检验用户名有效性
 def checkUsernameValidity(username):
-    #用户名长度不得小于4
-    if len(username) < 4:
+    #用户名长度不得小于2
+    if len(username) < 2:
         return False
     else:
         return True

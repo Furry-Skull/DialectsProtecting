@@ -20,8 +20,8 @@
             <script>
                 function checkPassword() {
                     if (password1.value == password2.value) {
-                        if (password1.value.length <= 4) {
-                            document.getElementById("samePassword").innerHTML = '密码过短';
+                        if (password1.value.length < 6) {
+                            document.getElementById("samePassword").innerHTML = '密码至少为6位';
                             return false;
                         }
                         document.getElementById("samePassword").innerHTML = '';
@@ -33,17 +33,22 @@
                     }
                 }
                 function checkUserName() {
-                    error = true;
-                    $.get("/user/checkUserName", { username: $('input[name="用户名"]').val() },
-                        function (data) {
-                            if (data != '用户名合法') {
-                                document.getElementById("errorUserName").innerHTML = data;
-                                error = true;
-                            }       
-                            error = false;
-                        }
-                    );
-                    return !error;
+                    $.ajax({
+                        data: { username: $('input[name="用户名"]').val() },
+                        type: "GET",
+                        dataType: "text",
+                        url: "/user/checkUserName",
+                        success:
+                            function (data) {
+                                if (data != '用户名合法') {
+                                    document.getElementById("errorUserName").innerHTML = data;
+                                }
+                                else {
+                                    document.getElementById("errorUserName").innerHTML = '';
+                                }
+                            }
+                    })
+                    return document.getElementById("errorUserName").innerHTML == '';
                 }
             </script>
             <form method="post" action="register" onsubmit="return checkPassword() && checkUserName()">

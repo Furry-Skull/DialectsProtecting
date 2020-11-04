@@ -63,7 +63,7 @@ def checkUserName():
         return render_template('/page404.html')
     #检查用户名是否存在
     if not checkUsernameValidity(username):
-        return '用户名过短'
-    if True:
+        return '用户名至少为2位'
+    if db.accountExist(username):
         return '用户名已存在'
     return '用户名合法'
