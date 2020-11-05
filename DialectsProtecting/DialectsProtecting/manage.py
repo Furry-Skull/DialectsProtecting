@@ -3,11 +3,13 @@ from flask import render_template, session
 from DialectsProtecting import app
 from DialectsProtecting.user import user
 from DialectsProtecting.my import my
+from DialectsProtecting.search import search
 
 
 #注册蓝图，新增模块在这里注册
 app.register_blueprint(user, url_prefix = '/user')
 app.register_blueprint(my, url_prefix = '/my')
+app.register_blueprint(search, url_prefix = '/search')
 
 #主页
 @app.route('/')

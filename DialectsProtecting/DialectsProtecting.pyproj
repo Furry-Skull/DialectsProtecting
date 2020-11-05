@@ -45,6 +45,12 @@
     <Compile Include="DialectsProtecting\my\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DialectsProtecting\search\views.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialectsProtecting\search\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DialectsProtecting\user\userUtils.py">
       <SubType>Code</SubType>
     </Compile>
@@ -63,6 +69,7 @@
     <Folder Include="DialectsProtecting\" />
     <Folder Include="DialectsProtecting\database\" />
     <Folder Include="DialectsProtecting\my\" />
+    <Folder Include="DialectsProtecting\search\" />
     <Folder Include="DialectsProtecting\static\content\fonts\" />
     <Folder Include="DialectsProtecting\uploads\" />
     <Folder Include="DialectsProtecting\static\" />
