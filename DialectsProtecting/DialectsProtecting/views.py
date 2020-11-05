@@ -12,6 +12,11 @@ app.config['SECRET_KEY'] = os.urandom(24)
 @app.route('/')
 @app.route('/home')
 def home():
+
+    return render_template(
+        'user.html',
+    )
+
     if 'username' in session:
         #服务器已有数据，说明已经登录
         return render_template(
@@ -96,3 +101,10 @@ def registerPage():
     elif request.method == 'GET':
         #访问注册页面
         return render_template('/register.html', errorUsername = False)
+
+@app.route('/user')
+def user():
+    return render_template(
+        'user.html',
+    )
+
