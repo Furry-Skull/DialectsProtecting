@@ -1,0 +1,230 @@
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    /*
+    需要背景图
+    background-image: url(../image/map.png);
+    background-size: 100%;
+    background-attachment: fixed;
+    */
+    /*全局颜色*/
+    --themecolor0: #114514;
+    --themecolor1: #89b034;
+    --themecolor3: #34747d;
+    --themecolor2: #113f1b;
+}
+
+/*全局字体*/
+@font-face {
+    font-family: FZQKBYSJT;
+    src: url('../fonts/FZQKBYSJT.TTF') format('truetype');
+}
+
+header {
+    position: absolute;
+    height: 64px;
+    /*
+        background-color: var(--themecolor1);
+        border-bottom: 2px solid var(--themecolor3);
+    */
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(var(--themecolor1), white);
+}
+
+.nav-logo {
+    position: absolute;
+    float: left;
+    width: 83px;
+    height: 42px;
+}
+
+    .nav-logo a {
+        display: block;
+        margin: -22px auto;
+        width: 83px;
+        height: 42px;
+        background: url(../image/logo.jpg) no-repeat;
+        font-size: 0;
+    }
+
+.search {
+    position: absolute;
+    right: 160px;
+    float: right;
+    width: auto;
+    height: 36px;
+    border: 1.5px solid var(--themecolor3);
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    top: 2px;
+}
+
+    .search input {
+        float: left;
+        width: 345px;
+        height: 36px;
+        font-size: 14px;
+        padding-left: 15px;
+    }
+
+        .search input[type=text] {
+            border: 0;
+            height: 34px;
+        }
+
+        .search input[type=submit] {
+            float: left;
+            text-align: center;
+            padding-left: 0;
+            padding-right: 0;
+            font-size: 14px;
+            width: 60px;
+            height: 36px;
+            border: 0;
+        }
+
+            .search input[type=submit]:hover {
+                border: 0;
+                background-color: #dedede;
+            }
+
+.user {
+    position: absolute;
+    float: right;
+    right: 0;
+    height: 42px;
+}
+
+    .user a {
+        color: #000000;
+    }
+
+    .user ul li {
+        float: left;
+        margin-right: 5px;
+    }
+
+        .user ul li a {
+            display: block;
+            height: 25px;
+            padding-right: 5px;
+            line-height: 10px;
+            font-size: 14px;
+        }
+
+.sidebar {
+    position: absolute;
+    float: left;
+    top: 62px;
+    left: -2px;
+    width: 100px;
+    height: auto;
+}
+
+    .sidebar ul {
+        list-style: none none;
+        margin: 2px;
+        background-color: var(--themecolor1);
+        border: 2px solid var(--themecolor3);
+        border-left: none;
+        border-bottom-right-radius: 2px;
+        border-top-right-radius: 2px;
+        position: relative;
+        font-size: 16px;
+        padding-left: 0;
+        height: 100%;
+    }
+
+    .sidebar li {
+        height: 36px;
+        border-top: solid 1.5px var(--themecolor3);
+        transition: 0.14s all ease-in;
+    }
+
+        .sidebar li:first-child {
+            border: none;
+        }
+
+        .sidebar li:hover {
+            background-color: var(--themecolor2);
+        }
+
+    .sidebar ul li a {
+        text-align: center;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding-top: 10px;
+        padding-bottom: 6px;
+        color: black;
+        transition: 0.14s all ease-in;
+        font-family: FZQKBYSJT;
+    }
+
+        .sidebar ul li a:hover {
+            color: white;
+        }
+
+.content-box {
+    background: url(../image/map.png) repeat;
+    background-size: 648px;
+    margin-top: 38px;
+    margin-left: 118px;
+    margin-right: 20px;
+    padding: 20px;
+    height: 100%;
+    border: 2px solid var(--themecolor3);
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    /*测试用*/
+    /*height: 1000px;*/
+}
+
+    .content-box > .heading {
+        overflow: visible;
+        font-family: FZQKBYSJT;
+        font-size: 28px;
+        padding: 0 0;
+        border-bottom: 2px solid var(--themecolor3);
+        margin-bottom: 20px;
+    }
+
+.content {
+}
+
+    .content .heading {
+        overflow: visible;
+        font-family: FZQKBYSJT;
+        font-size: 22px;
+        padding: 0 0;
+        border-bottom: 1.5px solid var(--themecolor3);
+        margin-bottom: 10px;
+    }
+
+    .content p {
+    }
+
+footer {
+    position: relative;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    text-align: center;
+    background-color: var(--themecolor0);
+    color: white;
+    font-family: "consolas";
+    font-size: 12px;
+    left: 30%;
+    width: 40%;
+}

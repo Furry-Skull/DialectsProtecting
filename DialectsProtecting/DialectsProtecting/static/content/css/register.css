@@ -1,40 +1,19 @@
-.w {
-    width: 1200px;
-    margin: auto;
-}
-
 header {
+    /*
     height: 84px;
     border-bottom: 2px solid #0094ff;
+    */
 }
-
-.logo {
-    margin-top: 18px;
-}
-
-.registerarea {
-    height: 522px;
-    border: 1px solid #ccc;
-    margin-top: 20px;
-}
-
-    .registerarea h3 {
-        height: 42px;
-        border-bottom: 1px solid #ccc;
-        background-color: #e3e3e3;
-        margin-top: 0;
-        line-height: 42px;
-        padding: 0 10px;
-        font-weight: 400;
-    }
 
 .login {
     float: right;
+    font-family: none;
     font-size: 14px;
+    padding-top: 4px;
 }
 
     .login a {
-        color: #ff0000;
+        color: #e22929;
     }
 
 .reg_form {
@@ -87,8 +66,15 @@ li {
 .btn {
     width: 200px;
     height: 34px;
-    background-color: red;
+    background-color: var(--themecolor1);
     font-size: 14px;
-    color: white;
-    margin: 30px 0 0 150px;
+    color: black;
+    margin: 30px 0 40px 150px;
+    border: 1.5px solid var(--themecolor3);
+    transition: 0.14s all ease-in;
 }
+
+    .btn:hover {
+        color: white;
+        background-color: var(--themecolor2);
+    }
