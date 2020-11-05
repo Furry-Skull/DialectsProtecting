@@ -4,8 +4,6 @@ from DialectsProtecting import app
 from DialectsProtecting.user import user
 from DialectsProtecting.my import my
 
-from DialectsProtecting.user.userUtils import getUser
-
 
 #注册蓝图，新增模块在这里注册
 app.register_blueprint(user, url_prefix = '/user')
@@ -17,8 +15,7 @@ app.register_blueprint(my, url_prefix = '/my')
 def home():
     #获取用户状态，显示页面
     return render_template(
-        'home.html',
-        userName = getUser()
+        'home.html'
     )
 
 #404页面

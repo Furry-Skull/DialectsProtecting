@@ -12,18 +12,35 @@
         <input type="button" value="搜索">
     </div>
     <!--用户登录/注册-->
-    {% if userName != None %}
-    <div class="user">
-        <ul>
-            <li><a href="my/{{ userName }}">欢迎，{{ userName }}</a></li>
-        </ul>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        function getUser() {
+            document.getElementById("userMessage").innerHTML = 'test';
+            $.ajax({
+                data: {},
+                type: "POST",
+                dataType: "text",
+                url: "/user/getCurrentUser",
+                success:
+                    function (data) {
+                        if (data == '') {
+                            document.getElementById("userMessage").innerHTML =
+                                '<ul>\
+                                    <li><a href="/user/register">注册</a></li>\
+                                    <li><a href="/user/login">登录</a></li>\
+                                </ul>';
+                        }
+                        else {
+                            document.getElementById("userMessage").innerHTML =
+                                '<ul>\
+                                    <li><a href="/my/' + data + '">欢迎，' + data + '</a></li>\
+                                </ul >';
+                        }
+                    }
+            })
+        }
+        window.onload = getUser;
+    </script>
+    <div class="user" id="userMessage">
     </div>
-    {% else %}
-    <div class="user">
-        <ul>
-            <li><a href="/user/register">注册</a></li>
-            <li><a href="/user/login">登录</a></li>
-        </ul>
-    </div>
-    {% endif %}
 </header>

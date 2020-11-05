@@ -27,19 +27,14 @@
                 </ul>
                 <input type="submit" name="登录" value="登录" class="btn" />
             </form>
-            {# errorStatus==2 密码正确 #}
-            {# errorStatus==1 密码错误 #}
-            {# errorStatus==0 账号不存在 #}
-            {% if errorStatus == 1 %}
-            <div class="error">
+            <div class="error" id="errorMessage">
+                {% if state == 1 %}
                 密码错误
+                {% endif %}
+                {% if state == 0 %}
+                账号未注册
+                {% endif %}
             </div>
-            {% endif %}
-            {% if errorStatus == 0 %}
-            <div class="error">
-                账号不存在
-            </div>
-            {% endif %}
         </div>
     </div>
     {% include 'footer.html' %}

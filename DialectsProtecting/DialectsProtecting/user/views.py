@@ -13,20 +13,18 @@ def loginPage():
         username = form["用户名"]
         password = form["密码"]
 
-        status = db.login(username, password)
-        if status == 2:
+        state = db.login(username, password)
+        if state == 2:
             #登录成功，保存session
             sessionLogin(username,password)
             #返回主页
             return redirect(url_for('home'))
-        elif status == 1:
-            return render_template('/login.html', userName = getUser(), errorStatus = 1)
-        elif status == 0:
-            return render_template('/login.html', userName = getUser(), errorStatus = 0)
+        elif state == 1 or state == 0:
+            return render_template('/login.html', state = state)
 
     elif request.method == 'GET':
         #访问登录页面
-        return render_template('/login.html', userName = getUser(), errorStatus = 2)
+        return render_template('/login.html', state = 2)
 
 #注册界面
 @user.route('/register', methods=['GET', 'POST'])
@@ -38,15 +36,15 @@ def registerPage():
         password = form["密码"]
 
         if not checkUsernameValidity(username):
-            return render_template('/register.html', userName = getUser())
+            return render_template('/register.html')
         if not checkPasswordValidity(password):
-            return render_template('/register.html', userName = getUser())
+            return render_template('/register.html')
 
-        status = db.register(username, password)
-        if (status == 0):
+        state = db.register(username, password)
+        if (state == 0):
             #用户名已经存在
-            return render_template('/register.html', userName = getUser())
-        elif (status == 1):
+            return render_template('/register.html')
+        elif (state == 1):
             #注册后自动登录成功，保存session
             sessionLogin(username,password)
             #返回主页
@@ -54,7 +52,7 @@ def registerPage():
 
     elif request.method == 'GET':
         #访问注册页面
-        return render_template('/register.html', userName = getUser())
+        return render_template('/register.html')
 
 #ajax请求：检测用户名是否合法
 @user.route('/checkUserName', methods=['GET'])
@@ -68,3 +66,12 @@ def checkUserName():
     if db.accountExist(username):
         return '用户名已存在'
     return '用户名合法'
+
+#ajax请求：获取当前登录用户
+@user.route('/getCurrentUser', methods=['POST'])
+def getCurrentUser():
+    user = getUser()
+    if user == None:
+        return ''
+    else:
+        return user
