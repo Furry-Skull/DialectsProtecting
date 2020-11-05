@@ -14,11 +14,13 @@ body {
     background-attachment: fixed;
     */
     /*全局颜色*/
+    --themecolor0: #114514;
     --themecolor1: #89b034;
     --themecolor3: #34747d;
     --themecolor2: #113f1b;
 }
 
+/*全局字体*/
 @font-face {
     font-family: FZQKBYSJT;
     src: url('../fonts/FZQKBYSJT.TTF') format('truetype');
@@ -80,7 +82,7 @@ header {
             height: 34px;
         }
 
-        .search input[type=button] {
+        .search input[type=submit] {
             float: left;
             text-align: center;
             padding-left: 0;
@@ -91,7 +93,7 @@ header {
             border: 0;
         }
 
-            .search input[type=button]:hover {
+            .search input[type=submit]:hover {
                 border: 0;
                 background-color: #dedede;
             }
@@ -173,7 +175,7 @@ header {
             color: white;
         }
 
-.content {
+.content-box {
     background: url(../image/map.png) repeat;
     background-size: 648px;
     margin-top: 38px;
@@ -187,7 +189,19 @@ header {
     border-bottom-left-radius: 2px;
     border-top-left-radius: 2px;
     /*测试用*/
-    height: 1000px;
+    /*height: 1000px;*/
+}
+
+    .content-box > .heading {
+        overflow: visible;
+        font-family: FZQKBYSJT;
+        font-size: 28px;
+        padding: 0 0;
+        border-bottom: 2px solid var(--themecolor3);
+        margin-bottom: 20px;
+    }
+
+.content {
 }
 
     .content .heading {
@@ -196,6 +210,10 @@ header {
         font-size: 22px;
         padding: 0 0;
         border-bottom: 1.5px solid var(--themecolor3);
+        margin-bottom: 10px;
+    }
+
+    .content p {
     }
 
 footer {
@@ -203,7 +221,7 @@ footer {
     padding-top: 14px;
     padding-bottom: 14px;
     text-align: center;
-    background-color: #0d3115db;
+    background-color: var(--themecolor0);
     color: white;
     font-family: "consolas";
     font-size: 12px;

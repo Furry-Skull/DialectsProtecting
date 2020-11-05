@@ -22,6 +22,12 @@ app.register_blueprint(my, url_prefix = '/my')
 @app.route('/')
 @app.route('/home')
 def home():
+    #测试页面
+    return render_template(
+        'audioDetail.html',
+        audioName = None,
+
+    )
     #获取用户状态，显示页面
     return render_template(
         'home.html',
