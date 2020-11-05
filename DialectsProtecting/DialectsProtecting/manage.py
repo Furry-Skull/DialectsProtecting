@@ -14,9 +14,7 @@ app.register_blueprint(my, url_prefix = '/my')
 @app.route('/home')
 def home():
     #获取用户状态，显示页面
-    return render_template(
-        'home.html'
-    )
+    return render_template('home.html')
 
 #404页面
 @app.errorhandler(404)

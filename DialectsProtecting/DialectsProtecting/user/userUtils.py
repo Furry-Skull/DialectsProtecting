@@ -33,7 +33,7 @@ def checkPasswordValidity(password):
     else:
         return True
 
-#使用当前登录的账户上传文件
+#使用当前登录的账户上传文件，并返回存储地址
 def uploadFileByCurrentUser(file):
     if 'username' in session:
         #计算服务器上传文件夹的地址
@@ -43,3 +43,4 @@ def uploadFileByCurrentUser(file):
             os.makedirs(uploadFolderPath)
         uploadPath = os.path.join(UPLOAD_FOLDER, session['username'], file.filename)
         file.save(uploadPath)
+        return uploadPath
