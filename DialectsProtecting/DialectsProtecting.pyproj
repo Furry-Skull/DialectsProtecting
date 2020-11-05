@@ -33,6 +33,7 @@
     <Compile Include="DialectsProtecting\database\Database.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DialectsProtecting\database\Record.py" />
     <Compile Include="DialectsProtecting\database\__init__.py">
       <SubType>Code</SubType>
     </Compile>
