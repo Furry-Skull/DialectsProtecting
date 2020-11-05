@@ -3,6 +3,8 @@ from flask import render_template, request, redirect
 from DialectsProtecting.database import db
 from DialectsProtecting.search import search
 
+from DialectsProtecting.database.Record import Record
+
 #搜索结果请求
 @search.route('/', methods=['POST'])
 def searchRequest():
@@ -56,4 +58,15 @@ def search(searchExpression):
                 #无匹配项，返回404
                 return render_template('page404.html')
 
-    return searchExpression;
+    #TODO：传给数据库进行搜索，返回为records
+    record = Record(userName = 'admin', 
+                    audioURL = 'test/1.txt', 
+                    translation = 'test', 
+                    location = 'testloc', 
+                    language = 'testlang', 
+                    tags = ['t1', 't2'])
+
+    records = []
+    records.append(record)
+
+    return render_template('searchResult.html', records = records)

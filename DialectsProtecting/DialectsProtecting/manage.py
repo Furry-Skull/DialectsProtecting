@@ -14,11 +14,9 @@ app.register_blueprint(search, url_prefix = '/search')
 @app.route('/')
 @app.route('/home')
 def home():
-    #测试页面
-    return render_template(
-        'user.html'
-    )
-    #获取用户状态，显示页面
+    #在此处加上return render_template('测试的页面.html')可以测试写的页面
+
+    #显示主页
     return render_template('home.html')
 
 #404页面
