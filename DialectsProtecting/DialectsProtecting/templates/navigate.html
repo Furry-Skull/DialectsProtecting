@@ -8,7 +8,10 @@
     </div>
     <!--搜索框-->
     <div class="search">
-        <input type="text" value="输入关键词" />
+        <input type="text"
+               value="输入关键词"
+               onfocus="if(value=='输入关键词')value=''"
+               onblur="if(!value)value='输入关键词'"/>
         <input type="submit" value="搜索">
     </div>
     <!--用户登录/注册-->
