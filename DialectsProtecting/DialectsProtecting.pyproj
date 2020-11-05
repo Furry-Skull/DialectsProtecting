@@ -45,6 +45,12 @@
     <Compile Include="DialectsProtecting\my\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DialectsProtecting\search\views.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialectsProtecting\search\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DialectsProtecting\user\userUtils.py">
       <SubType>Code</SubType>
     </Compile>
@@ -63,6 +69,7 @@
     <Folder Include="DialectsProtecting\" />
     <Folder Include="DialectsProtecting\database\" />
     <Folder Include="DialectsProtecting\my\" />
+    <Folder Include="DialectsProtecting\search\" />
     <Folder Include="DialectsProtecting\static\content\fonts\" />
     <Folder Include="DialectsProtecting\uploads\" />
     <Folder Include="DialectsProtecting\static\" />
@@ -90,6 +97,7 @@
     <Content Include="DialectsProtecting\templates\navigate.html" />
     <Content Include="DialectsProtecting\templates\home.html" />
     <Content Include="DialectsProtecting\templates\sidebar.html" />
+    <Content Include="DialectsProtecting\templates\testUpload.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
