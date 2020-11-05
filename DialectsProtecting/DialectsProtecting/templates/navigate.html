@@ -8,11 +8,14 @@
     </div>
     <!--搜索框-->
     <div class="search">
-        <input type="text"
-               value="输入关键词"
-               onfocus="if(value=='输入关键词')value=''"
-               onblur="if(!value)value='输入关键词'"/>
-        <input type="submit" value="搜索">
+        <form method="post" action="/search">
+            <input type="text"
+                   value="输入关键词"
+                   onfocus="if(value=='输入关键词')value=''"
+                   onblur="if(!value)value='输入关键词'"
+                   name="expression"/>
+            <input type="submit" value="搜索">
+        </form>
     </div>
     <!--用户登录/注册-->
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -29,15 +32,15 @@
                         if (data == '') {
                             document.getElementById("userMessage").innerHTML =
                                 '<ul>\
-                                    <li><a href="/user/register">注册</a></li>\
-                                    <li><a href="/user/login">登录</a></li>\
-                                </ul>';
+                                        <li><a href="/user/register">注册</a></li>\
+                                        <li><a href="/user/login">登录</a></li>\
+                                    </ul>';
                         }
                         else {
                             document.getElementById("userMessage").innerHTML =
                                 '<ul>\
-                                    <li><a href="/my/' + data + '">欢迎，' + data + '</a></li>\
-                                </ul >';
+                                        <li><a href="/my/' + data + '">欢迎，' + data + '</a></li>\
+                                    </ul >';
                         }
                     }
             })
