@@ -3,12 +3,21 @@ from flask import render_template, request, redirect
 from DialectsProtecting.database import db
 from DialectsProtecting.search import search
 
+#搜索结果请求
+@search.route('/', methods=['POST'])
+def searchRequest():
+    #获取表单数据
+    form = request.form
+    expression = form["expression"]
+    #重定向至搜索结果展示页面
+    return redirect(expression)
+
 #搜索结果展示页面
 @search.route('/<searchExpression>')
 def search(searchExpression):
     '''
     搜索表达式，形式为
-    translation=aaa&lang=xx&location=yy&publisher=ddd&tag=bb&tag=cc
+    translation=aaa&lang=xx&loc=yy&publisher=ddd&tag=bb&tag=cc
     对于lang, loc, publisher（语言，地区和发布者）各自来说，有多个条件意味着多选，是或的关系
     对于translation和tag来说，多个条件是与的关系
     不同key表达式之间都是与的关系
