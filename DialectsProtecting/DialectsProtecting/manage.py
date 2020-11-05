@@ -16,7 +16,7 @@ app.register_blueprint(search, url_prefix = '/search')
 def home():
     #测试页面
     return render_template(
-        'searchResult.html'
+        'user.html'
     )
     #获取用户状态，显示页面
     return render_template('home.html')
