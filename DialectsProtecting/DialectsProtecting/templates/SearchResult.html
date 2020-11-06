@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>搜索结果</title>
+    <!--头格式-->
+    <link rel="stylesheet" href="../static/content/css/basic.css" />
+    <link rel="stylesheet" href="../static/content/css/searchResult.css" />
+</head>
+<body>
+    {% include 'navigate.html' %}
+    {% include 'sidebar.html' %}
+    {# 需要搜索条件 #}
+
+    {# 搜索记录呈现 #}
+    <div class="content-box">
+        <div class="heading">搜索结果</div>
+        <div class="search-audio-box">
+            {% if len(records) == 0 %}
+                {# 无搜索结果 #}
+            {% else %}
+                {# 有搜索结果 #}
+                {% for item in records %}
+                    {% if audioURL == None %}
+                        <audio controls>
+                            <source src="{{ audioURL }}" type="audio/mpeg">
+                        </audio>
+                    {% endif %}
+                    {{ item.lang }}
+                    {{ item.loc }}
+                    {{ item.translation }}
+                    {{ item.publisher }}
+                    {% for tag in item.tags %}
+                        {{ tag }}
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    {% include 'footer.html' %}
+</body>
+</html>
