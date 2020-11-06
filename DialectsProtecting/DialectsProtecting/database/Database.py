@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import sqlite3
+from Record import Record
 
 class Database:
     def __init__(self):
@@ -190,3 +191,30 @@ class Database:
         conn.close()
         return 1
 
+
+    #############将这条删除，以下为接口，提供这些接口的实现##############
+
+    #按照条件搜索方言，返回Record类数组
+    def searchDialect(self, translations, languages, locations, publishers, tags):
+        results = []
+        #示例创建record的方法
+        record = Record(userName = 'test', 
+            audioURL = '/aaa/bbb.mp3', 
+            translation = 'testtest', 
+            location = 'testloc',
+            language = 'lang',
+            tags = ['t1', 't2'])
+        results.append(record)
+        return results
+
+    #判断给定字符串是否为一个地域
+    def isLocation(self, location):
+        return false
+
+    #判断给定字符串是否为一种语言
+    def isLanguage(self, language):
+        return false
+
+    #判断给定字符串是否为一个标签
+    def isTag(self, tag):
+        return false
