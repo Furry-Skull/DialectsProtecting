@@ -5,7 +5,7 @@ from DialectsProtecting.database.Record import Record
 class Database:
     def __init__(self):
         print (sqlite3.sqlite_version)
-        conn = sqlite3.connect('user.db')
+        conn = sqlite3.connect('database.db')
         c = conn.cursor()
         conn.execute("PRAGMA foreign_keys = ON")
         try:
@@ -37,7 +37,7 @@ class Database:
     #返回值为1代表插入数据成功，返回值为0代表插入数据失败（一般原因为audioURL在数据库中已存在，出现了重名，或者是存在非tag值为NULL）
     def importDialect(self, userName, audioURL, translation, location, language, title, tags, like, browse):
         tagStr=''
-        conn = sqlite3.connect('user.db')
+        conn = sqlite3.connect('database.db')
         c = conn.cursor()
         for index in range(len(tags)):
             if index>0:
@@ -61,7 +61,7 @@ class Database:
     
     #查询一个账号是否存在，存在返回1，不存在返回0
     def accountExist(self, account):
-        conn = sqlite3.connect('user.db')
+        conn = sqlite3.connect('database.db')
         c = conn.cursor()
         sql_select = '''
         select * from user_account where account = ?;
@@ -75,7 +75,7 @@ class Database:
 
     #查询一个用户已发布的所有方言记录
     def searchUserPublish(self, account):
-        conn = sqlite3.connect('user.db')
+        conn = sqlite3.connect('database.db')
         c = conn.cursor()
         sql_select = '''
         select * from dialect where userName = ?;
@@ -102,7 +102,7 @@ class Database:
 
     #用户删除一条记录
     def delectDialect(self, audioURL):
-        conn = sqlite3.connect('user.db')
+        conn = sqlite3.connect('database.db')
         c = conn.cursor()
         sql_delete = "delete from dialect where audioURL = ?;"
         c.execute(sql_delete,(audioURL,))  
@@ -112,7 +112,7 @@ class Database:
 
     #点赞功能是否需要实现？评论功能呢？
     def likeDialect(self, audioURL):
-        conn = sqlite3.connect('user.db')
+        conn = sqlite3.connect('database.db')
         c = conn.cursor()
         sql_update = "update dialect set like = like + 1 where audioURL = ?;"
         c.execute(sql_update,(audioURL,))  
@@ -124,7 +124,7 @@ class Database:
     #登录代码
     #login返回值为2代表登录成功，返回值为1代表密码错误，返回值为0代表此账号未注册
     def login(self, userName, password):
-        conn = sqlite3.connect('user.db')
+        conn = sqlite3.connect('database.db')
         c = conn.cursor()
         #conn.execute("alter table user_account add unique key(account)")
         sql_select1 = '''
@@ -148,7 +148,7 @@ class Database:
     #注册代码
     #注册失败返回0
     def register(self, userName, password):
-        conn = sqlite3.connect('user.db')
+        conn = sqlite3.connect('database.db')
         c = conn.cursor()
         #conn.execute("alter table user_account add unique key(account)")
         try:
@@ -172,7 +172,7 @@ class Database:
     def searchDialect(self, translations=[], languages=[], locations=[], publishers=[], tags=[]):
         results = []
         #示例创建record的方法
-        conn = sqlite3.connect('user.db')
+        conn = sqlite3.connect('database.db')
         c = conn.cursor()
         if len(tags)>0:
             tagStr="tag like '%"+tags[0]+"%'"
