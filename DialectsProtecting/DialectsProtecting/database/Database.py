@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import sqlite3
-from Record import Record
+from DialectsProtecting.database.Record import Record
 
 class Database:
     def __init__(self):

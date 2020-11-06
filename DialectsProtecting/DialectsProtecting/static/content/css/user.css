@@ -168,7 +168,10 @@ a{
 .sub ul li:nth-child(odd){
     background-color: #bbbbbb;
 }
-input[type=submit]{
+.sub input[type=submit]{
+    background-color: transparent;
+}
+.build input[type=submit] {
     background-color: transparent;
 }
 .ser {
