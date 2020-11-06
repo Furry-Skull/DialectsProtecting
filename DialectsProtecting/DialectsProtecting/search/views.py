@@ -1,8 +1,6 @@
 from flask import render_template, request, redirect
 
 from DialectsProtecting.search import search
-
-from DialectsProtecting.database.Record import Record
 from DialectsProtecting.search.searchUtils import *
 
 #搜索结果请求
@@ -20,7 +18,7 @@ def searchRequest():
 @search.route('/<searchExpression>')
 def search(searchExpression):
     #执行搜索，返回结果
-    #records = executeSearch(searchExpression)
+    records = executeSearch(searchExpression)
     if records == None:
         #表达式错误，返回404页面
         return render_template('page404.html')

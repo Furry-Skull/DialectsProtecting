@@ -19,7 +19,6 @@ def keywords2expression(keywords):
 
     expr = ''
 
-    '''
     for index, keyword in enumerate(keywordsArray):
         if db.isLanguage(keyword):
             expr += 'lang=' + keyword
@@ -27,14 +26,14 @@ def keywords2expression(keywords):
             expr += 'loc=' + keyword
         elif db.isTag(keyword):
             expr += 'tag=' + keyword
-        else
+        else:
             #此处不会将发布者自动转换为搜索字符串，而是会被视为翻译，因为发布者名字过多
             expr += 'translation=' + keyword
 
         if index < len(keywordsArray) - 1:
             #不为最后一个关键词
             expr += '&'
-    '''
+
     return expr
 
 
@@ -73,4 +72,4 @@ def executeSearch(expr):
                 #无匹配项，返回None
                 return None
 
-    #return db.search(searchTranslations, searchLangs, searchLoc, searchPublishers, searchTags)
+    return db.searchDialect(searchTranslations, searchLangs, searchLoc, searchPublishers, searchTags)
