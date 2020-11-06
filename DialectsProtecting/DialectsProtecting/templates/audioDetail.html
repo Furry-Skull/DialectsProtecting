@@ -7,12 +7,11 @@
         {% if audioName==None %}
         这里是音频名
         {% else %}
-        {{ audioName }}
+        {{audioName}}
         {% endif %}
     </title>
     <!--头格式-->
     <link rel="stylesheet" href="../static/content/css/basic.css" />
-    <link rel="stylesheet" href="../static/content/css/audioDetail.css" />
 </head>
 <body>
     {% include 'navigate.html' %}
@@ -22,30 +21,28 @@
             {% if audioName==None %}
             这里是音频名
             {% else %}
-            {{ audioName }}
+            {{audioName}}
             {% endif %}
         </div>
         <div class="content">
             <div class="heading">音频</div>
-            <div class="audio-detail">
-                {% if audioURL==None %}
-                <audio controls>
-                    <source src="{{ audioURL }}" type="audio/mpeg">
-                </audio>
-                {% endif %}
-                <div class="heading">方言种类</div>
-                <p>这里是方言种类</p>
-                <div class="heading">地域</div>
-                <p>这里是地域</p>
-                <div class="heading">文字翻译</div>
-                <p>这里是文字翻译</p>
-                <div class="heading">TAG</div>
-                <p>这里是TAG</p>
-                <div class="heading">上传者</div>
-                <p>这里是上传者</p>
-                <div class="heading">说话人</div>
-                <p>这里是说话人</p>
-            </div>
+            {% if audioURL==None %}
+            <audio controls>
+                <source src="{{audioURL}}" type="audio/mpeg">
+            </audio>
+            {% endif %}
+            <div class="heading">方言种类</div>
+            <p>这里是方言种类</p>
+            <div class="heading">地域</div>
+            <p>这里是地域</p>
+            <div class="heading">文字翻译</div>
+            <p>这里是文字翻译</p>
+            <div class="heading">TAG</div>
+            <p>这里是TAG</p>
+            <div class="heading">上传者</div>
+            <p>这里是上传者</p>
+            <div class="heading">说话人</div>
+            <p>这里是说话人</p>
         </div>
     </div>
     {% include 'footer.html' %}

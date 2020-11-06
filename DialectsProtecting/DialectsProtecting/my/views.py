@@ -9,7 +9,7 @@ from DialectsProtecting.user.userUtils import uploadFileByCurrentUser, getUser
 def userSpace(username):
     if getUser() == username:
         #进入自己的个人页面
-        return render_template('user.html')
+        return render_template('testUpload.html')
     else:
         #进入别人的个人页面，暂定显示404
         return render_template('page404.html')

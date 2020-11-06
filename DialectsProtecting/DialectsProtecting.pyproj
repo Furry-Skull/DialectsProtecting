@@ -33,7 +33,6 @@
     <Compile Include="DialectsProtecting\database\Database.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DialectsProtecting\database\Record.py" />
     <Compile Include="DialectsProtecting\database\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -44,9 +43,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DialectsProtecting\my\__init__.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DialectsProtecting\search\searchUtils.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DialectsProtecting\search\views.py">
@@ -101,8 +97,8 @@
     <Content Include="DialectsProtecting\templates\register.html" />
     <Content Include="DialectsProtecting\templates\navigate.html" />
     <Content Include="DialectsProtecting\templates\home.html" />
-    <Content Include="DialectsProtecting\templates\searchResult.html" />
     <Content Include="DialectsProtecting\templates\sidebar.html" />
+    <Content Include="DialectsProtecting\templates\testSearchResult.html" />
     <Content Include="DialectsProtecting\templates\testUpload.html" />
     <Content Include="DialectsProtecting\templates\user.html" />
   </ItemGroup>
