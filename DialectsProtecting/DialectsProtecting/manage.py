@@ -15,6 +15,7 @@ app.register_blueprint(search, url_prefix = '/search')
 @app.route('/')
 @app.route('/home')
 def home():
+    return render_template('user.html')
     #测试页面
     return render_template(
         'audioDetail.html',

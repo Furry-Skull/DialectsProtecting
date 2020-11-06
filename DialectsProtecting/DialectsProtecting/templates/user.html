@@ -5,25 +5,32 @@
     <meta charset="utf-8" />
     <title>用户界面</title>
     <!--头格式-->
-    <link rel="stylesheet" href="../static/content/css/navigate.css" />
+    <link rel="stylesheet" href="../static/content/css/basic.css" />
     <link rel="stylesheet" href="../static/content/css/user.css" />
 </head>
 <body>
-    {% include 'navigate.html' %}
+
     <div class="w">
+        {% include 'sidebar.html' %}
         <header>
-            头部
         </header>
         <div class="yonghu">
-            <div class="shoucang">
+            <div class="back">
+                <a href="#top">回到顶部</a>
+            </div>
+            <div class="fav">
+                <div class="build">
+                    <span class="my_fav">我的收藏夹</span>
+                    <input type="submit" class="new" value="新建" name="new" />
+                </div>
                 <ul>
                     <li><a href="">我的上传</a></li>
-                    <li><a href="">我的收藏</a></li>
+                    <li><a href="">收藏夹1</a></li>
                 </ul>
             </div>
-            <div class="zhuti">
+            <div class="sub">
                 <h3>
-                    <span class="yp">音频列表</span>
+                    <span class="aud">音频列表</span>
                     <span class="num">共3个音频</span>
                 </h3>
                 <div class="nav">
@@ -32,42 +39,50 @@
                     <span class="tag">标签</span>
                     <span class="act">操作</span>
                 </div>
+                <a name="top"></a><br />
                 <ul>
                     <li>
-                        <span class="xuhao">1</span>
-                        <button class="play"></button>
-                        <span class="biaoti"><a href="">喜羊羊与灰太狼</a></span>
-                        <span class="changdu">3:30</span>
-                        <span class="biaoqian"><a href="">儿歌</a> <a href="">动画</a></span>
-                        <button class="shanchu"></button>
-                        <button class="xiazai"></button>
+                        <!--序号-->
+                        <span class="ser">1</span>
+                        <!--播放按钮-->
+                        <input type="submit" class="stop" value="" name="stop"/>
+                        <!--标题-->
+                        <span class="title"><a href="">喜羊羊与灰太狼</a></span>
+                        <!--时长-->
+                        <span class="dur">3:30</span>
+                        <!--标签-->
+                        <span class="lab"><a href="">儿歌</a> <a href="">动画</a></span>
+                        <!--删除按钮-->
+                        <input type="submit" class="delete" value="" name="delete" />
+                        <!--下载按钮-->
+                        <input type="submit" class="down" value="" name="down" />
                     </li>
                     <li>
-                        <span class="xuhao">2</span>
-                        <button class="play"></button>
-                        <span class="biaoti"><a href="">最炫民族风</a></span>
-                        <span class="changdu">3:00</span>
-                        <span class="biaoqian"><a href="">流行</a></span>
-                        <button class="shanchu"></button>
-                        <button class="xiazai"></button>
+                        <span class="ser">2</span>
+                        <input type="submit" class="play" value="" name="play" />
+                        <span class="title"><a href="">最炫民族风</a></span>
+                        <span class="dur">3:00</span>
+                        <span class="lab"><a href="">流行</a></span>
+                        <input type="submit" class="delete" value="" name="delete" />
+                        <input type="submit" class="down" value="" name="down" />
                     </li>
                     <li>
-                        <span class="xuhao">3</span>
-                        <button class="play"></button>
-                        <span class="biaoti"><a href="">未闻花名</a></span>
-                        <span class="changdu">4:30</span>
-                        <span class="biaoqian"><a href="">日语</a> <a href="">动漫</a> <a href="">催泪</a></span>
-                        <button class="shanchu"></button>
-                        <button class="xiazai"></button>
+                        <span class="ser">3</span>
+                        <input type="submit" class="play" value="" name="play" />
+                        <span class="title"><a href="">未闻花名</a></span>
+                        <span class="dur">4:30</span>
+                        <span class="lab"><a href="">日语</a> <a href="">动漫</a> <a href="">催泪</a></span>
+                        <input type="submit" class="delete" value="" name="delete" />
+                        <input type="submit" class="down" value="" name="down" />
                     </li>
                     <li>
-                        <span class="xuhao">3</span>
-                        <button class="play"></button>
-                        <span class="biaoti"><a href="">茉莉花</a></span>
-                        <span class="changdu">3:40</span>
-                        <span class="biaoqian"><a href="">民族</a> <a href="">流行</a></span>
-                        <button class="shanchu"></button>
-                        <button class="xiazai"></button>
+                        <span class="ser">4</span>
+                        <input type="submit" class="play" value="" name="play" />
+                        <span class="title"><a href="">茉莉花</a></span>
+                        <span class="dur">3:40</span>
+                        <span class="lab"><a href="">民族</a> <a href="">流行</a></span>
+                        <input type="submit" class="delete" value="" name="delete" />
+                        <input type="submit" class="down" value="" name="down" />
                     </li>
                 </ul>
             </div>
