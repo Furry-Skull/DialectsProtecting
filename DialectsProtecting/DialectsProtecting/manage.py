@@ -4,6 +4,7 @@ from DialectsProtecting import app
 from DialectsProtecting.user import user
 from DialectsProtecting.my import my
 from DialectsProtecting.search import search
+from DialectsProtecting.database import db
 
 
 #注册蓝图，新增模块在这里注册
@@ -15,6 +16,10 @@ app.register_blueprint(search, url_prefix = '/search')
 @app.route('/')
 @app.route('/home')
 def home():
+    db
+    db.register('1','2')
+    db.importDialect('2','c.mp3','zqcsb','yueyu','yueyu','yyy',['1','2','3'],0,0)
+    db.searchDialect(translations=['zqcsb'])
     #获取用户状态，显示页面
     return render_template('home.html')
 

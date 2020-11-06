@@ -20,6 +20,9 @@ class Database:
                 (userName char(16) not null,
                 audioURL char(64) primary key not null,
                 translation char(64) not null,
+                location char(16),
+                language char(16),
+                title char(16) not null,
                 tag char(64),
                 like int,
                 browse int,
@@ -32,25 +35,27 @@ class Database:
 
     #userName为用户姓名，audioURL为音频路径，translation为译文翻译，暂定支持最大char为64，tags是标签，暂定使用数组的方式
     #返回值为1代表插入数据成功，返回值为0代表插入数据失败（一般原因为audioURL在数据库中已存在，出现了重名，或者是存在非tag值为NULL）
-    def importDialect(self, userName, audioURL, translation, tags):
+    def importDialect(self, userName, audioURL, translation, location, language, title, tags, like, browse):
         tagStr=''
         conn = sqlite3.connect('user.db')
         c = conn.cursor()
         for index in range(len(tags)):
-            tagStr=tagStr+' '+tags[index]
+            if index>0:
+                tagStr=tagStr+' '+tags[index]
+            else :
+                tagStr=tags[index]
         try:
             sql_insert = '''
             insert into
-                dialect(userName,audioURL,translation,tag,like,browse)
+                dialect
             values
-                (?, ?, ?, ?, 0, 0);
+                (?, ?, ?, ?, ?, ?, ?, 0, 0);
             '''
-            c.execute(sql_insert, (userName, audioURL, translation, tagStr))
+            c.execute(sql_insert, (userName, audioURL, translation, location, language, title, tagStr))
             conn.commit()
             conn.close()
             return 1
         except:
-            print ("cn")
             conn.close()
             return 0
     
@@ -76,35 +81,23 @@ class Database:
         select * from dialect where userName = ?;
         '''
         c.execute(sql_select,(account,))  
-        ret=[]
+        results=[]
         for row in c:
-            ret.append(row)
-        conn.close()
-        return ret
-
-    #模糊查询，输入一个字符串，返回所有比对成功的记录
-    def fuzzySearch(self, str):
-        conn = sqlite3.connect('user.db')
-        c = conn.cursor()
-        sql_select = "select * from dialect where translation like '%"+str+"%'"
-        c.execute(sql_select)  
-        ret=[]
-        for row in c:
-            ret.append(row)
-        conn.close()
-        return ret
-
-    #输入方言路径，返回该方言的所有属性
-    def getDialectAttribute(self,audioURL):
-        conn = sqlite3.connect('user.db')
-        c = conn.cursor()
-        sql_select = "select * from dialect where audioURL = ?;"
-        c.execute(sql_select,(audioURL,))  
-        ret=[]
-        for row in c:
-            ret.append(row)
-        conn.close()
-        return ret
+            row_tag = []
+            strlist = row[6].split(' ')
+            for value in strlist:
+                row_tag.append(value)
+            record = Record(userName = row[0], 
+                audioURL = row[1], 
+                translation = row[2], 
+                location = row[3],
+                language = row[4],
+                title = row[5],
+                tags = row_tag,
+                like = row[7],
+                browse = row[8])
+            results.append(record)
+        return results
     
 
     #用户删除一条记录
@@ -126,25 +119,6 @@ class Database:
         conn.commit()
         conn.close()
         return 1
-
-    #按照tag查询
-    #tag格式为xx xx xx xx，通过searchTag函数来查询所有符合该tag的记录,返回值为tuple
-    def searchTag(self, tags):
-        conn = sqlite3.connect('user.db')
-        c = conn.cursor()
-        tagStr="tag like '%"+tags[0]+"%'"
-        for index in range(len(tags)):
-            if index>0:
-                tagStr=tagStr+"and tag like '%"+tags[index]+"%'"
-        sql_select1 = '''
-        select * from dialect where ('''+tagStr+''');
-        '''
-        c.execute(sql_select1)  
-        ret=[]
-        for row in c:
-            ret.append(row)
-        conn.close()
-        return ret
 
 
     #登录代码
@@ -195,16 +169,70 @@ class Database:
     #############将这条删除，以下为接口，提供这些接口的实现##############
 
     #按照条件搜索方言，返回Record类数组
-    def searchDialect(self, translations, languages, locations, publishers, tags):
+    def searchDialect(self, translations=[], languages=[], locations=[], publishers=[], tags=[]):
         results = []
         #示例创建record的方法
-        record = Record(userName = 'test', 
-            audioURL = '/aaa/bbb.mp3', 
-            translation = 'testtest', 
-            location = 'testloc',
-            language = 'lang',
-            tags = ['t1', 't2'])
-        results.append(record)
+        conn = sqlite3.connect('user.db')
+        c = conn.cursor()
+        if len(tags)>0:
+            tagStr="tag like '%"+tags[0]+"%'"
+            for index in range(len(tags)):
+                if index>0:
+                    tagStr=tagStr+"and tag like '%"+tags[index]+"%'"
+        else:
+            tagStr ="tag like '%%'"
+
+        if len(translations)>0:
+            translationStr="translation like '%"+translations[0]+"%'"
+            for index in range(len(translations)):
+                if index>0:
+                    translationStr=translationStr+"and translation like '%"+translations[index]+"%'"
+        else:
+            translationStr ="translation like '%%'"
+
+        if len(languages)>0:
+            languageStr="language like '%"+language[0]+"%'"
+            for index in range(len(languages)):
+                if index>0:
+                    languageStr=languageStr+"or language like '%"+languages[index]+"%'"
+        else:
+            languageStr="language like '%%'"
+
+        if len(locations)>0:
+            locationStr="location like '%"+locations[0]+"%'"
+            for index in range(len(locations)):
+                if index>0:
+                    locationStr=locationStr+"or location like '%"+locations[index]+"%'"
+        else:
+            locationStr="location like '%%'"
+
+        if len(publishers)>0:
+            publisherStr="userName like '%"+publishers[0]+"%'"
+            for index in range(len(publishers)):
+                if index>0:
+                    publisherStr=publisherStr+"and userName like '%"+publishers[index]+"%'"
+        else:
+            publisherStr="userName like '%%'"
+
+        sql_select1 = '''
+        select * from dialect where (('''+tagStr+''') and ('''+translationStr+''') and ('''+languageStr+''') and ('''+locationStr+''') and ('''+publisherStr+'''));
+        '''
+        c.execute(sql_select1)  
+        for row in c:
+            row_tag = []
+            strlist = row[6].split(' ')
+            for value in strlist:
+                row_tag.append(value)
+            record = Record(userName = row[0], 
+                audioURL = row[1], 
+                translation = row[2], 
+                location = row[3],
+                language = row[4],
+                title = row[5],
+                tags = row_tag,
+                like = row[7],
+                browse = row[8])
+            results.append(record)
         return results
 
     #判断给定字符串是否为一个地域
@@ -213,8 +241,9 @@ class Database:
 
     #判断给定字符串是否为一种语言
     def isLanguage(self, language):
-        return false
-
+        if language == '官话' or language == '晋语' or language == '吴语' or language == '徽语' or language == '赣语' or language == '湘语' or language == '闽语' or language == '平话' or language == '客家话':
+            return True
+        return False
     #判断给定字符串是否为一个标签
     def isTag(self, tag):
         return false
