@@ -31,7 +31,14 @@ class Database:
                 );''')
         except :
             a="数据库已被创建"
-        
+
+        try:
+            c.execute('''create table lang
+                (language char(16) primary key,
+                languageFamily char(16)
+                );''')
+        except :
+            a="数据库已被创建"
         c.close()
 
     #userName为用户姓名，audioURL为音频路径，translation为译文翻译，暂定支持最大char为64，tags是标签，暂定使用数组的方式
@@ -60,6 +67,25 @@ class Database:
             conn.close()
             return 0
     
+    #插入一种语言的语系
+    def insertLanguage(self, languageFamily, language):
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        try:
+            sql_insert = '''
+            insert into
+                lang
+            values
+                (?, ?);
+            '''
+            c.execute(sql_insert, (language,languageFamily))
+            conn.commit()
+            conn.close()
+            return 1
+        except:
+            conn.close()
+            return 0
+
     #查询一个账号是否存在，存在返回1，不存在返回0
     def accountExist(self, account):
         conn = sqlite3.connect('database.db')
@@ -167,6 +193,15 @@ class Database:
         return 1
 
 
+    def lll(self, language):
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        sql_select1 = '''select languageFamily from lang where language = ?;'''
+        c.execute(sql_select1,(language,))  
+        for row in c:
+            return row[0]
+        conn.close()
+
     #按照条件搜索方言，返回Record类数组
     def searchDialect(self, translations=[], languages=[], locations=[], publishers=[], tags=[]):
         results = []
@@ -222,16 +257,21 @@ class Database:
             strlist = row[6].split(' ')
             for value in strlist:
                 row_tag.append(value)
-            record = Record(userName = row[0], 
-                audioURL = row[1], 
-                translation = row[2], 
-                location = row[3],
-                language = row[4],
-                title = row[5],
-                tags = row_tag,
-                like = row[7],
-                browse = row[8])
-            results.append(record)
+            #sql_select1 = '''select languageFamily from lang where language = row[4];'''
+            language_Family=self.lll(row[4])
+            if(language_Family!=None):      
+                record = Record(userName = row[0], 
+                    audioURL = row[1], 
+                    translation = row[2], 
+                    location = row[3],
+                    language = row[4],
+                    title = row[5],
+                    tags = row_tag,
+                    like = row[7],
+                    browse = row[8],
+                    languageFamily = language_Family
+                    )
+                results.append(record)
         return results
 
     #判断给定字符串是否为一个地域
@@ -246,3 +286,4 @@ class Database:
     #判断给定字符串是否为一个标签
     def isTag(self, tag):
         return False
+
