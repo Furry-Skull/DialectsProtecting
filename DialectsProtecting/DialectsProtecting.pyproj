@@ -81,6 +81,7 @@
     <Folder Include="DialectsProtecting\static\content\css\" />
     <Folder Include="DialectsProtecting\static\content\image\" />
     <Folder Include="DialectsProtecting\static\scripts\" />
+    <Folder Include="DialectsProtecting\static\uploads\" />
     <Folder Include="DialectsProtecting\templates\" />
     <Folder Include="DialectsProtecting\user\" />
   </ItemGroup>

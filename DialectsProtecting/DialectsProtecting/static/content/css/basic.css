@@ -36,6 +36,7 @@ header {
     width: 100%;
     top: 0;
     left: 0;
+    /*这个渐变也太丑了，要改*/
     background-image: linear-gradient(var(--themecolor1), white);
 }
 
@@ -176,7 +177,11 @@ header {
         }
 
 .content-box {
-    background: url(../image/map.png) repeat;
+    /*
+        背景图太丑，要更换
+        background: url(../image/map.png) repeat;
+    */
+    background-color: #ecececec;
     background-size: 648px;
     margin-top: 38px;
     margin-left: 118px;
