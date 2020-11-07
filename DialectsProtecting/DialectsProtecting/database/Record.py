@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 '''单条记录类数据结构'''
 class Record:
 

@@ -1,10 +1,11 @@
+# encoding: utf-8
+
 #!/usr/bin/python
 import sqlite3
 from DialectsProtecting.database.Record import Record
 
 class Database:
     def __init__(self):
-        print (sqlite3.sqlite_version)
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
         conn.execute("PRAGMA foreign_keys = ON")

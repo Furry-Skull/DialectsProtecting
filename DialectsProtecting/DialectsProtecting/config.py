@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 from datetime import timedelta
 from os import urandom
 import os
