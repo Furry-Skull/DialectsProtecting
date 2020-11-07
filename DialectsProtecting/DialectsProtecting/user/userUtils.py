@@ -2,8 +2,9 @@
 
 from flask import session
 import os
+import time
 
-from DialectsProtecting.config import UPLOAD_FOLDER
+from DialectsProtecting.config import UPLOAD_PATH, LOCAL_UPLOAD_PATH
 
 #登录账户，在session留下记录
 def sessionLogin(username, password):
@@ -33,14 +34,20 @@ def checkPasswordValidity(password):
     else:
         return True
 
-#使用当前登录的账户上传文件，并返回存储地址
+#使用当前登录的账户上传文件，并返回存储地址（相对路径）
 def uploadFileByCurrentUser(file):
     if 'username' in session:
         #计算服务器上传文件夹的地址
-        uploadFolderPath = os.path.join(UPLOAD_FOLDER, session['username'])
+        uploadFolderPath = os.path.join(LOCAL_UPLOAD_PATH, session['username'])
         #创建必要的文件夹
         if not os.path.exists(uploadFolderPath):
             os.makedirs(uploadFolderPath)
-        uploadPath = os.path.join(UPLOAD_FOLDER, session['username'], file.filename)
-        file.save(uploadPath)
+        #获取当前服务器时间作为文件名前缀，保证不会重名
+        timestr = str(int(round(time.time() * 1000)))
+
+        #服务器本地地址
+        localPath = os.path.join(LOCAL_UPLOAD_PATH, session['username'], timestr + '-' + file.filename)
+        file.save(localPath)
+        #相对地址
+        uploadPath = '/' + UPLOAD_PATH + '/' + session['username'] + '/' + timestr + '-' + file.filename
         return uploadPath

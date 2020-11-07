@@ -30,6 +30,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DialectsProtecting\config.py" />
     <Compile Include="DialectsProtecting\database\Database.py">
       <SubType>Code</SubType>
     </Compile>
@@ -75,7 +76,6 @@
     <Folder Include="DialectsProtecting\my\" />
     <Folder Include="DialectsProtecting\search\" />
     <Folder Include="DialectsProtecting\static\content\fonts\" />
-    <Folder Include="DialectsProtecting\uploads\" />
     <Folder Include="DialectsProtecting\static\" />
     <Folder Include="DialectsProtecting\static\content\" />
     <Folder Include="DialectsProtecting\static\content\css\" />
@@ -103,7 +103,7 @@
     <Content Include="DialectsProtecting\templates\home.html" />
     <Content Include="DialectsProtecting\templates\searchResult.html" />
     <Content Include="DialectsProtecting\templates\sidebar.html" />
-    <Content Include="DialectsProtecting\templates\testUpload.html" />
+    <Content Include="DialectsProtecting\templates\upload.html" />
     <Content Include="DialectsProtecting\templates\user.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />

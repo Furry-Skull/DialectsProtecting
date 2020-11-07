@@ -17,25 +17,23 @@
     <div class="content-box">
         <div class="heading">搜索结果</div>
         <div class="search-audio-box">
-            {% if len(records) == 0 %}
-                {# 无搜索结果 #}
-            {% else %}
-                {# 有搜索结果 #}
+
                 {% for item in records %}
-                    {% if audioURL == None %}
-                        <audio controls>
-                            <source src="{{ audioURL }}" type="audio/mpeg">
-                        </audio>
-                    {% endif %}
-                    {{ item.lang }}
-                    {{ item.loc }}
-                    {{ item.translation }}
-                    {{ item.publisher }}
+                    <h2>{{ item.title }}</h2>
+                    {{ item.language }}
+                    {{ item.location }}
                     {% for tag in item.tags %}
                         {{ tag }}
                     {% endfor %}
+                    <br/>
+                    {{ item.translation }}
+                    <br/>
+                    {{ item.userName }}
+                    <br />
+                    <audio controls>
+                        <source src="{{ item.audioURL }}" type="audio/mpeg">
+                    </audio>
                 {% endfor %}
-            {% endif %}
         </div>
     </div>
     {% include 'footer.html' %}

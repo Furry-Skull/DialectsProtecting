@@ -191,7 +191,7 @@ class Database:
             translationStr ="translation like '%%'"
 
         if len(languages)>0:
-            languageStr="language like '%"+language[0]+"%'"
+            languageStr="language like '%"+languages[0]+"%'"
             for index in range(len(languages)):
                 if index>0:
                     languageStr=languageStr+"or language like '%"+languages[index]+"%'"
@@ -237,7 +237,7 @@ class Database:
 
     #判断给定字符串是否为一个地域
     def isLocation(self, location):
-        return false
+        return False
 
     #判断给定字符串是否为一种语言
     def isLanguage(self, language):
@@ -246,4 +246,4 @@ class Database:
         return False
     #判断给定字符串是否为一个标签
     def isTag(self, tag):
-        return false
+        return False
