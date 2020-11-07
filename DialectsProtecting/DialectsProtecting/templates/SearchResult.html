@@ -15,29 +15,79 @@
 
     {# 搜索记录呈现 #}
     <div class="content-box">
-        <div class="heading">搜索结果</div>
+        <div class="heading">"搜索条件"的搜索结果</div>
+        {% for item in records %}
+        {# TODO: 根据语系改变border颜色#}
         <div class="search-audio-box">
-            {% for item in records %}
             <h2>{{ item.title }}</h2>
-            {{ item.language }}
-            <br />
-            {{ item.location }}
-            <br />
-            {% for tag in item.tags %}
-            {{ tag }}
-            <br />
-            {% endfor %}
-            <br />
-            {{ item.translation }}
-            <br />
-            {{ item.userName }}
-            <br />
-            <audio controls>
-                <source src="{{ item.audioURL }}" type="audio/mpeg">
-            </audio>
-            {% endfor %}
+            <div class="info-box">
+                <div class="lang">
+                    语言：{{ item.language }}
+                </div>
+                <div class="language-family">
+                    语系：平话
+                </div>
+                <div class="location">
+                    地域：{{ item.location }}
+                </div>
+                <div class="username">
+                    上传者：{{ item.userName }}
+                </div>
+                {% for tag in item.tags %}
+                <div class="tag">
+                    标签：{{ tag }}
+                </div>
+                {% endfor %}
+            </div>
+            <div class="audio-box">
+                音频：
+                <audio controls>
+                    <source src="{{ item.audioURL }}" type="audio/mpeg">
+                </audio>
+                <div class="translation">
+                    翻译：{{ item.translation }}
+                </div>
+            </div>
         </div>
+        {% endfor %}
     </div>
     {% include 'footer.html' %}
+    <script type="text/javascript">
+        //改变颜色
+        var boxes = document.getElementsByClassName('search-audio-box');
+        var languagefamilies = document.getElementsByClassName('language-family');
+        for (var i = 0; i < boxes.length; i++) {
+            if (languagefamilies[i].innerText == '语系：官话') {
+                boxes[i].style = "border-left-color: var(--guanhuacolor);";
+            }
+            else if (languagefamilies[i].innerText == '语系：粤语') {
+                boxes[i].style = "border-left-color: var(--yueyucolor);";
+            }
+            else if (languagefamilies[i].innerText == '语系：晋语') {
+                boxes[i].style = "border-left-color: var(--jinyucolor);";
+            }
+            else if (languagefamilies[i].innerText == '语系：吴语') {
+                boxes[i].style = "border-left-color: var(--wuyucolor);";
+            }
+            else if (languagefamilies[i].innerText == '语系：徽语') {
+                boxes[i].style = "border-left-color: var(--huiyucolor);";
+            }
+            else if (languagefamilies[i].innerText == '语系：赣语') {
+                boxes[i].style = "border-left-color: var(--ganyucolor);";
+            }
+            else if (languagefamilies[i].innerText == '语系：湘语') {
+                boxes[i].style = "border-left-color: var(--xiangyucolor);";
+            }
+            else if (languagefamilies[i].innerText == '语系：闽语') {
+                boxes[i].style = "border-left-color: var(--minyucolor);";
+            }
+            else if (languagefamilies[i].innerText == '语系：平话') {
+                boxes[i].style = "border-left-color: var(--pinghuacolor);";
+            }
+            else if (languagefamilies[i].innerText == '语系：客家话') {
+                boxes[i].style = "border-left-color: var(--kejiahuacolor);";
+            }
+        }
+    </script>
 </body>
 </html>

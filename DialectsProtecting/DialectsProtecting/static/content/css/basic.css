@@ -14,10 +14,21 @@ body {
     background-attachment: fixed;
     */
     /*全局颜色*/
+    --backgroungcolor: #ededed;
     --themecolor0: #114514;
     --themecolor1: #89b034;
     --themecolor3: #34747d;
     --themecolor2: #113f1b;
+    --guanhuacolor: #e96161;
+    --jinyucolor: #ffa130;
+    --wuyucolor: #e8e83a;
+    --huiyucolor: #5c71d0;
+    --ganyucolor: #43b7ea;
+    --xiangyucolor: #b62a23;
+    --minyucolor: #086d8c;
+    --pinghuacolor: #ae41bd;
+    --kejiahuacolor: #97fb65;
+    --yueyucolor: #89bc22;
 }
 
 /*全局字体*/
@@ -135,7 +146,7 @@ header {
     .sidebar ul {
         list-style: none none;
         margin: 2px;
-        background-color: var(--themecolor1);
+        background-color: var(--backgroungcolor);
         border: 2px solid var(--themecolor3);
         border-left: none;
         border-bottom-right-radius: 2px;
@@ -156,8 +167,44 @@ header {
             border: none;
         }
 
-        .sidebar li:hover {
-            background-color: var(--themecolor2);
+        .sidebar li:nth-child(1):hover {
+            background-color: var(--guanhuacolor);
+        }
+
+        .sidebar li:nth-child(2):hover {
+            background-color: var(--yueyucolor);
+        }
+
+        .sidebar li:nth-child(3):hover {
+            background-color: var(--jinyucolor);
+        }
+
+        .sidebar li:nth-child(4):hover {
+            background-color: var(--wuyucolor);
+        }
+
+        .sidebar li:nth-child(5):hover {
+            background-color: var(--huiyucolor);
+        }
+
+        .sidebar li:nth-child(6):hover {
+            background-color: var(--ganyucolor);
+        }
+
+        .sidebar li:nth-child(7):hover {
+            background-color: var(--xiangyucolor);
+        }
+
+        .sidebar li:nth-child(8):hover {
+            background-color: var(--minyucolor);
+        }
+
+        .sidebar li:nth-child(9):hover {
+            background-color: var(--pinghuacolor);
+        }
+
+        .sidebar li:nth-child(10):hover {
+            background-color: var(--kejiahuacolor);
         }
 
     .sidebar ul li a {
@@ -181,7 +228,7 @@ header {
         背景图太丑，要更换
         background: url(../image/map.png) repeat;
     */
-    background-color: #ecececec;
+    background-color: var(--backgroungcolor);
     background-size: 648px;
     margin-top: 38px;
     margin-left: 118px;
