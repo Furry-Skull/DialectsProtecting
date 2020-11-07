@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 from flask import render_template, request, session, redirect, url_for, abort
 from DialectsProtecting.user import user
 from DialectsProtecting.database import db

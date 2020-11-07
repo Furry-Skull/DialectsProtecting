@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 #用户相关操作，主要管理session
 
 from flask import session
