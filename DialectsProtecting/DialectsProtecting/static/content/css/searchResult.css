@@ -1,3 +1,9 @@
 .search-audio-box {
+    position: relative;
     display: inline-block;
+    border: 2px solid black;
+    border-left: 15px solid var(--themecolor1);
+    width: 95%;
+    height: 90px;
+    overflow-y: scroll;
 }

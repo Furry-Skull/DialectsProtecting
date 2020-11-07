@@ -81,11 +81,14 @@
     <Folder Include="DialectsProtecting\static\content\css\" />
     <Folder Include="DialectsProtecting\static\content\image\" />
     <Folder Include="DialectsProtecting\static\scripts\" />
+    <Folder Include="DialectsProtecting\static\uploads\" />
     <Folder Include="DialectsProtecting\templates\" />
     <Folder Include="DialectsProtecting\user\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DialectsProtecting\static\content\css\audioDetail.css" />
     <Content Include="DialectsProtecting\static\content\css\basic.css" />
+    <Content Include="DialectsProtecting\static\content\css\searchResult.css" />
     <Content Include="DialectsProtecting\static\content\css\user.css" />
     <Content Include="DialectsProtecting\static\content\image\map.png">
       <Publish>False</Publish>

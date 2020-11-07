@@ -11,29 +11,31 @@
 <body>
     {% include 'navigate.html' %}
     {% include 'sidebar.html' %}
-    {# 需要搜索条件 #}
+    {# 可能需要搜索条件 #}
 
     {# 搜索记录呈现 #}
     <div class="content-box">
         <div class="heading">搜索结果</div>
         <div class="search-audio-box">
-
-                {% for item in records %}
-                    <h2>{{ item.title }}</h2>
-                    {{ item.language }}
-                    {{ item.location }}
-                    {% for tag in item.tags %}
-                        {{ tag }}
-                    {% endfor %}
-                    <br/>
-                    {{ item.translation }}
-                    <br/>
-                    {{ item.userName }}
-                    <br />
-                    <audio controls>
-                        <source src="{{ item.audioURL }}" type="audio/mpeg">
-                    </audio>
-                {% endfor %}
+            {% for item in records %}
+            <h2>{{ item.title }}</h2>
+            {{ item.language }}
+            <br />
+            {{ item.location }}
+            <br />
+            {% for tag in item.tags %}
+            {{ tag }}
+            <br />
+            {% endfor %}
+            <br />
+            {{ item.translation }}
+            <br />
+            {{ item.userName }}
+            <br />
+            <audio controls>
+                <source src="{{ item.audioURL }}" type="audio/mpeg">
+            </audio>
+            {% endfor %}
         </div>
     </div>
     {% include 'footer.html' %}
