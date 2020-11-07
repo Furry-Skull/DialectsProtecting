@@ -30,6 +30,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DialectsProtecting\config.py" />
     <Compile Include="DialectsProtecting\database\Database.py">
       <SubType>Code</SubType>
     </Compile>
@@ -75,17 +76,19 @@
     <Folder Include="DialectsProtecting\my\" />
     <Folder Include="DialectsProtecting\search\" />
     <Folder Include="DialectsProtecting\static\content\fonts\" />
-    <Folder Include="DialectsProtecting\uploads\" />
     <Folder Include="DialectsProtecting\static\" />
     <Folder Include="DialectsProtecting\static\content\" />
     <Folder Include="DialectsProtecting\static\content\css\" />
     <Folder Include="DialectsProtecting\static\content\image\" />
     <Folder Include="DialectsProtecting\static\scripts\" />
+    <Folder Include="DialectsProtecting\static\uploads\" />
     <Folder Include="DialectsProtecting\templates\" />
     <Folder Include="DialectsProtecting\user\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DialectsProtecting\static\content\css\audioDetail.css" />
     <Content Include="DialectsProtecting\static\content\css\basic.css" />
+    <Content Include="DialectsProtecting\static\content\css\searchResult.css" />
     <Content Include="DialectsProtecting\static\content\css\user.css" />
     <Content Include="DialectsProtecting\static\content\image\map.png">
       <Publish>False</Publish>
@@ -103,7 +106,7 @@
     <Content Include="DialectsProtecting\templates\home.html" />
     <Content Include="DialectsProtecting\templates\searchResult.html" />
     <Content Include="DialectsProtecting\templates\sidebar.html" />
-    <Content Include="DialectsProtecting\templates\testUpload.html" />
+    <Content Include="DialectsProtecting\templates\upload.html" />
     <Content Include="DialectsProtecting\templates\user.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />

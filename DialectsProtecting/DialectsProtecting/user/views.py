@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 from flask import render_template, request, session, redirect, url_for, abort
 from DialectsProtecting.user import user
 from DialectsProtecting.database import db
@@ -25,6 +27,14 @@ def loginPage():
     elif request.method == 'GET':
         #访问登录页面
         return render_template('/login.html', state = 2)
+
+#登出界面
+@user.route('/logout')
+def logout():
+    #提交登出请求
+    sessionLogout()
+    #回到主页
+    return redirect('/home')
 
 #注册界面
 @user.route('/register', methods=['GET', 'POST'])

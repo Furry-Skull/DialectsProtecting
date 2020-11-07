@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 from flask import render_template, request, redirect
 
 from DialectsProtecting.search import search

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 '''搜索表达式的翻译，分割和执行'''
 
 '''
@@ -72,4 +74,10 @@ def executeSearch(expr):
                 #无匹配项，返回None
                 return None
 
-    return db.searchDialect(searchTranslations, searchLangs, searchLoc, searchPublishers, searchTags)
+    #返回搜索结果
+    return db.searchDialect(
+        translations = searchTranslations, 
+        languages = searchLangs, 
+        locations = searchLoc, 
+        publishers = searchPublishers, 
+        tags = searchTags)
