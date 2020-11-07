@@ -85,7 +85,9 @@
     <Folder Include="DialectsProtecting\user\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DialectsProtecting\static\content\css\audioDetail.css" />
     <Content Include="DialectsProtecting\static\content\css\basic.css" />
+    <Content Include="DialectsProtecting\static\content\css\searchResult.css" />
     <Content Include="DialectsProtecting\static\content\css\user.css" />
     <Content Include="DialectsProtecting\static\content\image\map.png">
       <Publish>False</Publish>

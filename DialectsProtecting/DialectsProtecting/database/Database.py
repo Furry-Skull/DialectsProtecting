@@ -167,8 +167,6 @@ class Database:
         return 1
 
 
-    #############将这条删除，以下为接口，提供这些接口的实现##############
-
     #按照条件搜索方言，返回Record类数组
     def searchDialect(self, translations=[], languages=[], locations=[], publishers=[], tags=[]):
         results = []

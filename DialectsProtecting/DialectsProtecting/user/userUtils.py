@@ -13,6 +13,10 @@ def sessionLogin(username, password):
     session['username'] = username
     session['password'] = password
 
+#登出账户，清除session记录
+def sessionLogout():
+    session.pop('username', None)
+
 #获得当前登录的用户
 def getUser():
     if 'username' in session:
