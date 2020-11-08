@@ -16,8 +16,10 @@
 }
 
     .search-audio-box h2 {
-        margin: 10px;
-        width: 40%;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .search-audio-box .info-box {
@@ -30,30 +32,34 @@
 
         .search-audio-box a {
             text-decoration: none;
+            color: black;
+            font-family: FZQKBYSJT;
         }
 
         .search-audio-box .info-box .lang {
-            margin-bottom: 5px;
+            margin: 5px;
         }
 
         .search-audio-box .info-box .location {
-            margin-bottom: 5px;
+            margin: 5px;
         }
 
         .search-audio-box .info-box .language-family {
-            margin-bottom: 5px;
+            margin: 5px;
         }
 
-        .search-audio-box .info-box .tag {
-            display: inline-block;
-            border: 1px solid;
-            border-radius: 15px;
-            padding-left: 10px;
-            padding-right: 10px;
-            margin-top: 10px;
-            background-color: var(--backgroungcolor);
-            margin-right: 10px;
-        }
+    .search-audio-box .info-box .tag {
+        display: inline-block;
+        border: 1px solid;
+        border-radius: 15px;
+        padding-left: 6px;
+        padding-right: 6px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        margin-top: 5px;
+        background-color: var(--backgroungcolor);
+        margin-right: 5px;
+    }
 
     .search-audio-box .audio-box {
         display: inline-block;
