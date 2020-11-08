@@ -204,6 +204,7 @@ class Database:
             return temp
         conn.close()
 
+    #根据搜索条件查询记录
     def searchDialect(self, translations=[], languages=[], locations=[], publishers=[], tags=[], languageFamily=[]):
         if len(languageFamily)==0:
             return self.__searchDialectPrivate(translations,languages,locations,publishers,tags)
@@ -297,17 +298,28 @@ class Database:
                 results.append(record)
         return results
 
-    #判断给定字符串是否为一个地域
-    def isLocation(self, location):
+
+    #判断给定字符串是否为一种语系
+    def isLanguageFamily(self, languageFamily):
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        sql_select = 'select languageFamily from lang where languageFamily = "' + languageFamily + '";'
+        c.execute(sql_select)
+        for row in c:
+            conn.close()
+            return True
+        conn.close()
         return False
 
     #判断给定字符串是否为一种语言
     def isLanguage(self, language):
-        if language == '官话' or language == '晋语' or language == '吴语' or language == '徽语' or language == '赣语' or language == '湘语' or language == '闽语' or language == '平话' or language == '客家话':
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        sql_select = 'select language from lang where language = "' + language + '";'
+        c.execute(sql_select)
+        for row in c:
+            conn.close()
             return True
-        return False
-
-    #判断给定字符串是否为一个标签
-    def isTag(self, tag):
+        conn.close()
         return False
 
