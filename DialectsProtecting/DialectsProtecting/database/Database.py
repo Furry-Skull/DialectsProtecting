@@ -259,6 +259,8 @@ class Database:
                 row_tag.append(value)
             #sql_select1 = '''select languageFamily from lang where language = row[4];'''
             language_Family=self.lll(row[4])
+            #前端测试用，暂时不要删
+            #language_Family='官话'
             if(language_Family!=None):      
                 record = Record(userName = row[0], 
                     audioURL = row[1], 
@@ -283,6 +285,7 @@ class Database:
         if language == '官话' or language == '晋语' or language == '吴语' or language == '徽语' or language == '赣语' or language == '湘语' or language == '闽语' or language == '平话' or language == '客家话':
             return True
         return False
+
     #判断给定字符串是否为一个标签
     def isTag(self, tag):
         return False
