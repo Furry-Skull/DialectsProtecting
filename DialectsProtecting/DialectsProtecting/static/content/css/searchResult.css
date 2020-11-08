@@ -1,11 +1,15 @@
 .search-audio-box {
     position: relative;
     display: inline-block;
-    border: 2px solid black;
+    /*
+        border: 2px solid black;
+    */
     border-left: 15px solid black;
     width: 95%;
     height: 180px;
-    /*overflow-y: scroll;*/
+    /*
+        overflow-y: scroll;
+    */
     margin-right: 20px;
     margin-bottom: 20px;
     padding-left: 20px;
@@ -18,27 +22,37 @@
 
     .search-audio-box .info-box {
         display: inline-block;
-        height: 120px;
-        width: 40%;
+        height: 140px;
+        width: 450px;
         padding-left: 10px;
         margin-right: 20px;
     }
 
+        .search-audio-box a {
+            text-decoration: none;
+        }
+
         .search-audio-box .info-box .lang {
+            margin-bottom: 5px;
         }
 
         .search-audio-box .info-box .location {
+            margin-bottom: 5px;
         }
 
         .search-audio-box .info-box .language-family {
+            margin-bottom: 5px;
         }
 
         .search-audio-box .info-box .tag {
             display: inline-block;
+            border: 1px solid;
+            border-radius: 15px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-top: 10px;
+            background-color: var(--backgroungcolor);
             margin-right: 10px;
-        }
-
-        .search-audio-box .info-box .username {
         }
 
     .search-audio-box .audio-box {
@@ -46,10 +60,35 @@
         top: 10px;
         position: absolute;
         bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 400px;
+        height: 40px;
     }
 
-        .search-audio-box .audio-box .translation {
+        .search-audio-box .audio-box audio {
+            position: absolute;
+            width: 80%;
+            left: 10%;
         }
 
-        .search-audio-box .audio-box audio {
-        }
+    .search-audio-box .translation {
+        display: inline-block;
+        font-family: FZQKBYSJT;
+        position: absolute;
+        margin: 10px;
+        width: 500px;
+        height: 80px;
+        border: 2px solid black;
+        border-radius: 2px;
+        padding: 10px;
+        top: 20px;
+    }
+
+    .search-audio-box .username {
+        display: inline-block;
+        margin: 10px;
+        bottom: 0;
+        position: absolute;
+        right: 0;
+    }

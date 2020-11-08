@@ -146,7 +146,7 @@ header {
     .sidebar ul {
         list-style: none none;
         margin: 2px;
-        background-color: var(--backgroungcolor);
+        background-color: white;
         border: 2px solid var(--themecolor3);
         border-left: none;
         border-bottom-right-radius: 2px;
@@ -228,7 +228,7 @@ header {
         ±³¾°Í¼Ì«³ó£¬Òª¸ü»»
         background: url(../image/map.png) repeat;
     */
-    background-color: var(--backgroungcolor);
+    background-color: white;
     background-size: 648px;
     margin-top: 38px;
     margin-left: 118px;
