@@ -18,6 +18,8 @@ app.register_blueprint(search, url_prefix = '/search')
 @app.route('/')
 @app.route('/home')
 def home():
+    #方言语系的对应关系请在这里添加
+    db.insertLanguage('吴语','杭州话')
 
     #获取用户状态，显示页面
     return render_template('home.html')

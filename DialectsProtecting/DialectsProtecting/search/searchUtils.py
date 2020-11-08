@@ -4,7 +4,7 @@
 
 '''
 搜索表达式，形式为
-translation=aaa&lang=xx&loc=yy&publisher=ddd&tag=bb&tag=cc
+translation=aaa&lang=xx&langFamily=ttt&loc=yy&publisher=ddd&tag=bb&tag=cc
 对于lang, loc, publisher（语言，地区和发布者）各自来说，有多个条件意味着多选，是或的关系
 对于translation和tag来说，多个条件是与的关系
 不同key表达式之间都是与的关系
@@ -24,12 +24,10 @@ def keywords2expression(keywords):
     for index, keyword in enumerate(keywordsArray):
         if db.isLanguage(keyword):
             expr += 'lang=' + keyword
-        elif db.isLocation(keyword):
-            expr += 'loc=' + keyword
-        elif db.isTag(keyword):
-            expr += 'tag=' + keyword
+        elif db.isLanguageFamily(keyword):
+            expr += 'langFamily=' + keyword
         else:
-            #此处不会将发布者自动转换为搜索字符串，而是会被视为翻译，因为发布者名字过多
+            #其他关键词会被视为翻译
             expr += 'translation=' + keyword
 
         if index < len(keywordsArray) - 1:
@@ -44,6 +42,7 @@ def keywords2expression(keywords):
 def executeSearch(expr):
     searchTranslations = []
     searchLangs = []
+    searchLangFamilies = []
     searchLoc = []
     searchPublishers = []
     searchTags = []
@@ -64,6 +63,8 @@ def executeSearch(expr):
                 searchTranslations.append(value)
             elif key == 'lang':
                 searchLangs.append(value)
+            elif key == 'langFamily':
+                searchLangFamilies.append(value)
             elif key == 'loc':
                 searchLoc.append(value)
             elif key == 'publisher':
@@ -78,6 +79,7 @@ def executeSearch(expr):
     return db.searchDialect(
         translations = searchTranslations, 
         languages = searchLangs, 
+        languageFamily = searchLangFamilies,
         locations = searchLoc, 
         publishers = searchPublishers, 
         tags = searchTags)
