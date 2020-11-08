@@ -283,8 +283,6 @@ class Database:
                 row_tag.append(value)
             #sql_select1 = '''select languageFamily from lang where language = row[4];'''
             language_Family=self.__lll(row[4])
-            #前端测试用
-            language_Family="官话"
             if(language_Family!=None):      
                 record = Record(userName = row[0], 
                     audioURL = row[1], 
