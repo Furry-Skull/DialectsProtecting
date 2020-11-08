@@ -14,7 +14,9 @@ body {
     background-attachment: fixed;
     */
     /*全局颜色*/
-    --backgroungcolor: #ededed;
+    --backgroungcolor: #fbfbfb;
+    --cardbackgroundcolor: #ffffff;
+    --shadowcolor: #727272;
     --themecolor0: #114514;
     --themecolor1: #89b034;
     --themecolor3: #34747d;
@@ -146,7 +148,7 @@ header {
     .sidebar ul {
         list-style: none none;
         margin: 2px;
-        background-color: white;
+        background-color: var(--backgroungcolor);
         border: 2px solid var(--themecolor3);
         border-left: none;
         border-bottom-right-radius: 2px;
@@ -228,7 +230,7 @@ header {
         背景图太丑，要更换
         background: url(../image/map.png) repeat;
     */
-    background-color: white;
+    background-color: var(--backgroungcolor);
     background-size: 648px;
     margin-top: 38px;
     margin-left: 118px;

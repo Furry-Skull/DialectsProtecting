@@ -13,6 +13,8 @@
     margin-right: 20px;
     margin-bottom: 20px;
     padding-left: 20px;
+    background-color: var(--cardbackgroundcolor);
+    box-shadow: 3px 3px 3px var(--shadowcolor);
 }
 
     .search-audio-box h2 {
@@ -83,7 +85,7 @@
         font-family: FZQKBYSJT;
         position: absolute;
         margin: 10px;
-        width: 500px;
+        width: 450px;
         height: 80px;
         border: 2px solid black;
         border-radius: 2px;

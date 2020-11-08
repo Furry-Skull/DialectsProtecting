@@ -7,15 +7,14 @@
     <!--头格式-->
     <link rel="stylesheet" href="../static/content/css/basic.css" />
     <link rel="stylesheet" href="../static/content/css/searchResult.css" />
-</head>s
+</head>
 <body>
     {% include 'navigate.html' %}
     {% include 'sidebar.html' %}
     {# 可能需要搜索条件 #}
-
     {# 搜索记录呈现 #}
     <div class="content-box">
-        <div class="heading">"搜索条件"的搜索结果</div>
+        <div class="heading">"搜索结果</div>
         {% for item in records %}
         <div class="search-audio-box">
             <h2>{{ item.title }}</h2>
@@ -24,7 +23,6 @@
                     <a href="/search/lang={{ item.language }}">{{ item.language }}</a>
                 </div>
                 <div class="language-family">
-                    <!--这里还搜索不了-->
                     <a href="/search/langFamily={{ item.languageFamily }}">{{ item.languageFamily }}</a>
                 </div>
                 <div class="location">
