@@ -36,7 +36,13 @@ def uploadAudio():
     if f == None or title == '' or loc == '' or lang == '':
         return
 
-    tags = [tag1, tag2, tag3]
+    tags = []
+    if tag1 != '':
+        tags.append(tag1)
+    if tag2 != '':
+        tags.append(tag2)
+    if tag3 != '':
+        tags.append(tag3)
 
     #发布人为当前账户
     publisher = getUser()
