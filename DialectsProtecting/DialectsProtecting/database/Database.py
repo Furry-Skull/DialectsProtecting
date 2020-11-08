@@ -193,17 +193,40 @@ class Database:
         return 1
 
 
-    def lll(self, language):
+    def __lll(self, language):
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
         sql_select1 = '''select languageFamily from lang where language = ?;'''
         c.execute(sql_select1,(language,))  
         for row in c:
-            return row[0]
+            temp = row[0]
+            conn.close()
+            return temp
         conn.close()
 
+    def searchDialect(self, translations=[], languages=[], locations=[], publishers=[], tags=[], languageFamily=[]):
+        if len(languageFamily)==0:
+            return self.__searchDialectPrivate(translations,languages,locations,publishers,tags)
+        else :
+            langStr='languageFamily = "'+languageFamily[0]+'"'
+            for index in range(len(tags)):
+                if index>0:
+                    langStr=langStr+'or languageFamily = "'+languageFamily[index]+'"'
+            conn = sqlite3.connect('database.db')
+            c = conn.cursor()
+            sql_select1 = '''select language from lang where ''' + langStr + ''';'''
+            c.execute(sql_select1)
+            for row in c:
+                if not row[0] in languages:
+                    languages.append(row[0])
+            if len(translations)==0 and len(languages)==0 and len(locations)==0 and len(publishers)==0 and len(tags)==0:
+                return []
+            return self.__searchDialectPrivate(translations,languages,locations,publishers,tags)
+
+
+
     #按照条件搜索方言，返回Record类数组
-    def searchDialect(self, translations=[], languages=[], locations=[], publishers=[], tags=[]):
+    def __searchDialectPrivate(self, translations=[], languages=[], locations=[], publishers=[], tags=[]):
         results = []
         #示例创建record的方法
         conn = sqlite3.connect('database.db')
@@ -258,9 +281,7 @@ class Database:
             for value in strlist:
                 row_tag.append(value)
             #sql_select1 = '''select languageFamily from lang where language = row[4];'''
-            language_Family=self.lll(row[4])
-            #前端测试用，暂时不要删
-            #language_Family='官话'
+            language_Family=self.__lll(row[4])
             if(language_Family!=None):      
                 record = Record(userName = row[0], 
                     audioURL = row[1], 
