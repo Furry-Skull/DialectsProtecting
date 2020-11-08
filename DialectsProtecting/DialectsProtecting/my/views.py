@@ -33,7 +33,9 @@ def uploadAudio():
     tag1 = request.form['标签1']
     tag2 = request.form['标签2']
     tag3 = request.form['标签3']
-    if f == None or title == '' or loc == '' or lang == '':
+
+    #必要信息为空，表单无效
+    if f == None or f.filename == '' or title == '' or lang == '':
         return
 
     tags = []

@@ -13,17 +13,36 @@
         <div class="heading">
             上传录音
         </div>
-        <form action="/my/uploadform" method="post" enctype="multipart/form-data">
-            <p>标题：<input type="text" name="标题"></p>
+        <script>
+            function checkUpload() {
+                document.getElementById('hint').innerHTML = ''
+                if (title.value == '') {
+                    document.getElementById('hint').innerHTML = '标题不能为空'
+                    return false;
+                }
+                if (lang.value == '') {
+                    document.getElementById('hint').innerHTML = '语言不能为空'
+                    return false;
+                }
+                if (file.value == '') {
+                    document.getElementById('hint').innerHTML = '文件不能为空'
+                    return false;
+                }
+                return true;
+            }
+        </script>
+        <form action="/my/uploadform" method="post" enctype="multipart/form-data" onsubmit="return checkUpload()">
+            <p>标题：<input type="text" name="标题" id="title"></p>
             <p>翻译：<input type="text" name="翻译"></p>
             <p>地域：<input type="text" name="地域"></p>
-            <p>语言：<input type="text" name="语言"></p>
+            <p>语言：<input type="text" name="语言" id="lang"></p>
             <p>标签1：<input type="text" name="标签1"></p>
             <p>标签2：<input type="text" name="标签2"></p>
             <p>标签3：<input type="text" name="标签3"></p>
-            <p>上传文件(没有限定文件类型，不过尽量mp3)：<input type="file" name="record_file"></p>
+            <p>上传文件(没有限定文件类型，不过尽量mp3)：<input type="file" name="record_file" id="file"></p>
             <p><input type="submit" value="submit"></p>
         </form>
+        <p id="hint"></p>
     </div>
     {% include 'footer.html' %}
 </body>
