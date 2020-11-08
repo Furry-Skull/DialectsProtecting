@@ -12,13 +12,13 @@
     position: fixed;
     left: 1300px;
     bottom: 100px; 
-    height: 40px;
-    width: 40px;
+    height: 38px;
+    width: 38px;
     background-color: white;
     border: 2px solid black;
 }
-.back a{
-
+.top_word{
+    padding-left: 9px;
 }
 .build {
     padding-top: 50px;
@@ -83,9 +83,54 @@ a{
 }
 .up{
     width: 100%;
-    height: 200px;
-    border: 2px solid green;
+    height: 140px;
 
+}
+.fav_name {
+    font-size: 20px;
+    line-height: 20px;
+    padding-left: 30px;
+    padding-top: 30px;
+    height: 20px;
+}
+.fname {
+    float: left;
+}
+.change_fav_name{
+    margin-left: 10px;
+    float: left;
+}
+.user_name {
+    font-size: 20px;
+    line-height: 20px;
+    padding-left: 30px;
+    padding-top: 10px;
+    height: 20px;
+}
+.user_btn {
+    padding-left: 30px;
+    padding-top: 10px;
+}
+.upload{
+    float: left;
+    height: 20px;
+    width: 40px;
+    border: 1px solid black;
+}
+.upload a {
+        line-height: 20px;
+        padding-left: 3px;
+}
+.logout {
+    float: left;
+    height: 20px;
+    width: 40px;
+    margin-left: 10px;
+    border: 1px solid black;
+}
+.logout a {
+    line-height: 20px;
+    padding-left: 3px;
 }
 .sub h3{
     margin: 0;
@@ -149,20 +194,20 @@ a{
     line-height: 40px;
     padding-left: 10px;
 }
-.sub ul {
+.sub form ul {
     list-style: none none;
     margin: 0;
     position: relative;
     padding-left: 0;
 }
-.sub ul li{
+.sub form ul li{
     height: 30px;
     font-size: 16px;
 }
-.sub ul li:nth-child(odd){
+.sub form ul li:nth-child(odd){
     background-color: #bbbbbb;
 }
-.sub input[type=submit]{
+.sub form input[type=submit]{
     background-color: transparent;
 }
 .build input[type=submit] {

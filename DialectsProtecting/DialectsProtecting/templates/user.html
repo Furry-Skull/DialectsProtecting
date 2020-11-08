@@ -10,17 +10,19 @@
 </head>
 <body>
     {% include 'navigate.html' %}
-    {% include 'sidebar.html' %}
     <div class="w">
         <div class="yonghu">
             <div class="back">
-                <a href="#top">回到顶部</a>
+                <a href="#top" class="top_word">TO<br />&nbsp;TOP</a>
             </div>
             <a name="top"></a><br />
             <div class="fav">
                 <div class="build">
                     <span class="my_fav">我的收藏夹</span>
-                    <input type="submit" class="new" value="新建" name="new" />
+                    <!--新建收藏夹按钮-->
+                    <form action="new_fav" method="post">
+                        <input type="submit" class="new" value="新建" name="new" />
+                    </form>
                 </div>
                 <ul>
                     <li><a href="">我的上传</a></li>
@@ -29,8 +31,23 @@
             </div>
             <div class="sub">
                 <div class="up">
-                    <a href="upload">上传</a><br/>
-                    <a href="/user/logout">登出</a>
+                    <div class="fav_name">
+                        <span class="fname">收藏夹名</span>
+                        <form action="change_fav_name" method="post">
+                            <input type="submit" class="change_fav_name" value="更改名称" name="change" />
+                        </form>
+                    </div>
+                    <div class="user_name">
+                        用户名
+                    </div>
+                    <div class="user_btn">
+                        <div class="upload">
+                            <a href="upload">上传</a>
+                        </div>
+                        <div class="logout">
+                            <a href="/user/logout">登出</a>
+                        </div>
+                    </div>
                 </div>
                 <h3>
                     <span class="aud">音频列表</span>
@@ -42,53 +59,56 @@
                     <span class="tag">标签</span>
                     <span class="act">操作</span>
                 </div>
-                <ul>
-                    <li>
-                        <!--序号-->
-                        <span class="ser">1</span>
-                        <!--播放按钮-->
-                        <input type="submit" class="stop" value="" name="stop" />
-                        <!--标题-->
-                        <span class="title"><a href="">喜羊羊与灰太狼</a></span>
-                        <!--时长-->
-                        <span class="dur">3:30</span>
-                        <!--标签-->
-                        <span class="lab"><a href="">儿歌</a> <a href="">动画</a></span>
-                        <!--删除按钮-->
-                        <input type="submit" class="delete" value="" name="delete" />
-                        <!--下载按钮-->
-                        <input type="submit" class="down" value="" name="down" />
-                    </li>
-                    <li>
-                        <span class="ser">2</span>
-                        <input type="submit" class="play" value="" name="play" />
-                        <span class="title"><a href="">最炫民族风</a></span>
-                        <span class="dur">3:00</span>
-                        <span class="lab"><a href="">流行</a></span>
-                        <input type="submit" class="delete" value="" name="delete" />
-                        <input type="submit" class="down" value="" name="down" />
-                    </li>
-                    <li>
-                        <span class="ser">3</span>
-                        <input type="submit" class="play" value="" name="play" />
-                        <span class="title"><a href="">未闻花名</a></span>
-                        <span class="dur">4:30</span>
-                        <span class="lab"><a href="">日语</a> <a href="">动漫</a> <a href="">催泪</a></span>
-                        <input type="submit" class="delete" value="" name="delete" />
-                        <input type="submit" class="down" value="" name="down" />
-                    </li>
-                    <li>
-                        <span class="ser">4</span>
-                        <input type="submit" class="play" value="" name="play" />
-                        <span class="title"><a href="">茉莉花</a></span>
-                        <span class="dur">3:40</span>
-                        <span class="lab"><a href="">民族</a> <a href="">流行</a></span>
-                        <input type="submit" class="delete" value="" name="delete" />
-                        <input type="submit" class="down" value="" name="down" />
-                    </li>
-                </ul>
+                <form action="user_action" method="post">
+                    <ul>
+                        <li>
+                            <!--序号-->
+                            <span class="ser">1</span>
+                            <!--播放按钮-->
+                            <input type="submit" class="stop" value="" name="stop" />
+                            <!--标题-->
+                            <span class="title"><a href="">喜羊羊与灰太狼</a></span>
+                            <!--时长-->
+                            <span class="dur">3:30</span>
+                            <!--标签-->
+                            <span class="lab"><a href="">儿歌</a> <a href="">动画</a></span>
+                            <!--删除按钮-->
+                            <input type="submit" class="delete" value="" name="delete" />
+                            <!--下载按钮-->
+                            <input type="submit" class="down" value="" name="down" />
+                        </li>
+                        <li>
+                            <span class="ser">2</span>
+                            <input type="submit" class="play" value="" name="play" />
+                            <span class="title"><a href="">最炫民族风</a></span>
+                            <span class="dur">3:00</span>
+                            <span class="lab"><a href="">流行</a></span>
+                            <input type="submit" class="delete" value="" name="delete" />
+                            <input type="submit" class="down" value="" name="down" />
+                        </li>
+                        <li>
+                            <span class="ser">3</span>
+                            <input type="submit" class="play" value="" name="play" />
+                            <span class="title"><a href="">未闻花名</a></span>
+                            <span class="dur">4:30</span>
+                            <span class="lab"><a href="">日语</a> <a href="">动漫</a> <a href="">催泪</a></span>
+                            <input type="submit" class="delete" value="" name="delete" />
+                            <input type="submit" class="down" value="" name="down" />
+                        </li>
+                        <li>
+                            <span class="ser">4</span>
+                            <input type="submit" class="play" value="" name="play" />
+                            <span class="title"><a href="">茉莉花</a></span>
+                            <span class="dur">3:40</span>
+                            <span class="lab"><a href="">民族</a> <a href="">流行</a></span>
+                            <input type="submit" class="delete" value="" name="delete" />
+                            <input type="submit" class="down" value="" name="down" />
+                        </li>
+                    </ul>
+                </form>
             </div>
         </div>
     </div>
+    {% include 'footer.html' %}
 </body>
 </html>
