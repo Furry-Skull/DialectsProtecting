@@ -9,6 +9,9 @@ from DialectsProtecting.config import *
 #音频详情展示页面
 @detail.route('/' + UPLOAD_PATH + '/<user>/<url>')
 def audioDetail(user, url):
+    #暂时废弃，直接进入404页面
+    return render_template('page404.html')
+
     audioURL = '/' + UPLOAD_PATH + '/' + user + '/' + url
     record = db.searchByURL(audioURL)
     if record == None:

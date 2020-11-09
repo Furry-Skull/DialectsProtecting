@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <title>搜索结果</title>
     <!--头格式-->
-    <link rel="stylesheet" href="/../static/content/css/basic.css" />
-    <link rel="stylesheet" href="/../static/content/css/searchResult.css" />
+    <link rel="stylesheet" href="/static/content/css/basic.css" />
+    <link rel="stylesheet" href="/static/content/css/searchResult.css" />
 </head>
 <body>
     {% include 'navigate.html' %}
@@ -17,15 +17,17 @@
         <div class="heading">搜索结果</div>
         {% for item in records %}
         <div class="search-audio-box">
-            <h2><a href="/detail{{ item.audioURL }}">{{ item.title }}</a></h2>
+            <h2>{{ item.title }}</h2>
             <div class="info-box">
-                <div class="lang">
+                <span class="lang">
+                    <img src="/static/content/image/language.png" />
                     <a href="/search/lang={{ item.language }}">{{ item.language }}</a>
-                </div>
-                <div class="language-family">
+                </span>
+                <span class="language-family">
                     <a href="/search/langFamily={{ item.languageFamily }}">{{ item.languageFamily }}</a>
-                </div>
+                </span>
                 <div class="location">
+                    <img src="/static/content/image/location.png" />
                     <a href="/search/loc={{ item.location }}">{{ item.location }}</a>
                 </div>
                 {% for tag in item.tags %}
@@ -34,20 +36,19 @@
                 </div>
                 {% endfor %}
             </div>
-            <!--
-            <div class="audio-box">
-                <audio controls>
-                    <source src="{{ item.audioURL }}" type="audio/mpeg">
-                </audio>
-            </div>
-            -->
             <div class="translation">
                 {{ item.translation }}
             </div>
             <div class="username">
                 上传：<a href="/search/publisher={{ item.userName }}">{{ item.userName }}</a>
             </div>
+            <div class="audio-box">
+                <audio controls>
+                    <source src="{{ item.audioURL }}" type="audio/mpeg">
+                </audio>
+            </div>
         </div>
+
         {% endfor %}
     </div>
     {% include 'footer.html' %}
