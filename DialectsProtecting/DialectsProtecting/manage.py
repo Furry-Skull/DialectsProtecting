@@ -6,6 +6,7 @@ from DialectsProtecting import app
 from DialectsProtecting.user import user
 from DialectsProtecting.my import my
 from DialectsProtecting.search import search
+from DialectsProtecting.detail import detail
 from DialectsProtecting.database import db
 
 
@@ -13,6 +14,7 @@ from DialectsProtecting.database import db
 app.register_blueprint(user, url_prefix = '/user')
 app.register_blueprint(my, url_prefix = '/my')
 app.register_blueprint(search, url_prefix = '/search')
+app.register_blueprint(detail, url_prefix = '/detail')
 
 #主页
 @app.route('/')

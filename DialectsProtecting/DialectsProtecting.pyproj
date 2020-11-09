@@ -38,6 +38,12 @@
     <Compile Include="DialectsProtecting\database\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DialectsProtecting\detail\views.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialectsProtecting\detail\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DialectsProtecting\manage.py">
       <SubType>Code</SubType>
     </Compile>
@@ -73,6 +79,7 @@
   <ItemGroup>
     <Folder Include="DialectsProtecting\" />
     <Folder Include="DialectsProtecting\database\" />
+    <Folder Include="DialectsProtecting\detail\" />
     <Folder Include="DialectsProtecting\my\" />
     <Folder Include="DialectsProtecting\search\" />
     <Folder Include="DialectsProtecting\static\content\fonts\" />

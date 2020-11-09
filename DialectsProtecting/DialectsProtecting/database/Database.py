@@ -115,6 +115,34 @@ class Database:
         conn.close()
         return 1
 
+    #根据url搜索指定记录
+    def searchByURL(self, audioURL):
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        sql_select = "select * from dialect where audioURL = ?;"
+        c.execute(sql_select,(audioURL,)) 
+        for row in c:
+            language_Family=self.__lll(row[4])
+            row_tag = []
+            strlist = row[6].split(' ')
+            for value in strlist:
+                row_tag.append(value)
+            record = Record(userName = row[0], 
+                audioURL = row[1], 
+                translation = row[2], 
+                location = row[3],
+                language = row[4],
+                title = row[5],
+                tags = row_tag,
+                like = row[7],
+                browse = row[8],
+                languageFamily = language_Family
+                )
+            conn.close()
+            return record
+        conn.close()
+        return None
+
     #点赞功能是否需要实现？评论功能呢？
     def likeDialect(self, audioURL):
         conn = sqlite3.connect('database.db')
