@@ -18,33 +18,43 @@
     {% include 'navigate.html' %}
     {% include 'sidebar.html' %}
     <div class="content-box">
+        {# 传入record #}
         <div class="heading">
-            {% if audioName==None %}
-            这里是音频名
-            {% else %}
-            {{ audioName }}
-            {% endif %}
+            音频名：
+            {{ record.title }}
         </div>
         <div class="content">
             <div class="heading">音频</div>
             <div class="audio-detail">
-                {% if audioURL==None %}
                 <audio controls>
-                    <source src="{{ audioURL }}" type="audio/mpeg">
+                    <source src="{{ record.audioURL }}" type="audio/mpeg">
                 </audio>
-                {% endif %}
-                <div class="heading">方言种类</div>
-                <p>这里是方言种类</p>
+                <div class="heading">语言</div>
+                <div class="lang">
+                    <a href="/search/lang={{ record.language }}">{{ record.language }}</a>
+                </div>
+                <div class="heading">语系</div>
+                <div class="language-family">
+                    <a href="/search/langFamily={{ record.languageFamily }}">{{ record.languageFamily }}</a>
+                </div>
                 <div class="heading">地域</div>
-                <p>这里是地域</p>
-                <div class="heading">文字翻译</div>
-                <p>这里是文字翻译</p>
-                <div class="heading">TAG</div>
-                <p>这里是TAG</p>
+                <div class="location">
+                    <a href="/search/loc={{ record.location }}">{{ record.location }}</a>
+                </div>
+                <div class="heading">翻译</div>
+                <div class="translation">
+                    {{ record.translation }}
+                </div>
+                <div class="heading">tags</div>
+                {% for tag in record.tags %}
+                <div class="tag">
+                    <a href="/search/tag={{ tag }}">{{ tag }}</a>
+                </div>
+                {% endfor %}
                 <div class="heading">上传者</div>
-                <p>这里是上传者</p>
-                <div class="heading">说话人</div>
-                <p>这里是说话人</p>
+                <div class="username">
+                    上传：<a href="/search/publisher={{ record.userName }}">{{ record.userName }}</a>
+                </div>
             </div>
         </div>
     </div>

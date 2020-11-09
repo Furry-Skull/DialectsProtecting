@@ -17,7 +17,7 @@
         <div class="heading">"搜索结果</div>
         {% for item in records %}
         <div class="search-audio-box">
-            <h2>{{ item.title }}</h2>
+            <h2><a href="/audio/{{ item.audioURL }}">{{ item.title }}</a></h2>
             <div class="info-box">
                 <div class="lang">
                     <a href="/search/lang={{ item.language }}">{{ item.language }}</a>
