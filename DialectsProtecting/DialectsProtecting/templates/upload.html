@@ -5,12 +5,12 @@
     <meta charset="utf-8" />
     <title>上传</title>
     <!--头格式-->
-    <link rel="stylesheet" href="../static/content/css/basic.css" />
-    <link rel="stylesheet" href="../static/content/css/upload.css" />
+    <link rel="stylesheet" href="/../static/content/css/basic.css" />
+    <link rel="stylesheet" href="/../static/content/css/upload.css" />
 </head>
 <body>
     {% include 'navigate.html' %}
-    <div class="content">
+    <div class="content-box">
         <div class="heading">
             上传录音
         </div>
@@ -43,9 +43,24 @@
             }
         </script>
         <form action="/my/uploadform" method="post" enctype="multipart/form-data" onsubmit="return checkUpload()">
-            <p><input type="text" name="标题" placeholder="请输入标题" id="ptitle"></p>
-            <textarea name="翻译" placeholder="请输入翻译" id="trans"></textarea>
-            <p><input type="text" name="地域" placeholder="请输入地域" id="pspace"></p>
+            <p>
+                <input type="text"
+                       name="标题"
+                       placeholder="请输入标题"
+                       onfocus="if(placeholder=='请输入标题')placeholder=''"
+                       onblur="if(!placeholder)placeholder='请输入标题'"
+                       id="ptitle">
+            </p>
+            <textarea name="翻译"
+                      placeholder="请输入翻译"
+                      onfocus="if(placeholder=='请输入翻译')placeholder=''"
+                      onblur="if(!placeholder)placeholder='请输入翻译'"
+                      id="trans"></textarea>
+            <p><input type="text" name="地域" 
+                      placeholder="请输入地域"
+                      onfocus="if(placeholder=='请输入地域')placeholder=''"
+                      onblur="if(!placeholder)placeholder='请输入地域'"
+                      id="pspace"></p>
             <p><input name="语言" type="hidden" id="lang" placeholder="请选择语言"></p>
             <div>
                 <span>
@@ -71,11 +86,11 @@
                     var count = document.getElementById('labelField').childElementCount - 1; //除去最后一个按钮
                     if (count == 0) {
                         //在加号按钮前加
-                        $("#addButton").before('<span class="label"><input type="text" name="标签' + count + '" id="ptap"><button onclick="removeTag(this.parentNode);"></button></span>')
+                        $("#addButton").before('<span class="label"><input type="text" name="标签' + count + '" id="ptap"><button id="deleteButton" onclick="removeTag(this.parentNode);"></button></span>')
                     }
                     else if (count < maxTagLength) {
                         //标签最多不能超过5个
-                        $("#labelField").children().eq(count - 1).after('<span class="label"><input type="text" name="标签' + count + '" id="ptap"><button onclick="removeTag(this.parentNode);"></button></span>');
+                        $("#labelField").children().eq(count - 1).after('<span class="label"><input type="text" name="标签' + count + '" id="ptap"><button id="deleteButton" onclick="removeTag(this.parentNode);"></button></span>');
                     }
                     if (count == maxTagLength - 1) {
                         //添加最后一个标签时，将增加的按钮删掉

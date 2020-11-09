@@ -6,10 +6,11 @@ a {
     text-decoration: none;
 }
 
+
 body {
     /*
     ÐèÒª±³¾°Í¼
-    background-image: url(../image/map.png);
+    background-image: url(/../static/content/image/map.png);
     background-size: 100%;
     background-attachment: fixed;
     */
@@ -263,7 +264,7 @@ header {
         overflow: visible;
         font-family: FZQKBYSJT;
         font-size: 22px;
-        padding: 0 0;
+        padding: 0 0; 
         border-bottom: 1.5px solid var(--themecolor3);
         margin-bottom: 10px;
     }
