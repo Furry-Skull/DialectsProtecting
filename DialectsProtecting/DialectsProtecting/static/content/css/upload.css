@@ -14,36 +14,58 @@
     /*height: 1000px;*/
 }
 .content p {
-    width:auto;
+    width: auto;
     text-align: center;
+    font-size: 13px;
+    color: red;
+    line-height: 10px;
+}
+.content #ptitle {
+    margin: 0 20%;
+    width: 60%;
+    font-size: 20px;
+    height: 40px;
+    border-radius: 8px;
+    outline: none;
+}
+.content #trans {
+    margin: 0 0 0 20%;
+    width: 60%;
+    height: 200px;
     font-size: 16px;
+    resize: none;
+    border-radius: 8px;
+    outline: none;
 }
-.content #ptitle{
-    margin:0 20%;
-    width:60%;
-}
-.content #trans{
-    margin:0 0 0 20%;
-    width:60%;
-    height:200px;
-    font-size: 16px;
-}
-.content #pspace{
-    margin:0 0 0 20%;
-    float:left;
+.content #pspace {
+    margin: 0 0 0 20%;
+    float: left;
+    font-size: 18px;
+    width: 15%;
+    height: 30px;
+    border-radius: 8px;
+    outline: none;
 }
 .content #langSelect {
     width: 15%;
-    height: 22px;
     margin: 0 0 0 80px;
+    font-size: 18px;
+    height: 30px;
+    border-radius: 8px;
+    outline: none;
 }
 .content #lang {
     margin: 0 0 0 10%;
     float: left;
+    outline: none;
 }
-.content #ptap{
-    margin:0 20%;
-    width:60%;
+.content #ptap {
+    border: none;
+    background: none;
+    outline: none;
+    width: 60px ;
+    font-size: 16px;
+    color: white;
 }
 .content #psub {
     width: 200px;
@@ -54,15 +76,31 @@
     margin: 0 auto;
     border: 1.5px solid var(--themecolor3);
     transition: 0.14s all ease-in;
+    border-radius: 8px;
 }
 .content #psub:hover{
     background-color: var(--themecolor3);
 }
-.content .fileHint{
+.content .fileHint {
     height: 30px;
     line-height: 30px;
     font-size: 20px;
-    margin-left: 20px;
+    display: inline-block;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #4a4a4a;
+}
+.content .labelField {
+    margin: 30px 0 20px 20%;
+}
+.content .labelField .label {
+    margin: 0 20px 0 0;
+    border-radius: 10px;
+    background-color: var(--themecolor1);
+    padding: 8px 15px 0px 10px;
+    text-align: center;
+    height: 30px;
+    display: inline-block;
 }
 .file {
     margin: 0 0 0 20%;
@@ -79,6 +117,7 @@
     line-height: 30px;
     height: 30px;
     font-size: 18px;
+    border-radius: 8px;
 }
 .file input {
     position: absolute;
@@ -86,10 +125,11 @@
     right: 0;
     top: 0;
     opacity: 0;
+    border-radius: 8px;
 }
-    .file:hover {
-        background: var(--themecolor3);
-        border-color: #78C3F3;
-        color: black;
-        text-decoration: none;
-    }
+.file:hover {
+    background: var(--themecolor3);
+    border-color: #78C3F3;
+    color: black;
+    text-decoration: none;
+}

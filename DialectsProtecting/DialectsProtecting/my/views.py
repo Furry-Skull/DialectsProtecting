@@ -20,7 +20,7 @@ def userSpace(username):
 #上传页面
 @my.route('/upload')
 def userUpload():
-    return render_template('upload.html')
+    return render_template('upload.html', languageOptions = db.getAllLanguages())
 
 #上传音频界面
 @my.route('/uploadform', methods=['POST'])
@@ -31,13 +31,16 @@ def uploadAudio():
     translation = request.form['翻译']
     loc = request.form['地域']
     lang = request.form['语言']
-    tag = request.form['标签']
 
     #必要信息为空，表单无效
     if f == None or f.filename == '' or title == '' or lang == '':
         return
 
-    tags = [tag]
+    tags = []
+    for index in range(0,5):
+        tag = request.form.get('标签' + str(index))
+        if tag != None and tag != '':
+            tags.append(tag)
 
     #发布人为当前账户
     publisher = getUser()
