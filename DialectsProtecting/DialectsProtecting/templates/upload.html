@@ -6,17 +6,18 @@
     <title>上传</title>
     <!--头格式-->
     <link rel="stylesheet" href="../static/content/css/basic.css" />
+    <link rel="stylesheet" href="../static/content/css/upload.css" />
 </head>
 <body>
     {% include 'navigate.html' %}
-    <div class="content-box">
+    <div class="content">
         <div class="heading">
             上传录音
         </div>
         <script>
             function checkUpload() {
                 document.getElementById('hint').innerHTML = ''
-                if (title.value == '') {
+                if (ptitle.value == '') {
                     document.getElementById('hint').innerHTML = '标题不能为空'
                     return false;
                 }
@@ -24,23 +25,47 @@
                     document.getElementById('hint').innerHTML = '语言不能为空'
                     return false;
                 }
-                if (file.value == '') {
+                if (psubmit.value == '') {
                     document.getElementById('hint').innerHTML = '文件不能为空'
                     return false;
                 }
                 return true;
             }
+
+            function selectLanguage() {
+                document.getElementById('lang').value =
+                    document.getElementById('langSelect').options[document.getElementById('langSelect').selectedIndex].value;
+            }
+
+            function onFileChange(target) {
+                var name = target.files[0].name; // 文件名
+                document.getElementById('fileHint').innerHTML = name //显示文件名
+            }
         </script>
         <form action="/my/uploadform" method="post" enctype="multipart/form-data" onsubmit="return checkUpload()">
-            <p>标题：<input type="text" name="标题" id="title"></p>
-            <p>翻译：<input type="text" name="翻译"></p>
-            <p>地域：<input type="text" name="地域"></p>
-            <p>语言：<input type="text" name="语言" id="lang"></p>
-            <p>标签1：<input type="text" name="标签1"></p>
-            <p>标签2：<input type="text" name="标签2"></p>
-            <p>标签3：<input type="text" name="标签3"></p>
-            <p>上传文件(没有限定文件类型，不过尽量mp3)：<input type="file" name="record_file" id="file"></p>
-            <p><input type="submit" value="submit"></p>
+            <p><input type="text" name="标题" placeholder="请输入标题" id="ptitle"></p>
+            <textarea name="翻译" placeholder="请输入翻译" id="trans"></textarea>
+            <p><input type="text" name="地域" placeholder="请输入地域" id="pspace"></p>
+            <p><input name="语言" type="hidden" id="lang" placeholder="请选择语言"></p>
+            <div>
+                <span>
+                    <select onchange="selectLanguage()" id="langSelect" name="语言1">
+                        <option>请选择语言</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                    </select>
+                </span>
+            </div>
+            <div>
+                <p><input type="text" name="标签" placeholder="请输入标签" id="ptap"></p>
+            </div>
+            <a href="javascript:;" class="file">
+                选择文件
+                <input type="file" name="record_file" id="psubmit" onchange="onFileChange(this)" accept="audio/mp3">
+            </a>
+            <p><span class="fileHint" id="fileHint"></span></p>
+            <p><input type="submit" value="确认上传" id="psub"></p>
         </form>
         <p id="hint"></p>
     </div>

@@ -10,8 +10,9 @@ from DialectsProtecting.user.userUtils import uploadFileByCurrentUser, getUser
 @my.route('/<username>')
 def userSpace(username):
     if getUser() == username:
-        #进入自己的个人页面
-        return render_template('user.html')
+        #进入自己的个人页面，显示个人上传记录
+        myRecords = db.searchUserPublish(username)
+        return render_template('user.html', myUploads = myRecords)
     else:
         #进入别人的个人页面，暂定显示404
         return render_template('page404.html')
@@ -30,21 +31,13 @@ def uploadAudio():
     translation = request.form['翻译']
     loc = request.form['地域']
     lang = request.form['语言']
-    tag1 = request.form['标签1']
-    tag2 = request.form['标签2']
-    tag3 = request.form['标签3']
+    tag = request.form['标签']
 
     #必要信息为空，表单无效
     if f == None or f.filename == '' or title == '' or lang == '':
         return
 
-    tags = []
-    if tag1 != '':
-        tags.append(tag1)
-    if tag2 != '':
-        tags.append(tag2)
-    if tag3 != '':
-        tags.append(tag3)
+    tags = [tag]
 
     #发布人为当前账户
     publisher = getUser()

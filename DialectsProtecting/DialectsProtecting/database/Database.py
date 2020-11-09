@@ -102,29 +102,7 @@ class Database:
 
     #查询一个用户已发布的所有方言记录
     def searchUserPublish(self, account):
-        conn = sqlite3.connect('database.db')
-        c = conn.cursor()
-        sql_select = '''
-        select * from dialect where userName = ?;
-        '''
-        c.execute(sql_select,(account,))  
-        results=[]
-        for row in c:
-            row_tag = []
-            strlist = row[6].split(' ')
-            for value in strlist:
-                row_tag.append(value)
-            record = Record(userName = row[0], 
-                audioURL = row[1], 
-                translation = row[2], 
-                location = row[3],
-                language = row[4],
-                title = row[5],
-                tags = row_tag,
-                like = row[7],
-                browse = row[8])
-            results.append(record)
-        return results
+        return self.__searchDialectPrivate(publishers=[account])
     
 
     #用户删除一条记录
