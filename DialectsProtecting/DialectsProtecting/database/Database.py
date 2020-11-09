@@ -301,3 +301,14 @@ class Database:
         conn.close()
         return False
 
+    #获取所有语言，返回数组
+    def getAllLanguages(self):
+        languages = []
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        sql_select = 'select language from lang;'
+        c.execute(sql_select)
+        for row in c:
+            languages.append(row[0])
+        conn.close()
+        return languages

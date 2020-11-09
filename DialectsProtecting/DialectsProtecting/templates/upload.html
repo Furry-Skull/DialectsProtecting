@@ -51,20 +51,46 @@
                 <span>
                     <select onchange="selectLanguage()" id="langSelect" name="语言1">
                         <option>请选择语言</option>
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="C">C</option>
+                        {% for item in languageOptions %}
+                        <option value="{{ item }}">{{ item }}</option>
+                        {% endfor %}
                     </select>
                 </span>
             </div>
-            <div>
-                <p><input type="text" name="标签" placeholder="请输入标签" id="ptap"></p>
+            <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+            <script>
+                var maxTagLength = 5;
+                function removeTag(target) {
+                    if (!document.getElementById('addButton')) {
+                        //如果增加的按钮不存在，则加回来
+                        $("#labelField").children().eq(maxTagLength - 1).after('<button onclick="addTag()" id="addButton"></button>')
+                    }
+                    target.remove();
+                }
+                function addTag() {
+                    var count = document.getElementById('labelField').childElementCount - 1; //除去最后一个按钮
+                    if (count == 0) {
+                        //在加号按钮前加
+                        $("#addButton").before('<span class="label"><input type="text" name="标签' + count + '" id="ptap"><button onclick="removeTag(this.parentNode);"></button></span>')
+                    }
+                    else if (count < maxTagLength) {
+                        //标签最多不能超过5个
+                        $("#labelField").children().eq(count - 1).after('<span class="label"><input type="text" name="标签' + count + '" id="ptap"><button onclick="removeTag(this.parentNode);"></button></span>');
+                    }
+                    if (count == maxTagLength - 1) {
+                        //添加最后一个标签时，将增加的按钮删掉
+                        $("#addButton").remove();
+                    }
+                }
+            </script>
+            <div class="labelField" id="labelField">
+                <button onclick="addTag()" id="addButton"></button>
             </div>
             <a href="javascript:;" class="file">
                 选择文件
                 <input type="file" name="record_file" id="psubmit" onchange="onFileChange(this)" accept="audio/mp3">
             </a>
-            <p><span class="fileHint" id="fileHint"></span></p>
+            <span class="fileHint" id="fileHint"></span>
             <p><input type="submit" value="确认上传" id="psub"></p>
         </form>
         <p id="hint"></p>
