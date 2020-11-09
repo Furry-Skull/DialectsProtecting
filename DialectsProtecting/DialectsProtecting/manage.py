@@ -22,7 +22,6 @@ app.register_blueprint(detail, url_prefix = '/detail')
 def home():
     #方言语系的对应关系请在这里添加
     db.insertLanguage('吴语','杭州话')
-    db.insertLanguage('晋语','这是语言')
 
     #获取用户状态，显示页面
     return render_template('home.html')

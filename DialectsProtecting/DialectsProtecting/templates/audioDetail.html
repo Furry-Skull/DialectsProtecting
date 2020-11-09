@@ -23,38 +23,36 @@
             音频名：
             {{ record.title }}
         </div>
-        <div class="content">
+        <div class="audio-detail-box">
             <div class="heading">音频</div>
-            <div class="audio-detail">
-                <audio controls>
-                    <source src="{{ record.audioURL }}" type="audio/mpeg">
-                </audio>
-                <div class="heading">语言</div>
-                <div class="lang">
-                    <a href="/search/lang={{ record.language }}">{{ record.language }}</a>
-                </div>
-                <div class="heading">语系</div>
-                <div class="language-family">
-                    <a href="/search/langFamily={{ record.languageFamily }}">{{ record.languageFamily }}</a>
-                </div>
-                <div class="heading">地域</div>
-                <div class="location">
-                    <a href="/search/loc={{ record.location }}">{{ record.location }}</a>
-                </div>
-                <div class="heading">翻译</div>
-                <div class="translation">
-                    {{ record.translation }}
-                </div>
-                <div class="heading">tags</div>
-                {% for tag in record.tags %}
-                <div class="tag">
-                    <a href="/search/tag={{ tag }}">{{ tag }}</a>
-                </div>
-                {% endfor %}
-                <div class="heading">上传者</div>
-                <div class="username">
-                    上传：<a href="/search/publisher={{ record.userName }}">{{ record.userName }}</a>
-                </div>
+            <audio controls>
+                <source src="{{ record.audioURL }}" type="audio/mpeg">
+            </audio>
+            <div class="heading">语言</div>
+            <div class="lang">
+                <a href="/search/lang={{ record.language }}">{{ record.language }}</a>
+            </div>
+            <div class="heading">语系</div>
+            <div class="language-family">
+                <a href="/search/langFamily={{ record.languageFamily }}">{{ record.languageFamily }}</a>
+            </div>
+            <div class="heading">地域</div>
+            <div class="location">
+                <a href="/search/loc={{ record.location }}">{{ record.location }}</a>
+            </div>
+            <div class="heading">翻译</div>
+            <div class="translation">
+                {{ record.translation }}
+            </div>
+            <div class="heading">tags</div>
+            {% for tag in record.tags %}
+            <div class="tag">
+                <a href="/search/tag={{ tag }}">{{ tag }}</a>
+            </div>
+            {% endfor %}
+            <div class="heading">上传者</div>
+            <div class="username">
+                上传：<a href="/search/publisher={{ record.userName }}">{{ record.userName }}</a>
             </div>
         </div>
     </div>
