@@ -51,7 +51,7 @@
                 </div>
                 <h3>
                     <span class="aud">音频列表</span>
-                    <span class="num">共3个音频</span>
+                    <span class="num">共{{ myUploads | length }}个音频</span>
                 </h3>
                 <div class="nav">
                     <span class="name">标题</span>
@@ -61,16 +61,16 @@
                 </div>
                 <form action="user_action" method="post">
                     <ul>
-                        {% for item in records %}
+                        {% for item in myUploads %}
                         <li>
                             <!--序号-->
-                            <!--<span class="ser">1</span>-->
+                            <span class="ser">{{ loop.index }}</span>
                             <!--播放按钮-->
                             <input type="submit" class="stop" value="" name="stop" />
                             <!--标题-->
                             <span class="title"><a href="">{{ item.title }}</a></span>
                             <!--语言-->
-                            <span class="lan">{{ item.lanuage }}</span>
+                            <span class="lan">{{ item.language }}</span>
                             <!--标签-->
                             <span class="lab">
                                 {% for tag in item.tags %}

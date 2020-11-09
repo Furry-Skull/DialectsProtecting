@@ -179,7 +179,7 @@ a{
     float: left;
     display: block;
     height: 100%;
-    width: 150px;
+    width: 230px;
     text-align: left;
     line-height: 40px;
     padding-left: 10px;
@@ -189,7 +189,7 @@ a{
     float: left;
     display: block;
     height: 100%;
-    width: 211px;
+    width: 131px;
     text-align: left;
     line-height: 40px;
     padding-left: 10px;
@@ -264,7 +264,7 @@ a{
 .lab {
     float: left;
     display: block;
-    width: 150px;
+    width: 230px;
     padding-left: 10px;
     line-height: 30px;
     color: black;
