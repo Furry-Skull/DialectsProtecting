@@ -40,12 +40,23 @@
                 </div>
                 {% endfor %}
             </div>
-            <img src="/static/content/image/play.png" width="80" height="80"/>
-            <img src="/static/content/image/like_normal.png" width="80" height="80" />
+            <!--阴影效果不佳-->
+            <!--onmouseover="this.style='box-shadow: 2px 2px 2px var(--shadowcolor);'"
+            onmouseout="this.style='box-shadow: none;'"-->
+            <img id="playbtn"
+                 src="/static/content/image/play.png"
+                 width="60"
+                 height="60"
+                 onclick='addToAudioPlayer("{{ item.audioURL }}")' />
+            <img id="likebtn"
+                 src="/static/content/image/like_normal.png"
+                 width="60"
+                 height="60"
+                 onmouseover="this.src='/static/content/image/like.png'"
+                 onmouseout="this.src='/static/content/image/like_normal.png'"/>
             <div class="username">
                 上传：<a href="/search/publisher={{ item.userName }}">{{ item.userName }}</a>
             </div>
-            <button onclick='addToAudioPlayer("{{ item.audioURL }}")'></button>
         </div>
         {% endfor %}
     </div>
