@@ -281,3 +281,20 @@ footer {
     left: 30%;
     width: 40%;
 }
+.content-box .introduction .text {
+    width: 75%;
+    text-align: right;
+}
+.content-box .introduction .china {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+}
+.content-box .introduction ul li img {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+}
+.content-box .introduction ul li div{
+    margin-left:50%;
+}
