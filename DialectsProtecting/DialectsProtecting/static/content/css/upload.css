@@ -143,24 +143,29 @@
 
 #addButton {
     background: url("/static/content/image/add.png");
-    height: 12px;
+    height: 24px;
+    width: 24px;
     border: none;
-    background-size: 80% 80%;
+    background-size: 70% 70%;
     background-repeat: no-repeat;
-    top: 2px;
+    top: -4px;
     left: 6px;
     display: inline-block;
     position: relative;
     outline: none;
+    border: 1px solid black;
+    padding: 10px;
+    background-position: 3px 3px;
+    border-radius: 20px;
 }
 
 #deleteButton {
     background: url(/static/content/image/delete.png);
-    height: 12px;
+    height: 16px;
     border: none;
     background-size: 80% 80%;
     background-repeat: no-repeat;
-    top: 2px;
+    top: -4px;
     left: 6px;
     display: inline-block;
     position: relative;
