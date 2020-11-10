@@ -75,7 +75,6 @@
     margin: 0 auto;
     border: 1.5px solid var(--themecolor3);
     transition: 0.14s all ease-in;
-    border-radius: 8px;
 }
 
     .content-box #psub:hover {
@@ -148,7 +147,7 @@
     height: 20px;
     border: none;
     background-size: 100% 100%;
-    top: -4px;
+    top: 2px;
     display: inline-block;
     position: relative;
 }
@@ -159,7 +158,7 @@
     height: 20px;
     border: none;
     background-size: 100% 100%;
-    top: -4px;
+    top: 2px;
     display: inline-block;
     position: relative;
 }

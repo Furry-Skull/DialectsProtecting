@@ -10,81 +10,18 @@
 </head>
 <body>
     {% include 'navigate.html' %}
-    <div class="w">
-        <div class="yonghu">
-            <div class="back">
-                <a href="#top" class="top_word">TO<br />&nbsp;TOP</a>
+    {% include 'userSidebar.html' %}
+    <div class="content-box">
+        <div class="heading">我的信息</div>
+        <div class="user_name">
+            用户名
+        </div>
+        <div class="user_btn">
+            <div class="upload">
+                <a href="upload">上传</a>
             </div>
-            <a name="top"></a><br />
-            <div class="fav">
-                <div class="build">
-                    <span class="my_fav">我的收藏夹</span>
-                    <!--新建收藏夹按钮-->
-                    <form action="new_fav" method="post">
-                        <input type="submit" class="new" value="新建" name="new" />
-                    </form>
-                </div>
-                <ul>
-                    <li><a href="">我的上传</a></li>
-                    <li><a href="">收藏夹1</a></li>
-                </ul>
-            </div>
-            <div class="sub">
-                <div class="up">
-                    <div class="fav_name">
-                        <span class="fname">收藏夹名</span>
-                        <form action="change_fav_name" method="post">
-                            <input type="submit" class="change_fav_name" value="更改名称" name="change" />
-                        </form>
-                    </div>
-                    <div class="user_name">
-                        用户名
-                    </div>
-                    <div class="user_btn">
-                        <div class="upload">
-                            <a href="upload">上传</a>
-                        </div>
-                        <div class="logout">
-                            <a href="/user/logout">登出</a>
-                        </div>
-                    </div>
-                </div>
-                <h3>
-                    <span class="aud">音频列表</span>
-                    <span class="num">共{{ myUploads | length }}个音频</span>
-                </h3>
-                <div class="nav">
-                    <span class="name">标题</span>
-                    <span class="time">语言</span>
-                    <span class="tag">标签</span>
-                    <span class="act">操作</span>
-                </div>
-                <form action="user_action" method="post">
-                    <ul>
-                        {% for item in myUploads %}
-                        <li>
-                            <!--序号-->
-                            <span class="ser">{{ loop.index }}</span>
-                            <!--播放按钮-->
-                            <input type="submit" class="stop" value="" name="stop" />
-                            <!--标题-->
-                            <span class="title"><a href="">{{ item.title }}</a></span>
-                            <!--语言-->
-                            <span class="lan">{{ item.language }}</span>
-                            <!--标签-->
-                            <span class="lab">
-                                {% for tag in item.tags %}
-                                <a href="">{{ tag }}</a>
-                                {% endfor %}
-                            </span>
-                            <!--删除按钮-->
-                            <input type="submit" class="delete" value="" name="delete" />
-                            <!--下载按钮-->
-                            <input type="submit" class="down" value="" name="down" />
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </form>
+            <div class="logout">
+                <a href="/user/logout">登出</a>
             </div>
         </div>
     </div>
