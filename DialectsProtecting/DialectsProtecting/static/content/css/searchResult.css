@@ -29,6 +29,7 @@
         height: 100px;
         width: 40%;
         margin-left: 40%;
+        position: absolute;
     }
 
         .search-audio-box a {
@@ -83,12 +84,13 @@
         font-family: FZQKBYSJT;
         position: absolute;
         margin: 10px;
-        width: 450px;
+        width: 35%;
         height: 86px;
         border-radius: 2px;
         padding: 10px;
         top: 32px;
-        overflow: scroll;
+        overflow-y: auto;
+        overflow-wrap: break-word;
     }
 
     .search-audio-box .username {
