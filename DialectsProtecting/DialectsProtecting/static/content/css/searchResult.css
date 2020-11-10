@@ -6,7 +6,7 @@
     */
     border-left: 15px solid black;
     width: 95%;
-    height: 250px;
+    height: 160px;
     /*
         overflow-y: scroll;
     */
@@ -30,12 +30,12 @@
 
     .search-audio-box #playbtn {
         left: 73%;
-        top: 23%;
+        top: 50%;
     }
 
     .search-audio-box #likebtn {
         left: 80%;
-        top: 23%;
+        top: 50%;
     }
 
     .search-audio-box .info-box {
@@ -65,6 +65,7 @@
             Ð§¹û²»¼Ñ
             box-shadow: 1px 1px 1px var(--shadowcolor);
         */
+        color: var(--)
     }
 
     .search-audio-box .language-family a {
