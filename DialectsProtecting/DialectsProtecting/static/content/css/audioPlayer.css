@@ -1,3 +1,12 @@
+.audio-title {
+    position: fixed;
+    left: 40%;
+    bottom: 6%;
+    z-index: 2;
+    font-family: 'FZQKBYSJT';
+    font-size: 20px;
+}
+
 .audio-hidden {
     width: 0;
     height: 0;
@@ -20,12 +29,12 @@
 }
 
 .ppq-audio-player {
-    line-height: 70px;
+    line-height: 110px;
     position: fixed;
     bottom: 0;
     right: 35%;
     overflow: hidden;
-    height: 70px; /*高度*/
+    height: 80px; /*高度*/
     width: 30%; /*宽度*/
     margin: 0 auto;
     background: #f4f4f4
@@ -44,9 +53,9 @@
         .ppq-audio-player .play-pause-btn .play-pause-icon {
             position: relative;
             display: block;
-            width: 25px;
-            height: 25px;
-            margin-top: 20px;
+            width: 50px;
+            height: 50px;
+            margin-top: 10px;
             border: 3px solid #00a293; /*播放/暂停键边框*/
             border-radius: 100%;
             background-color: #fff
@@ -83,7 +92,7 @@
         position: relative;
         overflow: hidden;
         height: 8px; /*进度条高度*/
-        margin-top: 30px;
+        margin-top: 50px; /*进度条边距*/
         background-color: #fff /*进度条背景颜色*/
     }
 

@@ -40,16 +40,17 @@
                 </div>
                 {% endfor %}
             </div>
-            <img src="/static/content/image/play.png" width="80" height="80"/>
+            <img src="/static/content/image/play.png" width="80" height="80" />
             <img src="/static/content/image/like_normal.png" width="80" height="80" />
             <div class="username">
                 上传：<a href="/search/publisher={{ item.userName }}">{{ item.userName }}</a>
             </div>
-            <button onclick='addToAudioPlayer("{{ item.audioURL }}")'></button>
+            <button onclick='addToAudioPlayer("{{ item.title }}","{{ item.audioURL }}")'></button>
         </div>
         {% endfor %}
     </div>
     <!-- 音乐播放器 -->
+    <span class="audio-title" id="audioTitle"></span>
     <div class="container" id="musicBoxContainer">
         <audio preload="auto" src='/'></audio>
     </div>
@@ -57,7 +58,8 @@
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="/static/scripts/audioPlayer.js"></script>
     <script>
-        function addToAudioPlayer(url) {
+        function addToAudioPlayer(title, url) {
+            document.getElementById('audioTitle').innerHTML = title;
             document.getElementById('musicBoxContainer').innerHTML = '<audio preload="auto" src="' + url + '"></audio>';
             $('audio').initAudioPlayer();
             document.getElementById('playButton').click();
