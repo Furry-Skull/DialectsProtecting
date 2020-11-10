@@ -303,8 +303,9 @@ class Database:
 
     #判断给定字符串是否为一种语言
     def isLanguage(self, language):
-        if language == '官话' or language == '晋语' or language == '吴语' or language == '徽语' or language == '赣语' or language == '湘语' or language == '闽语' or language == '平话' or language == '客家话':
-            return True
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        c.
         return False
 
     #判断给定字符串是否为一个标签
