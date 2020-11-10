@@ -7,6 +7,7 @@
     <!--头格式-->
     <link rel="stylesheet" href="/static/content/css/basic.css" />
     <link rel="stylesheet" href="/static/content/css/searchResult.css" />
+    <link rel="stylesheet" href="/static/content/css/audioPlayer.css" />
 </head>
 <body>
     {% include 'navigate.html' %}
@@ -18,6 +19,9 @@
         {% for item in records %}
         <div class="search-audio-box">
             <h2>{{ item.title }}</h2>
+            <div class="translation">
+                {{ item.translation }}
+            </div>
             <div class="info-box">
                 <span class="lang">
                     <img src="/static/content/image/language.png" />
@@ -36,21 +40,30 @@
                 </div>
                 {% endfor %}
             </div>
-            <div class="translation">
-                {{ item.translation }}
-            </div>
+            <img src="/static/content/image/play.png" />
+            <img src="/static/content/image/like_normal.png" />
             <div class="username">
                 上传：<a href="/search/publisher={{ item.userName }}">{{ item.userName }}</a>
             </div>
-            <div class="audio-box">
-                <audio controls>
-                    <source src="{{ item.audioURL }}" type="audio/mpeg">
-                </audio>
-            </div>
+            <button onclick='addToAudioPlayer("{{ item.audioURL }}")'></button>
         </div>
-
         {% endfor %}
     </div>
+    <!-- 音乐播放器 -->
+    <div class="container" id="musicBoxContainer">
+        <audio preload="auto" src='/'></audio>
+    </div>
+    <!-- 音乐播放器代码 -->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/static/scripts/audioPlayer.js"></script>
+    <script>
+        function addToAudioPlayer(url) {
+            document.getElementById('musicBoxContainer').innerHTML = '<audio preload="auto" src="' + url + '"></audio>';
+            $('audio').initAudioPlayer();
+            document.getElementById('playButton').click();
+        }
+        $('audio').initAudioPlayer();
+    </script>
     {% include 'footer.html' %}
     <script type="text/javascript">
         //改变颜色

@@ -94,20 +94,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DialectsProtecting\static\content\css\audioDetail.css" />
+    <Content Include="DialectsProtecting\static\content\css\audioPlayer.css" />
     <Content Include="DialectsProtecting\static\content\css\basic.css" />
     <Content Include="DialectsProtecting\static\content\css\searchResult.css" />
     <Content Include="DialectsProtecting\static\content\css\upload.css" />
     <Content Include="DialectsProtecting\static\content\css\user.css" />
     <Content Include="DialectsProtecting\static\content\image\language.png" />
+    <Content Include="DialectsProtecting\static\content\image\like.png" />
+    <Content Include="DialectsProtecting\static\content\image\like2.png" />
+    <Content Include="DialectsProtecting\static\content\image\like_normal.png" />
     <Content Include="DialectsProtecting\static\content\image\location.png" />
     <Content Include="DialectsProtecting\static\content\image\map.png">
       <Publish>False</Publish>
     </Content>
     <Content Include="DialectsProtecting\static\content\css\register.css" />
     <Content Include="DialectsProtecting\static\content\image\logo.jpg" />
+    <Content Include="DialectsProtecting\static\content\image\play.png" />
     <Content Include="DialectsProtecting\static\content\image\r_logo.jpg" />
     <Content Include="DialectsProtecting\static\content\fonts\FZQKBYSJT.TTF" />
+    <Content Include="DialectsProtecting\static\scripts\audioPlayer.js" />
     <Content Include="DialectsProtecting\templates\audioDetail.html" />
+    <Content Include="DialectsProtecting\templates\audioPlayer.html" />
     <Content Include="DialectsProtecting\templates\footer.html" />
     <Content Include="DialectsProtecting\templates\login.html" />
     <Content Include="DialectsProtecting\templates\page404.html" />

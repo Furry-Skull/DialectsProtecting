@@ -6,7 +6,7 @@
     */
     border-left: 15px solid black;
     width: 95%;
-    height: 180px;
+    height: 250px;
     /*
         overflow-y: scroll;
     */
@@ -28,9 +28,7 @@
         display: inline-block;
         height: 100px;
         width: 40%;
-        padding-left: 10px;
-        margin-right: 20px;
-        border-right: 1.5px solid black
+        margin-left: 40%;
     }
 
         .search-audio-box a {
@@ -76,8 +74,7 @@
 
         .search-audio-box .audio-box audio {
             position: absolute;
-            width: 80%;
-            left: 10%;
+            width: 60%;
         }
 
     .search-audio-box .translation {
