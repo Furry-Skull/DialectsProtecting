@@ -99,9 +99,10 @@
     <Content Include="DialectsProtecting\static\content\css\searchResult.css" />
     <Content Include="DialectsProtecting\static\content\css\upload.css" />
     <Content Include="DialectsProtecting\static\content\css\user.css" />
+    <Content Include="DialectsProtecting\static\content\image\add.png" />
+    <Content Include="DialectsProtecting\static\content\image\delete.png" />
     <Content Include="DialectsProtecting\static\content\image\language.png" />
     <Content Include="DialectsProtecting\static\content\image\like.png" />
-    <Content Include="DialectsProtecting\static\content\image\like2.png" />
     <Content Include="DialectsProtecting\static\content\image\like_normal.png" />
     <Content Include="DialectsProtecting\static\content\image\location.png" />
     <Content Include="DialectsProtecting\static\content\image\map.png">

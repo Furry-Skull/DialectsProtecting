@@ -142,23 +142,27 @@
     }
 
 #addButton {
-    background: url("/../static/content/image/map.png");
-    width: 20px;
-    height: 20px;
+    background: url("/static/content/image/add.png");
+    height: 12px;
     border: none;
-    background-size: 100% 100%;
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
     top: 2px;
+    left: 6px;
     display: inline-block;
     position: relative;
+    outline: none;
 }
 
 #deleteButton {
-    background: url("/../static/content/image/map.png");
-    width: 20px;
-    height: 20px;
+    background: url(/static/content/image/delete.png);
+    height: 12px;
     border: none;
-    background-size: 100% 100%;
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
     top: 2px;
+    left: 6px;
     display: inline-block;
     position: relative;
+    outline: none;
 }
