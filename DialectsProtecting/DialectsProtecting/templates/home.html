@@ -6,77 +6,82 @@
     <title>方言保护计划</title>
     <!--头格式-->
     <link rel="stylesheet" href="/../static/content/css/basic.css" />
+    <link rel="stylesheet" href="/../static/content/css/home.css" />
 </head>
 <body>
     {% include 'navigate.html' %}
     {% include 'sidebar.html' %}
     <div class="content-box">
         <div class="heading">
-            这是主页，待操作
+            方言区介绍
         </div>
         <div class="introduction">
-            <div class="text">方言区介绍</div>
-            <img class="china" src="/../static/content/image/china.png" height=50% />
+            <div class="text" id="text">官话</div>
+            <img class="china" src="/../static/content/image/china.png" />
             <ul>
                 <li style="display:block" id="a">
-                    <img src="/../static/content/image/guanhua.png" height=50% />
-                    <div id="a1">官话即汉语官方标准语，当今中国约70%的人口以官话方言为母语，主要分布在中国秦岭—淮河以北的大部分地区以及江苏大部、安徽中北部、四川、重庆、云南、贵州、湖北大部、广西北部、湖南西部和北部和江西沿江地区等地。官话又分为东北官话区、北京官话区、冀鲁官话区、胶辽官话区、中原官话区、兰银官话区、西南官话区以及江淮官话区。大多数官话的特点包括：除了江淮官话有入声外，大体上无入声，新增了平上去入以外的轻声。</div>
+                    <img src="/../static/content/image/guanhua.png" />
+                    <div class="intro-text" id="a1">
+                        官话即汉语官方标准语，当今中国约70%的人口以官话方言为母语，主要分布在中国秦岭—淮河以北的大部分地区以及江苏大部、安徽中北部、四川、重庆、云南、贵州、湖北大部、广西北部、湖南西部和北部和江西沿江地区等地。官话又分为东北官话区、北京官话区、冀鲁官话区、胶辽官话区、中原官话区、兰银官话区、西南官话区以及江淮官话区。大多数官话的特点包括：除了江淮官话有入声外，大体上无入声，新增了平上去入以外的轻声。
+                    </div>
                 </li>
                 <li style="display:none" id="b">
                     <img src="/../static/content/image/yueyu.png" height=50% />
-                    <div id="b1">
+                    <div class="intro-text" id="b1">
                         粤语使用人群主要分布在广东省、广西省、海南省、香港、澳门以及海外华人社区。
                         特点：粤语发音系统较复杂，有19个声母，56个韵母跟九声六调，在标准粤语/粤语广州话中保留有许多古老发音，较多古词、古义，措辞古雅，且粤语的许多词语，包括语气助词，都可以直接在古汉语典籍中找到来源。
                     </div>
                 </li>
                 <li style="display:none" id="c">
                     <img src="/../static/content/image/jinyu.png" height=50% />
-                    <div id="c1">
+                    <div class="intro-text" id="c1">
                         晋语指山西省及其毗连地区有入声的方言，使用人群主要分布在山西全省，河北省西部邻近山西的地区，河南省黄河以北地区、黄河以南的山门峡市和灵宝县、陕县，内蒙古自治区中部黄河以东地区，以及陕西省的北部地区。
                         特点：入声多带喉塞音；多读【ŋ】尾韵；多数地区有词缀“圪”。
                     </div>
                 </li>
                 <li style="display:none" id="d">
                     <img src="/../static/content/image/wuyu.png" height=50% />
-                    <div id="d1">
+                    <div class="intro-text" id="d1">
                         吴语使用人群主要分布在上海市、江苏省南部、浙江省、安徽省南部、江西省东北部以及福建省浦城北部。
                         特点：现代吴语比官话具有更多古音因素，继承唐宋三十六字母框架体系，以保留全部浊音为最主要特征，声母分为全清、次清、全浊、次浊四类，部分地区保留尖团音分化。
                     </div>
                 </li>
                 <li style="display:none" id="e">
                     <img src="/../static/content/image/huiyu.png" height=50% />
-                    <div id="e1">徽语使用人群主要分布在安徽南部、江西东北部以及浙江西部。徽语保留了古汉语的许多语法规则和发音，其特点是轻柔舒缓、抑扬顿挫。</div>
+                    <div class="intro-text" id="e1">徽语使用人群主要分布在安徽南部、江西东北部以及浙江西部。徽语保留了古汉语的许多语法规则和发音，其特点是轻柔舒缓、抑扬顿挫。</div>
                 </li>
                 <li style="display:none" id="f">
                     <img src="/../static/content/image/ganyu.png" height=50% />
-                    <div id="f1">赣语使用人群主要分布在江西省、湖南东部、湖北东南部以及安徽西南部。赣语主要特点是古全浊声母今读塞音、塞擦音时，绝大多数地方为送气清音。</div>
+                    <div class="intro-text" id="f1">赣语使用人群主要分布在江西省、湖南东部、湖北东南部以及安徽西南部。赣语主要特点是古全浊声母今读塞音、塞擦音时，绝大多数地方为送气清音。</div>
                 </li>
                 <li style="display:none" id="g">
                     <img src="/../static/content/image/xiangyu.png" height=50% />
-                    <div id="g1">
+                    <div class="intro-text" id="g1">
                         湘语是生活在湘江流域及其支系一带湖湘民系使用的主要语言。湘语分为新湘语和老湘语，新湘语以长沙话为代表，老湘语以双峰话为代表。
                         特点：古全浊音声母字今读塞音塞擦音时，有的地方仍读浊音，有的地方不论平仄都读为不送气清音。湘语内部因是否具有一定量的浊音而分为老湘语和新湘语。
                     </div>
                 </li>
                 <li style="display:none" id="h">
                     <img src="/../static/content/image/minyu.png" height=50% />
-                    <div id="h1">
+                    <div class="intro-text" id="h1">
                         闽语使用人群主要分布在福建全省、台湾全省、浙江南部以及广东省东部和海南岛。
                         特点：闽语内部虽然差异性大，主要表现在音韵方面，却仍有不少相通之处，各闽语分支大多拥有大量的文白异读、频繁的连音变调，并且皆无唇齿咬合发声的唇齿音f，此类字白读多读为双唇音。闵语的特点体现了汉语古无轻唇音以及古无舌上音等特点。
                     </div>
                 </li>
                 <li style="display:none" id="i">
                     <img src="/../static/content/image/pinghua.png" height=50% />
-                    <div id="i1">平话使用人群主要分布在广西壮族自治区、湖南省以及云南省。各地平话有一个共同的语音特点，即古全浊声母清化后塞音塞擦音大多不送气，和全清声母合流。</div>
+                    <div class="intro-text" id="i1">平话使用人群主要分布在广西壮族自治区、湖南省以及云南省。各地平话有一个共同的语音特点，即古全浊声母清化后塞音塞擦音大多不送气，和全清声母合流。</div>
                 </li>
                 <li style="display:none" id="j">
                     <img src="/../static/content/image/kejiahua.png" height=50% />
-                    <div id="j1">客家话使用人群主要分布在广东省、广西壮族自治区、福建省西部地区、台湾省、江西省南部地区、湖南省以及四川省。客家话可以与其他方言分开的语音特点在于古次浊上声与全浊上声都有读阴平的。客家话还有一个很显著的特点就是虽然分布分散，但是客家话内部差异很小，无论何地的客家人，都可以用客家话交流而很少存在障碍，客家人母语意识强烈，语言传承过程中语音变化极小。</div>
+                    <div class="intro-text" id="j1">客家话使用人群主要分布在广东省、广西壮族自治区、福建省西部地区、台湾省、江西省南部地区、湖南省以及四川省。客家话可以与其他方言分开的语音特点在于古次浊上声与全浊上声都有读阴平的。客家话还有一个很显著的特点就是虽然分布分散，但是客家话内部差异很小，无论何地的客家人，都可以用客家话交流而很少存在障碍，客家人母语意识强烈，语言传承过程中语音变化极小。</div>
                 </li>
             </ul>
+        
         </div>
     </div>
     <script type="text/javascript">
+        var text = document.getElementById("text");
         var one = document.getElementById('a2');
         var two = document.getElementById('b2');
         var three = document.getElementById('c2');
@@ -87,6 +92,8 @@
         var eight = document.getElementById('h2');
         var nine = document.getElementById('i2');
         var ten = document.getElementById('j2');
+        var arr2 = [one, two, three, four, five, six, seven, eight, nine, ten];
+
         var a = document.getElementById("a");
         var b = document.getElementById("b");
         var c = document.getElementById("c");
@@ -97,126 +104,117 @@
         var h = document.getElementById("h");
         var i = document.getElementById("i");
         var j = document.getElementById("j");
+        var arr1 = [a, b, c, d, e, f, g, h, i, j];
 
         one.onclick = function () {
+            text.innerText = "官话";
+            for (var ele of arr1) {
+                ele.style.display = "none";
+            }
             a.style.display = "block";
-            b.style.display = "none";
-            c.style.display = "none";
-            d.style.display = "none";
-            e.style.display = "none";
-            f.style.display = "none";
-            g.style.display = "none";
-            h.style.display = "none";   
-            i.style.display = "none";
-            j.style.display = "none";
+            for (var ele of arr2) {
+                ele.style = "background-color:var(--backgroundcolor);";
+            }
+            one.style = "background-color:var(--guanhuacolor);";
         }
         two.onclick = function () {
-            a.style.display = "none";
+            text.innerText = "粤语";
+            for (var ele of arr1) {
+                ele.style.display = "none";
+            }
             b.style.display = "block";
-            c.style.display = "none";
-            d.style.display = "none";
-            e.style.display = "none";
-            f.style.display = "none";
-            g.style.display = "none";
-            h.style.display = "none";
-            i.style.display = "none";
-            j.style.display = "none";
+            for (var ele of arr2) {
+                ele.style = "background-color:var(--backgroundcolor);";
+            }
+            two.style = "background-color:var(--yueyucolor);";
         }
         three.onclick = function () {
-            a.style.display = "none";
-            b.style.display = "none";
+            text.innerText = "晋语";
+            for (var ele of arr1) {
+                ele.style.display = "none";
+            }
             c.style.display = "block";
-            d.style.display = "none";
-            e.style.display = "none";
-            f.style.display = "none";
-            g.style.display = "none";
-            h.style.display = "none";
-            i.style.display = "none";
-            j.style.display = "none";
+            for (var ele of arr2) {
+                ele.style = "background-color:var(--backgroundcolor);";
+            }
+            three.style = "background-color:var(--jinyucolor);";
         }
         four.onclick = function () {
-            a.style.display = "none";
-            b.style.display = "none";
-            c.style.display = "none";
+            text.innerText = "吴语";
+            for (var ele of arr1) {
+                ele.style.display = "none";
+            }
             d.style.display = "block";
-            e.style.display = "none";
-            f.style.display = "none";
-            g.style.display = "none";
-            h.style.display = "none";
-            i.style.display = "none";
-            j.style.display = "none";
+            for (var ele of arr2) {
+                ele.style = "background-color:var(--backgroundcolor);";
+            }
+            four.style = "background-color:var(--wuyucolor);";
         }
         five.onclick = function () {
-            a.style.display = "none";
-            b.style.display = "none";
-            c.style.display = "none";
-            d.style.display = "none";
+            text.innerText = "徽语";
+            for (var ele of arr1) {
+                ele.style.display = "none";
+            }
             e.style.display = "block";
-            f.style.display = "none";
-            g.style.display = "none";
-            h.style.display = "none";
-            i.style.display = "none";
-            j.style.display = "none";
+            for (var ele of arr2) {
+                ele.style = "background-color:var(--backgroundcolor);";
+            }
+            five.style = "background-color:var(--huiyucolor);";
         }
         six.onclick = function () {
-            a.style.display = "none";
-            b.style.display = "none";
-            c.style.display = "none";
-            d.style.display = "none";
-            e.style.display = "none";
+            text.innerText = "赣语";
+            for (var ele of arr1) {
+                ele.style.display = "none";
+            }
             f.style.display = "block";
-            g.style.display = "none";
-            h.style.display = "none";
-            i.style.display = "none";
-            j.style.display = "none";
+            for (var ele of arr2) {
+                ele.style = "background-color:var(--backgroundcolor);";
+            }
+            six.style = "background-color:var(--ganyucolor);";
         }
         seven.onclick = function () {
-            a.style.display = "none";
-            b.style.display = "none";
-            c.style.display = "none";
-            d.style.display = "none";
-            e.style.display = "none";
-            f.style.display = "none";
+            text.innerText = "湘语";
+            for (var ele of arr1) {
+                ele.style.display = "none";
+            }
             g.style.display = "block";
-            h.style.display = "none";
-            i.style.display = "none";
-            j.style.display = "none";
+            for (var ele of arr2) {
+                ele.style = "background-color:var(--backgroundcolor);";
+            }
+            seven.style = "background-color:var(--xiangyucolor);";
         }
         eight.onclick = function () {
-            a.style.display = "none";
-            b.style.display = "none";
-            c.style.display = "none";
-            d.style.display = "none";
-            e.style.display = "none";
-            f.style.display = "none";
-            g.style.display = "none";
+            text.innerText = "闽语";
+            for (var ele of arr1) {
+                ele.style.display = "none";
+            }
             h.style.display = "block";
-            i.style.display = "none";
-            j.style.display = "none";
+            for (var ele of arr2) {
+                ele.style = "background-color:var(--backgroundcolor);";
+            }
+            eight.style = "background-color:var(--minyucolor);";
         }
         nine.onclick = function () {
-            a.style.display = "none";
-            b.style.display = "none";
-            c.style.display = "none";
-            d.style.display = "none";
-            e.style.display = "none";
-            f.style.display = "none";
-            g.style.display = "none";
-            h.style.display = "none";
+            text.innerText = "平话";
+            for (var ele of arr1) {
+                ele.style.display = "none";
+            }
             i.style.display = "block";
-            j.style.display = "none";
+            for (var ele of arr2) {
+                ele.style = "background-color:var(--backgroundcolor);";
+            }
+            nine.style = "background-color:var(--pinghuacolor);";
         }
         ten.onclick = function () {
-            a.style.display = "none";
-            b.style.display = "none";
-            c.style.display = "none";
-            d.style.display = "none";
-            e.style.display = "none";
-            f.style.display = "none";
-            g.style.display = "none";
-            h.style.display = "none";
-            i.style.display = "none";
+            text.innerText = "客家话";
+            for (var ele of arr1) {
+                ele.style.display = "none";
+            }
             j.style.display = "block";
+            for (var ele of arr2) {
+                ele.style = "background-color:var(--backgroundcolor);";
+            }
+            ten.style = "background-color:var(--kejiahuacolor);";
         }
     </script>
     {% include 'footer.html' %}

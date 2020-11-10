@@ -16,7 +16,7 @@ body {
     background-attachment: fixed;
     */
     /*全局颜色*/
-    --backgroungcolor: #fbfbfb;
+    --backgroundcolor: #fbfbfb;
     --cardbackgroundcolor: #ffffff;
     --shadowcolor: #727272;
     --tagcolor: #f1f1f1;
@@ -151,7 +151,7 @@ header {
     .sidebar ul {
         list-style: none none;
         margin: 2px;
-        background-color: var(--backgroungcolor);
+        background-color: var(--backgroundcolor);
         border: 2px solid var(--themecolor3);
         border-left: none;
         border-bottom-right-radius: 2px;
@@ -170,6 +170,7 @@ header {
 
         .sidebar li:first-child {
             border: none;
+            background-color: var(--guanhuacolor);
         }
 
         .sidebar li:nth-child(1):hover {
@@ -233,7 +234,7 @@ header {
         背景图太丑，要更换
         background: url(../image/map.png) repeat;
     */
-    background-color: var(--backgroungcolor);
+    background-color: var(--backgroundcolor);
     background-size: 648px;
     margin-top: 38px;
     margin-left: 118px;
@@ -247,6 +248,7 @@ header {
     border-top-left-radius: 2px;
     /*测试用*/
     /*height: 1000px;*/
+    min-height: 480px;
 }
 
     .content-box > .heading {
@@ -281,21 +283,4 @@ footer {
     font-size: 12px;
     left: 30%;
     width: 40%;
-}
-.content-box .introduction .text {
-    width: 75%;
-    text-align: right;
-}
-.content-box .introduction .china {
-    position: absolute;
-    left: 10%;
-    top: 10%;
-}
-.content-box .introduction ul li img {
-    position: absolute;
-    left: 10%;
-    top: 10%;
-}
-.content-box .introduction ul li div{
-    margin-left:50%;
 }
