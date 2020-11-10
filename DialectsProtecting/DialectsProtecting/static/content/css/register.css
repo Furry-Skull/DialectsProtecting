@@ -44,6 +44,8 @@ li {
 
 .error {
     color: #ff0000;
+    font-size: 13px;
+    padding: 0 0 0 220px;
 }
 
 .success {
@@ -69,7 +71,7 @@ li {
     background-color: var(--themecolor1);
     font-size: 14px;
     color: black;
-    margin: 30px 0 40px 150px;
+    margin: 30px 0 20px 150px;
     border: 1.5px solid var(--themecolor3);
     transition: 0.14s all ease-in;
 }

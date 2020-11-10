@@ -38,6 +38,12 @@
     <Compile Include="DialectsProtecting\database\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DialectsProtecting\detail\views.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialectsProtecting\detail\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DialectsProtecting\manage.py">
       <SubType>Code</SubType>
     </Compile>
@@ -73,6 +79,7 @@
   <ItemGroup>
     <Folder Include="DialectsProtecting\" />
     <Folder Include="DialectsProtecting\database\" />
+    <Folder Include="DialectsProtecting\detail\" />
     <Folder Include="DialectsProtecting\my\" />
     <Folder Include="DialectsProtecting\search\" />
     <Folder Include="DialectsProtecting\static\content\fonts\" />
@@ -89,7 +96,10 @@
     <Content Include="DialectsProtecting\static\content\css\audioDetail.css" />
     <Content Include="DialectsProtecting\static\content\css\basic.css" />
     <Content Include="DialectsProtecting\static\content\css\searchResult.css" />
+    <Content Include="DialectsProtecting\static\content\css\upload.css" />
     <Content Include="DialectsProtecting\static\content\css\user.css" />
+    <Content Include="DialectsProtecting\static\content\image\language.png" />
+    <Content Include="DialectsProtecting\static\content\image\location.png" />
     <Content Include="DialectsProtecting\static\content\image\map.png">
       <Publish>False</Publish>
     </Content>
@@ -108,6 +118,7 @@
     <Content Include="DialectsProtecting\templates\sidebar.html" />
     <Content Include="DialectsProtecting\templates\upload.html" />
     <Content Include="DialectsProtecting\templates\user.html" />
+    <Content Include="DialectsProtecting\templates\userSidebar.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 

@@ -6,15 +6,19 @@ a {
     text-decoration: none;
 }
 
+
 body {
     /*
     需要背景图
-    background-image: url(../image/map.png);
+    background-image: url(/../static/content/image/map.png);
     background-size: 100%;
     background-attachment: fixed;
     */
     /*全局颜色*/
-    --backgroungcolor: #ededed;
+    --backgroungcolor: #fbfbfb;
+    --cardbackgroundcolor: #ffffff;
+    --shadowcolor: #727272;
+    --tagcolor: #f1f1f1;
     --themecolor0: #114514;
     --themecolor1: #89b034;
     --themecolor3: #34747d;
@@ -146,7 +150,7 @@ header {
     .sidebar ul {
         list-style: none none;
         margin: 2px;
-        background-color: white;
+        background-color: var(--backgroungcolor);
         border: 2px solid var(--themecolor3);
         border-left: none;
         border-bottom-right-radius: 2px;
@@ -228,7 +232,7 @@ header {
         背景图太丑，要更换
         background: url(../image/map.png) repeat;
     */
-    background-color: white;
+    background-color: var(--backgroungcolor);
     background-size: 648px;
     margin-top: 38px;
     margin-left: 118px;
@@ -260,12 +264,9 @@ header {
         overflow: visible;
         font-family: FZQKBYSJT;
         font-size: 22px;
-        padding: 0 0;
+        padding: 0 0; 
         border-bottom: 1.5px solid var(--themecolor3);
         margin-bottom: 10px;
-    }
-
-    .content p {
     }
 
 footer {

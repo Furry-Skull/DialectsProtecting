@@ -39,6 +39,14 @@ class Database:
                 );''')
         except :
             a="数据库已被创建"
+
+        try:
+            c.execute('''create table likeURL
+                (userName char(16) not null,
+                audioURL char(64) not null
+                );''')
+        except :
+            a="数据库已被创建"
         c.close()
 
     #userName为用户姓名，audioURL为音频路径，translation为译文翻译，暂定支持最大char为64，tags是标签，暂定使用数组的方式
@@ -85,6 +93,44 @@ class Database:
         except:
             conn.close()
             return 0
+    
+
+    #点赞功能
+    def userLike(self, userName, audioURL):
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        try:
+            sql_insert = '''
+            insert into
+                likeURL
+            values
+                (?, ?);
+            '''
+            c.execute(sql_insert, (userName,audioURL))
+            sql_update = '''update dialect set like = like + 1 where userName = ? and audioURL = ?'''
+            c.execute(sql_update, (userName,audioURL))
+            conn.commit()
+            conn.close()
+            return 1
+        except:
+            conn.close()
+            return 0
+
+    #取消用户点赞
+    def userDislike(self, userName, audioURL):
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        try:
+            sql_delete = '''delete from likeURL where userName = ? and audioURL = ?'''
+            c.execute(sql_delete, (userName,audioURL))
+            sql_update = '''update dialect set like = like - 1 where userName = ? and audioURL = ?'''
+            c.execute(sql_update, (userName,audioURL))
+            conn.commit()
+            conn.close()
+            return 1
+        except:
+            conn.close()
+            return 0
 
     #查询一个账号是否存在，存在返回1，不存在返回0
     def accountExist(self, account):
@@ -102,14 +148,27 @@ class Database:
 
     #查询一个用户已发布的所有方言记录
     def searchUserPublish(self, account):
+        return self.__searchDialectPrivate(publishers=[account])
+    
+
+    #用户删除一条记录
+    def delectDialect(self, audioURL):
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
-        sql_select = '''
-        select * from dialect where userName = ?;
-        '''
-        c.execute(sql_select,(account,))  
-        results=[]
+        sql_delete = "delete from dialect where audioURL = ?;"
+        c.execute(sql_delete,(audioURL,))  
+        conn.commit()
+        conn.close()
+        return 1
+
+    #根据url搜索指定记录
+    def searchByURL(self, audioURL):
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        sql_select = "select * from dialect where audioURL = ?;"
+        c.execute(sql_select,(audioURL,)) 
         for row in c:
+            language_Family=self.__lll(row[4])
             row_tag = []
             strlist = row[6].split(' ')
             for value in strlist:
@@ -122,20 +181,13 @@ class Database:
                 title = row[5],
                 tags = row_tag,
                 like = row[7],
-                browse = row[8])
-            results.append(record)
-        return results
-    
-
-    #用户删除一条记录
-    def delectDialect(self, audioURL):
-        conn = sqlite3.connect('database.db')
-        c = conn.cursor()
-        sql_delete = "delete from dialect where audioURL = ?;"
-        c.execute(sql_delete,(audioURL,))  
-        conn.commit()
+                browse = row[8],
+                languageFamily = language_Family
+                )
+            conn.close()
+            return record
         conn.close()
-        return 1
+        return None
 
     #点赞功能是否需要实现？评论功能呢？
     def likeDialect(self, audioURL):
@@ -204,6 +256,7 @@ class Database:
             return temp
         conn.close()
 
+    #根据搜索条件查询记录
     def searchDialect(self, translations=[], languages=[], locations=[], publishers=[], tags=[], languageFamily=[]):
         if len(languageFamily)==0:
             return self.__searchDialectPrivate(translations,languages,locations,publishers,tags)
@@ -297,18 +350,39 @@ class Database:
                 results.append(record)
         return results
 
-    #判断给定字符串是否为一个地域
-    def isLocation(self, location):
+
+    #判断给定字符串是否为一种语系
+    def isLanguageFamily(self, languageFamily):
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        sql_select = 'select languageFamily from lang where languageFamily = "' + languageFamily + '";'
+        c.execute(sql_select)
+        for row in c:
+            conn.close()
+            return True
+        conn.close()
         return False
 
     #判断给定字符串是否为一种语言
     def isLanguage(self, language):
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
-        c.
+        sql_select = 'select language from lang where language = "' + language + '";'
+        c.execute(sql_select)
+        for row in c:
+            conn.close()
+            return True
+        conn.close()
         return False
 
-    #判断给定字符串是否为一个标签
-    def isTag(self, tag):
-        return False
-
+    #获取所有语言，返回数组
+    def getAllLanguages(self):
+        languages = []
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        sql_select = 'select language from lang;'
+        c.execute(sql_select)
+        for row in c:
+            languages.append(row[0])
+        conn.close()
+        return languages

@@ -13,57 +13,65 @@
     margin-right: 20px;
     margin-bottom: 20px;
     padding-left: 20px;
+    background-color: var(--cardbackgroundcolor);
+    box-shadow: 3px 3px 3px var(--shadowcolor);
 }
 
     .search-audio-box h2 {
-        margin: 10px;
-        width: 40%;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .search-audio-box .info-box {
         display: inline-block;
-        height: 140px;
-        width: 450px;
+        height: 100px;
+        width: 40%;
         padding-left: 10px;
         margin-right: 20px;
+        border-right: 1.5px solid black
     }
 
         .search-audio-box a {
             text-decoration: none;
+            color: black;
+            font-family: FZQKBYSJT;
+        }
+
+        .search-audio-box .info-box img{
+            width: 20px;
+            height: 20px;
         }
 
         .search-audio-box .info-box .lang {
-            margin-bottom: 5px;
+            margin: 5px;
         }
 
         .search-audio-box .info-box .location {
-            margin-bottom: 5px;
+            margin: 5px;
         }
 
         .search-audio-box .info-box .language-family {
-            margin-bottom: 5px;
+            margin: 5px;
         }
 
-        .search-audio-box .info-box .tag {
-            display: inline-block;
-            border: 1px solid;
-            border-radius: 15px;
-            padding-left: 10px;
-            padding-right: 10px;
-            margin-top: 10px;
-            background-color: var(--backgroungcolor);
-            margin-right: 10px;
-        }
+    .search-audio-box .info-box .tag {
+        display: inline-block;
+        border: 1px solid;
+        border-radius: 15px;
+        padding-left: 6px;
+        padding-right: 6px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        margin-top: 5px;
+        background-color: var(--tagcolor);
+        margin-right: 5px;
+    }
 
     .search-audio-box .audio-box {
-        display: inline-block;
-        top: 10px;
-        position: absolute;
-        bottom: 10px;
-        padding-left: 20px;
-        padding-right: 20px;
-        width: 400px;
-        height: 40px;
+        width: 700px;
+        margin-top: 20px;
     }
 
         .search-audio-box .audio-box audio {
@@ -73,16 +81,17 @@
         }
 
     .search-audio-box .translation {
+        background: #f0f0f0;
         display: inline-block;
         font-family: FZQKBYSJT;
         position: absolute;
         margin: 10px;
-        width: 500px;
-        height: 80px;
-        border: 2px solid black;
+        width: 450px;
+        height: 86px;
         border-radius: 2px;
         padding: 10px;
-        top: 20px;
+        top: 32px;
+        overflow: scroll;
     }
 
     .search-audio-box .username {

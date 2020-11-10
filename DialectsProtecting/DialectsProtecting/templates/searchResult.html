@@ -5,50 +5,50 @@
     <meta charset="utf-8" />
     <title>搜索结果</title>
     <!--头格式-->
-    <link rel="stylesheet" href="../static/content/css/basic.css" />
-    <link rel="stylesheet" href="../static/content/css/searchResult.css" />
-</head>s
+    <link rel="stylesheet" href="/static/content/css/basic.css" />
+    <link rel="stylesheet" href="/static/content/css/searchResult.css" />
+</head>
 <body>
     {% include 'navigate.html' %}
     {% include 'sidebar.html' %}
     {# 可能需要搜索条件 #}
-
     {# 搜索记录呈现 #}
     <div class="content-box">
-        <div class="heading">"搜索条件"的搜索结果</div>
+        <div class="heading">搜索结果</div>
         {% for item in records %}
         <div class="search-audio-box">
             <h2>{{ item.title }}</h2>
             <div class="info-box">
-                <div class="lang">
-                    语言：<a href="/search/lang={{ item.language }}">{{ item.language }}</a>
-                </div>
-                <div class="language-family">
-                    语系：{{ item.languageFamily }}
-                </div>
+                <span class="lang">
+                    <img src="/static/content/image/language.png" />
+                    <a href="/search/lang={{ item.language }}">{{ item.language }}</a>
+                </span>
+                <span class="language-family">
+                    <a href="/search/langFamily={{ item.languageFamily }}">{{ item.languageFamily }}</a>
+                </span>
                 <div class="location">
-                    地域：{{ item.location }}
+                    <img src="/static/content/image/location.png" />
+                    <a href="/search/loc={{ item.location }}">{{ item.location }}</a>
                 </div>
                 {% for tag in item.tags %}
                 <div class="tag">
-                    {{ tag }}
+                    <a href="/search/tag={{ tag }}">{{ tag }}</a>
                 </div>
                 {% endfor %}
             </div>
-            <!--
+            <div class="translation">
+                {{ item.translation }}
+            </div>
+            <div class="username">
+                上传：<a href="/search/publisher={{ item.userName }}">{{ item.userName }}</a>
+            </div>
             <div class="audio-box">
                 <audio controls>
                     <source src="{{ item.audioURL }}" type="audio/mpeg">
                 </audio>
             </div>
-            -->
-            <div class="translation">
-                {{ item.translation }}
-            </div>
-            <div class="username">
-                上传者：{{ item.userName }}
-            </div>
         </div>
+
         {% endfor %}
     </div>
     {% include 'footer.html' %}
@@ -57,34 +57,34 @@
         var boxes = document.getElementsByClassName('search-audio-box');
         var languagefamilies = document.getElementsByClassName('language-family');
         for (var i = 0; i < boxes.length; i++) {
-            if (languagefamilies[i].innerText == '语系：官话') {
+            if (languagefamilies[i].innerText == '官话') {
                 boxes[i].style = "border-left-color: var(--guanhuacolor);";
             }
-            else if (languagefamilies[i].innerText == '语系：粤语') {
+            else if (languagefamilies[i].innerText == '粤语') {
                 boxes[i].style = "border-left-color: var(--yueyucolor);";
             }
-            else if (languagefamilies[i].innerText == '语系：晋语') {
+            else if (languagefamilies[i].innerText == '晋语') {
                 boxes[i].style = "border-left-color: var(--jinyucolor);";
             }
-            else if (languagefamilies[i].innerText == '语系：吴语') {
+            else if (languagefamilies[i].innerText == '吴语') {
                 boxes[i].style = "border-left-color: var(--wuyucolor);";
             }
-            else if (languagefamilies[i].innerText == '语系：徽语') {
+            else if (languagefamilies[i].innerText == '徽语') {
                 boxes[i].style = "border-left-color: var(--huiyucolor);";
             }
-            else if (languagefamilies[i].innerText == '语系：赣语') {
+            else if (languagefamilies[i].innerText == '赣语') {
                 boxes[i].style = "border-left-color: var(--ganyucolor);";
             }
-            else if (languagefamilies[i].innerText == '语系：湘语') {
+            else if (languagefamilies[i].innerText == '湘语') {
                 boxes[i].style = "border-left-color: var(--xiangyucolor);";
             }
-            else if (languagefamilies[i].innerText == '语系：闽语') {
+            else if (languagefamilies[i].innerText == '闽语') {
                 boxes[i].style = "border-left-color: var(--minyucolor);";
             }
-            else if (languagefamilies[i].innerText == '语系：平话') {
+            else if (languagefamilies[i].innerText == '平话') {
                 boxes[i].style = "border-left-color: var(--pinghuacolor);";
             }
-            else if (languagefamilies[i].innerText == '语系：客家话') {
+            else if (languagefamilies[i].innerText == '客家话') {
                 boxes[i].style = "border-left-color: var(--kejiahuacolor);";
             }
             else {
