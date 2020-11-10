@@ -10,7 +10,10 @@ from DialectsProtecting.user.userUtils import uploadFileByCurrentUser, getUser
 def userSpace(username):
     if getUser() == username:
         #进入自己的个人页面，显示个人信息
-        return render_template('user.html')
+        return render_template('user.html', 
+                               userInfo__userName = '用户名', 
+                               userInfo__location = '用户地域', 
+                               userInfo__language = '用户语言')
     else:
         #进入别人的个人页面，暂定显示404
         return render_template('page404.html')
