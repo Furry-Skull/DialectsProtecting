@@ -6,7 +6,7 @@
     */
     border-left: 15px solid black;
     width: 95%;
-    height: 180px;
+    height: 250px;
     /*
         overflow-y: scroll;
     */
@@ -26,16 +26,21 @@
 
     .search-audio-box .info-box {
         display: inline-block;
-        height: 140px;
-        width: 450px;
-        padding-left: 10px;
-        margin-right: 20px;
+        height: 100px;
+        width: 40%;
+        margin-left: 40%;
+        position: absolute;
     }
 
         .search-audio-box a {
             text-decoration: none;
             color: black;
             font-family: FZQKBYSJT;
+        }
+
+        .search-audio-box .info-box img{
+            width: 20px;
+            height: 20px;
         }
 
         .search-audio-box .info-box .lang {
@@ -64,33 +69,28 @@
     }
 
     .search-audio-box .audio-box {
-        display: inline-block;
-        top: 10px;
-        position: absolute;
-        bottom: 10px;
-        padding-left: 20px;
-        padding-right: 20px;
-        width: 400px;
-        height: 40px;
+        width: 700px;
+        margin-top: 20px;
     }
 
         .search-audio-box .audio-box audio {
             position: absolute;
-            width: 80%;
-            left: 10%;
+            width: 60%;
         }
 
     .search-audio-box .translation {
+        background: #f0f0f0;
         display: inline-block;
         font-family: FZQKBYSJT;
         position: absolute;
         margin: 10px;
-        width: 450px;
-        height: 80px;
-        border: 2px solid black;
+        width: 35%;
+        height: 86px;
         border-radius: 2px;
         padding: 10px;
-        top: 20px;
+        top: 32px;
+        overflow-y: auto;
+        overflow-wrap: break-word;
     }
 
     .search-audio-box .username {

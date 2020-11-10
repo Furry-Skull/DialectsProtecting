@@ -20,9 +20,12 @@ app.register_blueprint(detail, url_prefix = '/detail')
 @app.route('/')
 @app.route('/home')
 def home():
+    #return render_template('audioPlayer.html', audioURL = 'static/uploads/test/1604848024425-209.mp3')
+
     #方言语系的对应关系请在这里添加
     db.insertLanguage('吴语','杭州话')
-
+    db.userLike(1,1)
+    db.userDislike(1,1)
     #获取用户状态，显示页面
     return render_template('home.html')
 

@@ -39,6 +39,14 @@ class Database:
                 );''')
         except :
             a="数据库已被创建"
+
+        try:
+            c.execute('''create table likeURL
+                (userName char(16) not null,
+                audioURL char(64) not null
+                );''')
+        except :
+            a="数据库已被创建"
         c.close()
 
     #userName为用户姓名，audioURL为音频路径，translation为译文翻译，暂定支持最大char为64，tags是标签，暂定使用数组的方式
@@ -79,6 +87,44 @@ class Database:
                 (?, ?);
             '''
             c.execute(sql_insert, (language,languageFamily))
+            conn.commit()
+            conn.close()
+            return 1
+        except:
+            conn.close()
+            return 0
+    
+
+    #点赞功能
+    def userLike(self, userName, audioURL):
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        try:
+            sql_insert = '''
+            insert into
+                likeURL
+            values
+                (?, ?);
+            '''
+            c.execute(sql_insert, (userName,audioURL))
+            sql_update = '''update dialect set like = like + 1 where userName = ? and audioURL = ?'''
+            c.execute(sql_update, (userName,audioURL))
+            conn.commit()
+            conn.close()
+            return 1
+        except:
+            conn.close()
+            return 0
+
+    #取消用户点赞
+    def userDislike(self, userName, audioURL):
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        try:
+            sql_delete = '''delete from likeURL where userName = ? and audioURL = ?'''
+            c.execute(sql_delete, (userName,audioURL))
+            sql_update = '''update dialect set like = like - 1 where userName = ? and audioURL = ?'''
+            c.execute(sql_update, (userName,audioURL))
             conn.commit()
             conn.close()
             return 1

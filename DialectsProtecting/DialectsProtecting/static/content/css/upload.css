@@ -75,7 +75,6 @@
     margin: 0 auto;
     border: 1.5px solid var(--themecolor3);
     transition: 0.14s all ease-in;
-    border-radius: 8px;
 }
 
     .content-box #psub:hover {
@@ -143,23 +142,32 @@
     }
 
 #addButton {
-    background: url("/../static/content/image/map.png");
-    width: 20px;
-    height: 20px;
+    background: url("/static/content/image/add.png");
+    height: 24px;
+    width: 24px;
     border: none;
-    background-size: 100% 100%;
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
     top: -4px;
+    left: 6px;
     display: inline-block;
     position: relative;
+    outline: none;
+    border: 1px solid black;
+    padding: 10px;
+    background-position: 3px 3px;
+    border-radius: 20px;
 }
 
 #deleteButton {
-    background: url("/../static/content/image/map.png");
-    width: 20px;
-    height: 20px;
+    background: url(/static/content/image/delete.png);
+    height: 16px;
     border: none;
-    background-size: 100% 100%;
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
     top: -4px;
+    left: 6px;
     display: inline-block;
     position: relative;
+    outline: none;
 }
