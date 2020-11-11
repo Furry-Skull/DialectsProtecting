@@ -53,7 +53,9 @@
                  width="60"
                  height="60"
                  onmouseover="this.src='/static/content/image/like.png'"
-                 onmouseout="this.src='/static/content/image/like_normal.png'"/>
+                 onmouseout="this.src = '/static/content/image/like_normal.png'"
+                 onclick="like(this,'{{ item.audioURL }}');"/>
+            {{ item.like }}
             <div class="username">
                 上传：<a href="/search/publisher={{ item.userName }}">{{ item.userName }}</a>
             </div>
@@ -63,7 +65,6 @@
     <!-- 音乐播放器 -->
     <span class="audio-title" id="audioTitle"></span>
     <div class="container" id="musicBoxContainer">
-        <audio preload="auto" src='/'></audio>
     </div>
     <!-- 音乐播放器代码 -->
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -75,7 +76,27 @@
             $('audio').initAudioPlayer();
             document.getElementById('playButton').click();
         }
-        $('audio').initAudioPlayer();
+        function like(btn, url) {
+            $.ajax({
+                data: {
+                    audioURL: url
+                },
+                type: "POST",
+                dataType: "text",
+                url: "/detail/like"
+            })
+            //修改点赞图标为蓝色
+        }
+        function cancelLike(btn, url) {
+            $.ajax({
+                data: {
+                    audioURL: url
+                },
+                type: "POST",
+                dataType: "text",
+                url: "/detail/cancelLike"
+            })
+        }
     </script>
     {% include 'footer.html' %}
     <script type="text/javascript">

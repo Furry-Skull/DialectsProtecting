@@ -107,8 +107,8 @@ class Database:
                 (?, ?);
             '''
             c.execute(sql_insert, (userName,audioURL))
-            sql_update = '''update dialect set like = like + 1 where userName = ? and audioURL = ?'''
-            c.execute(sql_update, (userName,audioURL))
+            sql_update = '''update dialect set like = like + 1 where audioURL = ?'''
+            c.execute(sql_update, (audioURL,))
             conn.commit()
             conn.close()
             return 1
@@ -123,8 +123,8 @@ class Database:
         try:
             sql_delete = '''delete from likeURL where userName = ? and audioURL = ?'''
             c.execute(sql_delete, (userName,audioURL))
-            sql_update = '''update dialect set like = like - 1 where userName = ? and audioURL = ?'''
-            c.execute(sql_update, (userName,audioURL))
+            sql_update = '''update dialect set like = like - 1 where audioURL = ?'''
+            c.execute(sql_update, (audioURL,))
             conn.commit()
             conn.close()
             return 1
@@ -188,17 +188,6 @@ class Database:
             return record
         conn.close()
         return None
-
-    #点赞功能是否需要实现？评论功能呢？
-    def likeDialect(self, audioURL):
-        conn = sqlite3.connect('database.db')
-        c = conn.cursor()
-        sql_update = "update dialect set like = like + 1 where audioURL = ?;"
-        c.execute(sql_update,(audioURL,))  
-        conn.commit()
-        conn.close()
-        return 1
-
 
     #登录代码
     #login返回值为2代表登录成功，返回值为1代表密码错误，返回值为0代表此账号未注册
