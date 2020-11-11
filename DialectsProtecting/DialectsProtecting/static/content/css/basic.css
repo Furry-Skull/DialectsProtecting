@@ -7,6 +7,13 @@ a {
     cursor: pointer;
 }
 
+html {
+    height: 85%;
+}
+
+button {
+    cursor: pointer;
+}
 
 body {
     /*
@@ -34,6 +41,7 @@ body {
     --pinghuacolor: #ae41bd;
     --kejiahuacolor: #97fb65;
     --yueyucolor: #89bc22;
+    height:100%;
 }
 
 /*全局字体*/
@@ -248,7 +256,8 @@ header {
     border-top-left-radius: 2px;
     /*测试用*/
     /*height: 1000px;*/
-    min-height: 480px;
+    height:86%;
+    min-height: 350px;
 }
 
     .content-box > .heading {
