@@ -173,11 +173,11 @@ class Database:
         c = conn.cursor()
         sql_select = "select audioURL from likeURL where userName = ?;"
         c.execute(sql_select,(userName,)) 
-        record=[]
+        records = []
         for row in c:
-            record.append(self.searchByURL(row[0]))
+            records.append(self.searchByURL(row[0]))
         conn.close()
-        return record
+        return records
 
     #用户删除一条记录
     def delectDialect(self, audioURL):

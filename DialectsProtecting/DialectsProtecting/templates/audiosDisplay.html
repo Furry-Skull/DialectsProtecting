@@ -47,8 +47,7 @@
          style="cursor:pointer;"
          onmouseover="this.src = '/static/content/image/like.png';"
          onmouseout="this.src = '/static/content/image/like_normal.png';"
-         onclick="if (this.id == 'likebtn') like(this, '{{ item.audioURL }}'); else if (this.id == 'cancellikebtn') cancelLike(this, '{{ item.audioURL }}');" />
-    点赞数：{{ item.like }}
+         onclick="if (this.id == 'likebtn') like(this, '{{ item.audioURL }}', {{ loop.index0 }}); else if (this.id == 'cancellikebtn') cancelLike(this, '{{ item.audioURL }}', {{ loop.index0 }});" />
     {% else %}
     {# 该音频记录已点赞 #}
     <img id="cancellikebtn"
@@ -58,8 +57,7 @@
          style="cursor:pointer;"
          onmouseover="this.src = '/static/content/image/like.png';"
          onmouseout="this.src = '/static/content/image/like.png';"
-         onclick="if (this.id == 'likebtn') like(this, '{{ item.audioURL }}'); else if (this.id == 'cancellikebtn') cancelLike(this, '{{ item.audioURL }}');" />
-    点赞数：{{ item.like }}
+         onclick="if (this.id == 'likebtn') like(this, '{{ item.audioURL }}', {{ loop.index0 }}); else if (this.id == 'cancellikebtn') cancelLike(this, '{{ item.audioURL }}', {{ loop.index0 }});" />
     {% endif %}
     {% else %}
     {# 说明用户未登录，所有点赞图标不可点 #}
@@ -69,6 +67,9 @@
          height="55"
          style="cursor:pointer;" />
     {% endif %}
+    <div class="like-number" id="item{{ loop.index0 }}LikeNumber">
+        {{ item.like }}
+    </div>
     <div class="username">
         上传：<a href="/search/publisher={{ item.userName }}">{{ item.userName }}</a>
     </div>
@@ -89,11 +90,13 @@
         $('audio').initAudioPlayer();
         document.getElementById('playButton').click();
     }
-    function like(btn, url) {
+    function like(btn, url, index) {
         btn.id = 'cancellikebtn';
         btn.src = '/static/content/image/like.png';
         btn.onmouseover = "this.src = '/static/content/image/like.png';";
         btn.onmouseout = "this.src = '/static/content/image/like.png';";
+        num = document.getElementById('item' + index + 'LikeNumber').innerHTML * 1;
+        document.getElementById('item' + index + 'LikeNumber').innerHTML = num + 1;
         $.ajax({
             data: {
                 audioURL: url
@@ -104,11 +107,13 @@
             success: function (data) { }
         })
     }
-    function cancelLike(btn, url) {
+    function cancelLike(btn, url, index) {
         btn.id = 'likebtn';
         btn.src = '/static/content/image/like_normal.png';
         btn.onmouseover = "this.src = '/static/content/image/like.png';";
         btn.onmouseout = "this.src = '/static/content/image/like_normal.png';";
+        num = document.getElementById('item' + index + 'LikeNumber').innerHTML * 1;
+        document.getElementById('item' + index + 'LikeNumber').innerHTML = num - 1;
         $.ajax({
             data: {
                 audioURL: url
