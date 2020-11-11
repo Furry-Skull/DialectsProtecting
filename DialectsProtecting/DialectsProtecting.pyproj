@@ -106,6 +106,7 @@
     <Content Include="DialectsProtecting\static\content\image\like.png" />
     <Content Include="DialectsProtecting\static\content\image\like_normal.png" />
     <Content Include="DialectsProtecting\static\content\image\location.png" />
+    <Content Include="DialectsProtecting\static\content\image\LOGO.png" />
     <Content Include="DialectsProtecting\static\content\image\map.png">
       <Publish>False</Publish>
     </Content>
