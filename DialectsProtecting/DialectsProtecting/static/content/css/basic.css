@@ -6,8 +6,13 @@ a {
     text-decoration: none;
     cursor: pointer;
 }
-html{
-    height:85%;
+
+html {
+    height: 85%;
+}
+
+button {
+    cursor: pointer;
 }
 
 body {

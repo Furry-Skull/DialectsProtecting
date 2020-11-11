@@ -106,6 +106,7 @@
     <Content Include="DialectsProtecting\static\content\image\like.png" />
     <Content Include="DialectsProtecting\static\content\image\like_normal.png" />
     <Content Include="DialectsProtecting\static\content\image\location.png" />
+    <Content Include="DialectsProtecting\static\content\image\LOGO.png" />
     <Content Include="DialectsProtecting\static\content\image\map.png">
       <Publish>False</Publish>
     </Content>
@@ -127,7 +128,9 @@
     <Content Include="DialectsProtecting\templates\sidebar.html" />
     <Content Include="DialectsProtecting\templates\upload.html" />
     <Content Include="DialectsProtecting\templates\user.html" />
+    <Content Include="DialectsProtecting\templates\userFavorite.html" />
     <Content Include="DialectsProtecting\templates\userSidebar.html" />
+    <Content Include="DialectsProtecting\templates\userUploaded.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
