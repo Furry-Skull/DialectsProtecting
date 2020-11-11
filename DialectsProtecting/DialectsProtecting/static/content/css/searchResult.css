@@ -33,7 +33,7 @@
         top: 50%;
     }
 
-    .search-audio-box #likebtn {
+    .search-audio-box #likebtn, #cancellikebtn {
         left: 80%;
         top: 50%;
     }

@@ -1,7 +1,8 @@
 .audio-title {
     position: fixed;
-    left: 40%;
-    bottom: 6%;
+    left: 50%;
+    margin-left: -275px;
+    bottom: 42px;
     z-index: 2;
     font-family: 'FZQKBYSJT';
     font-size: 20px;
@@ -32,12 +33,13 @@
     line-height: 110px;
     position: fixed;
     bottom: 0;
-    right: 35%;
+    left: 50%;
     overflow: hidden;
     height: 80px; /*高度*/
-    width: 30%; /*宽度*/
-    margin: 0 auto;
-    background: #f4f4f4
+    width: 700px; /*宽度*/
+    margin-left: -350px;
+    background: #f4f4f4;
+    z-index: 1;
 }
 
     .ppq-audio-player audio {
