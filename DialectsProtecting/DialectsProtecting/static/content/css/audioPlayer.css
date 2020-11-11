@@ -38,9 +38,9 @@
     height: 80px; /*¸ß¶È*/
     width: 700px; /*¿í¶È*/
     margin-left: -350px;
-    background: #f4f4f4;
+    background: #f7f1eded;
     z-index: 1;
-    box-shadow: 4px 4px 10px var(--shadowcolor);
+    box-shadow: 0 0 8px var(--shadowcolor);
 }
 
     .ppq-audio-player audio {
