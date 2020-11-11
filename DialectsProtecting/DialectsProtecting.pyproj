@@ -115,6 +115,7 @@
     </Content>
     <Content Include="DialectsProtecting\static\content\css\register.css" />
     <Content Include="DialectsProtecting\static\content\image\logo.jpg" />
+    <Content Include="DialectsProtecting\static\content\image\map_add.png" />
     <Content Include="DialectsProtecting\static\content\image\play.png" />
     <Content Include="DialectsProtecting\static\content\image\r_logo.jpg" />
     <Content Include="DialectsProtecting\static\content\fonts\FZQKBYSJT.TTF" />
