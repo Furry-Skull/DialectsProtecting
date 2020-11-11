@@ -71,15 +71,15 @@
     height: 34px;
     background-color: var(--themecolor1);
     font-size: 16px;
-    color: black;
+    color: white;
     margin: 0 auto;
     border: 1.5px solid var(--themecolor3);
     transition: 0.14s all ease-in;
 }
 
     .content-box #psub:hover {
-        background-color: var(--themecolor0);
-        color: white;
+        background-color: var(--themecolor3);
+        color: black;
     }
 
 .content-box .fileHint {
@@ -136,8 +136,7 @@
 
     .file:hover {
         background: var(--themecolor3);
-        border-color: #78C3F3;
-        color: black;
+        color: white;
         text-decoration: none;
     }
 
