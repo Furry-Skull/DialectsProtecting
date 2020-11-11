@@ -26,45 +26,45 @@
     </div>
     <!--阴影效果不佳-->
     <!--onmouseover="this.style='box-shadow: 2px 2px 2px var(--shadowcolor);'"
-onmouseout="this.style='box-shadow: none;'"-->
+    onmouseout="this.style='box-shadow: none;'"-->
     <img id="playbtn"
-            src="/static/content/image/play.png"
-            width="60"
-            height="60"
-            style="cursor:pointer;"
-            onclick='addToAudioPlayer("{{ item.title }}","{{ item.audioURL }}")' />
+         src="/static/content/image/play.png"
+         width="60"
+         height="60"
+         style="cursor:pointer;"
+         onclick='addToAudioPlayer("{{ item.title }}","{{ item.audioURL }}")' />
     {% if likes | length > 0 %}
     {# 说明有用户登录，按照用户点赞的记录显示点赞图标 #}
-        {% if likes[loop.index0] == False %}
-        {# 该音频记录未点赞 #}
-        <img id="likebtn"
-                src="/static/content/image/like_normal.png"
-                width="55"
-                height="55"
-                style="cursor:pointer;"
-                onmouseover="this.src = '/static/content/image/like.png';"
-                onmouseout="this.src = '/static/content/image/like_normal.png';"
-                onclick="if (this.id == 'likebtn') like(this, '{{ item.audioURL }}'); else if (this.id == 'cancellikebtn') cancelLike(this, '{{ item.audioURL }}');" />
-        点赞数：{{ item.like }}
-        {% else %}
-        {# 该音频记录已点赞 #}
-        <img id="cancellikebtn"
-                src="/static/content/image/like.png"
-                width="55"
-                height="55"
-                style="cursor:pointer;"
-                onmouseover="this.src = '/static/content/image/like.png';"
-                onmouseout="this.src = '/static/content/image/like.png';"
-                onclick="if (this.id == 'likebtn') like(this, '{{ item.audioURL }}'); else if (this.id == 'cancellikebtn') cancelLike(this, '{{ item.audioURL }}');" />
-        点赞数：{{ item.like }}
-        {% endif %}
+    {% if likes[loop.index0] == False %}
+    {# 该音频记录未点赞 #}
+    <img id="likebtn"
+         src="/static/content/image/like_normal.png"
+         width="55"
+         height="55"
+         style="cursor:pointer;"
+         onmouseover="this.src = '/static/content/image/like.png';"
+         onmouseout="this.src = '/static/content/image/like_normal.png';"
+         onclick="if (this.id == 'likebtn') like(this, '{{ item.audioURL }}'); else if (this.id == 'cancellikebtn') cancelLike(this, '{{ item.audioURL }}');" />
+    点赞数：{{ item.like }}
+    {% else %}
+    {# 该音频记录已点赞 #}
+    <img id="cancellikebtn"
+         src="/static/content/image/like.png"
+         width="55"
+         height="55"
+         style="cursor:pointer;"
+         onmouseover="this.src = '/static/content/image/like.png';"
+         onmouseout="this.src = '/static/content/image/like.png';"
+         onclick="if (this.id == 'likebtn') like(this, '{{ item.audioURL }}'); else if (this.id == 'cancellikebtn') cancelLike(this, '{{ item.audioURL }}');" />
+    点赞数：{{ item.like }}
+    {% endif %}
     {% else %}
     {# 说明用户未登录，所有点赞图标不可点 #}
-        <img id="likebtn"
-                src="/static/content/image/like_normal.png"
-                width="55"
-                height="55"
-                style="cursor:pointer;"/>
+    <img id="likebtn"
+         src="/static/content/image/like_normal.png"
+         width="55"
+         height="55"
+         style="cursor:pointer;" />
     {% endif %}
     <div class="username">
         上传：<a href="/search/publisher={{ item.userName }}">{{ item.userName }}</a>
@@ -80,40 +80,80 @@ onmouseout="this.style='box-shadow: none;'"-->
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="/static/scripts/audioPlayer.js"></script>
 <script>
-        function addToAudioPlayer(title, url) {
-            document.getElementById('audioTitle').innerHTML = title;
-            document.getElementById('musicBoxContainer').innerHTML = '<audio preload="auto" src="' + url + '"></audio>';
-            $('audio').initAudioPlayer();
-            document.getElementById('playButton').click();
+    function addToAudioPlayer(title, url) {
+        document.getElementById('audioTitle').innerHTML = title;
+        document.getElementById('musicBoxContainer').innerHTML = '<audio preload="auto" src="' + url + '"></audio>';
+        $('audio').initAudioPlayer();
+        document.getElementById('playButton').click();
+    }
+    function like(btn, url) {
+        btn.id = 'cancellikebtn';
+        btn.src = '/static/content/image/like.png';
+        btn.onmouseover = "this.src = '/static/content/image/like.png';";
+        btn.onmouseout = "this.src = '/static/content/image/like.png';";
+        $.ajax({
+            data: {
+                audioURL: url
+            },
+            dataType: "text",
+            type: "POST",
+            url: "/detail/like",
+            success: function (data) { }
+        })
+    }
+    function cancelLike(btn, url) {
+        btn.id = 'likebtn';
+        btn.src = '/static/content/image/like_normal.png';
+        btn.onmouseover = "this.src = '/static/content/image/like.png';";
+        btn.onmouseout = "this.src = '/static/content/image/like_normal.png';";
+        $.ajax({
+            data: {
+                audioURL: url
+            },
+            dataType: "text",
+            type: "POST",
+            url: "/detail/cancelLike",
+            success: function (data) { }
+        })
+    }
+</script>
+<script type="text/javascript">
+    //改变颜色
+    var boxes = document.getElementsByClassName('search-audio-box');
+    var languagefamilies = document.getElementsByClassName('language-family');
+    for (var i = 0; i < boxes.length; i++) {
+        if (languagefamilies[i].innerText == '官话') {
+            boxes[i].style = "border-left-color: var(--guanhuacolor);";
         }
-        function like(btn, url) {
-            btn.id = 'cancellikebtn';
-            btn.src = '/static/content/image/like.png';
-            btn.onmouseover = "this.src = '/static/content/image/like.png';";
-            btn.onmouseout = "this.src = '/static/content/image/like.png';";
-            $.ajax({
-                data: {
-                    audioURL: url
-                },
-                dataType: "text",
-                type: "POST",
-                url: "/detail/like",
-                success: function (data) { }
-            })
+        else if (languagefamilies[i].innerText == '粤语') {
+            boxes[i].style = "border-left-color: var(--yueyucolor);";
         }
-        function cancelLike(btn, url) {
-            btn.id = 'likebtn';
-            btn.src = '/static/content/image/like_normal.png';
-            btn.onmouseover = "this.src = '/static/content/image/like.png';";
-            btn.onmouseout = "this.src = '/static/content/image/like_normal.png';";
-            $.ajax({
-                data: {
-                    audioURL: url
-                },
-                dataType: "text",
-                type: "POST",
-                url: "/detail/cancelLike",
-                success: function (data) { }
-            })
+        else if (languagefamilies[i].innerText == '晋语') {
+            boxes[i].style = "border-left-color: var(--jinyucolor);";
         }
+        else if (languagefamilies[i].innerText == '吴语') {
+            boxes[i].style = "border-left-color: var(--wuyucolor);";
+        }
+        else if (languagefamilies[i].innerText == '徽语') {
+            boxes[i].style = "border-left-color: var(--huiyucolor);";
+        }
+        else if (languagefamilies[i].innerText == '赣语') {
+            boxes[i].style = "border-left-color: var(--ganyucolor);";
+        }
+        else if (languagefamilies[i].innerText == '湘语') {
+            boxes[i].style = "border-left-color: var(--xiangyucolor);";
+        }
+        else if (languagefamilies[i].innerText == '闽语') {
+            boxes[i].style = "border-left-color: var(--minyucolor);";
+        }
+        else if (languagefamilies[i].innerText == '平话') {
+            boxes[i].style = "border-left-color: var(--pinghuacolor);";
+        }
+        else if (languagefamilies[i].innerText == '客家话') {
+            boxes[i].style = "border-left-color: var(--kejiahuacolor);";
+        }
+        else {
+            boxes[i].style = "border-left-color: #919191;";
+        }
+    }
 </script>

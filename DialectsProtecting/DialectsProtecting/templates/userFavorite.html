@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="/../static/content/css/user.css" />
     <link rel="stylesheet" href="/static/content/css/searchResult.css" />
     <link rel="stylesheet" href="/static/content/css/audioPlayer.css" />
+    <style>
+        .sidebar #user-sidebar li:nth-child(2) {
+            background-color: var(--themecolor2);
+            color: white;
+        }
+    </style>
 </head>
 <body>
     {% include 'navigate.html' %}
@@ -39,8 +45,12 @@
             </div>
         </div>
         -->
-
+        {% include 'audiosDisplay.html' %}
     </div>
     {% include 'footer.html' %}
+    <script>
+        var changecolor = document.getElementById('user-a2');
+        changecolor.style.color = "white";
+    </script>
 </body>
 </html>

@@ -8,6 +8,12 @@
     <!--头格式-->
     <link rel="stylesheet" href="/../static/content/css/basic.css" />
     <link rel="stylesheet" href="/../static/content/css/user.css" />
+    <style>
+        .sidebar #user-sidebar li:nth-child(1) {
+            background-color: var(--themecolor2);
+            color: white;
+        }
+    </style>
 </head>
 <body>
     {% include 'navigate.html' %}
@@ -37,5 +43,9 @@
         </div>
     </div>
     {% include 'footer.html' %}
+    <script>
+        var changecolor = document.getElementById('user-a1');
+        changecolor.style.color = "white";
+    </script>
 </body>
 </html>

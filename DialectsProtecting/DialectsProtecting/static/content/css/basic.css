@@ -165,7 +165,7 @@ header {
         height: 100%;
     }
 
-    .sidebar li {
+    .sidebar ul li {
         height: 36px;
         border-top: solid 1.5px var(--themecolor3);
         transition: 0.14s all ease-in;
@@ -216,7 +216,7 @@ header {
             background-color: var(--kejiahuacolor);
         }
 
-    .sidebar ul li a {
+    .sidebar #main-sidebar li a {
         text-align: center;
         display: block;
         width: 100%;
@@ -228,7 +228,7 @@ header {
         font-family: FZQKBYSJT;
     }
 
-        .sidebar ul li a:hover {
+        .sidebar #main-sidebar li a:hover {
             color: white;
         }
 

@@ -1,18 +1,30 @@
-.sidebar li:nth-child(1) {
+.sidebar #user-sidebar li a {
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    padding-bottom: 6px;
+    color: black;
+    transition: 0.14s all ease-in;
+    font-family: FZQKBYSJT;
+}
+
+.sidebar #user-sidebar li:nth-child(1) {
     border: none;
 }
 
-.sidebar li:nth-child(1):hover {
+    .sidebar #user-sidebar li:nth-child(1):hover {
+        background-color: var(--themecolor2);
+        color: white;
+    }
+
+.sidebar #user-sidebar li:nth-child(2):hover {
     background-color: var(--themecolor2);
     color: white;
 }
 
-.sidebar li:nth-child(2):hover {
-    background-color: var(--themecolor2);
-    color: white;
-}
-
-.sidebar li:nth-child(3):hover {
+.sidebar #user-sidebar li:nth-child(3):hover {
     background-color: var(--themecolor2);
     color: white;
 }
@@ -64,21 +76,21 @@
     display: inline-block;
 }
 
-    .user-btn a {
-        background-color: var(--themecolor1);
-        border: 1.5px solid var(--themecolor3);
-        width: 100px;
-        height: 20px;
-        border-radius: 2px;
-        text-align: center;
-        padding-top: 4px;
-        padding-bottom: 4px;
-        margin-bottom: 0;
-        margin-right: 20px;
-        margin-left: 30px;
-        display: inline-block;
-        color: black;
-    }
+.user-btn a {
+    background-color: var(--themecolor1);
+    border: 1.5px solid var(--themecolor3);
+    width: 100px;
+    height: 20px;
+    border-radius: 2px;
+    text-align: center;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-bottom: 0;
+    margin-right: 20px;
+    margin-left: 30px;
+    display: inline-block;
+    color: black;
+}
 
     .user-btn a:hover {
         background-color: var(--themecolor2);
