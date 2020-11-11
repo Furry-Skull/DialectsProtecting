@@ -116,6 +116,7 @@ class Database:
             conn.close()
             return 0
 
+
     #取消用户点赞
     def userDislike(self, userName, audioURL):
         conn = sqlite3.connect('database.db')
@@ -166,6 +167,17 @@ class Database:
     def searchUserPublish(self, account):
         return self.__searchDialectPrivate(publishers=[account])
     
+    #查询用户所有点赞的记录
+    def searchUserLike(self, userName):
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        sql_select = "select audioURL from likeURL where userName = ?;"
+        c.execute(sql_select,(userName,)) 
+        record=[]
+        for row in c:
+            record.append(self.searchByURL(row[0]))
+        conn.close()
+        return record
 
     #用户删除一条记录
     def delectDialect(self, audioURL):
