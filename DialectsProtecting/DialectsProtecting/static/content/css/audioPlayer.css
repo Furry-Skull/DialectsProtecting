@@ -40,6 +40,7 @@
     margin-left: -350px;
     background: #f4f4f4;
     z-index: 1;
+    box-shadow: 4px 4px 10px var(--shadowcolor);
 }
 
     .ppq-audio-player audio {
@@ -58,7 +59,7 @@
             width: 50px;
             height: 50px;
             margin-top: 10px;
-            border: 3px solid #00a293; /*²¥·Å/ÔÝÍ£¼ü±ß¿ò*/
+            border: 3px solid var(--themecolor1); /*²¥·Å/ÔÝÍ£¼ü±ß¿ò*/
             border-radius: 100%;
             background-color: #fff
         }
@@ -115,5 +116,5 @@
             width: 0;
             height: 100%;
             border-radius: 3px;
-            background: #00a293
+            background: var(--themecolor1)
         }
