@@ -1,3 +1,13 @@
+/*无法解决的排版问题，我覆盖掩盖了*/
+
+.nav-logo a {
+    margin: -14px auto;
+}
+
+.user ul li a {
+    line-height: 20px;
+}
+
 .introduction {
     font-family: FZQKBYSJT;
 }
