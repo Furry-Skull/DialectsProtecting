@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>用户界面</title>
+    <!--头格式-->
+    <link rel="stylesheet" href="/../static/content/css/basic.css" />
+    <link rel="stylesheet" href="/../static/content/css/user.css" />
+</head>
+<body>
+    {% include 'navigate.html' %}
+    {% include 'userSidebar.html' %}
+    <div class="content-box">
+        <div class="heading">我的点赞</div>
+        <!--
+        <div class="user-info">
+            <div class="user-name">
+                {{ userInfo__userName }}
+            </div>
+            <div class="user-location">
+                <img src="/static/content/image/language.png" />
+                <a href="/search/lang={{ userInfo__language }}">{{ userInfo__language }}</a>
+            </div>
+            <div class="user-language">
+                <img src="/static/content/image/location.png" />
+                <a href="/search/loc={{ userInfo__location }}">{{ userInfo__location }}</a>
+            </div>
+        </div>
+        <div class="user-btn">
+            <div class="upload">
+                <a href="../upload">上传</a>
+            </div>
+            <div class="logout">
+                <a href="/user/logout">登出</a>
+            </div>
+        </div>
+        -->
+
+    </div>
+    {% include 'footer.html' %}
+</body>
+</html>

@@ -23,7 +23,7 @@ def userSpace(username):
 def userFavorite(username):
     if getUser() == username:
         #进入收藏夹，需要收藏的records信息
-        return render_template('user.html')
+        return render_template('userFavorite.html')
     else:
         #进入别人的个人页面，暂定显示404
         return render_template('page404.html')
@@ -34,7 +34,7 @@ def userUploaded(username):
     if getUser() == username:
         #进入已上传页面，需要上传的records
         myRecords = db.searchUserPublish(username)
-        return render_template('user.html', myUploads = myRecords)
+        return render_template('userUploaded.html', myUploads = myRecords)
     else:
         #进入别人的个人页面，暂定显示404
         return render_template('page404.html')

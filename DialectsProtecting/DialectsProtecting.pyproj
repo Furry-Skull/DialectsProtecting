@@ -127,7 +127,9 @@
     <Content Include="DialectsProtecting\templates\sidebar.html" />
     <Content Include="DialectsProtecting\templates\upload.html" />
     <Content Include="DialectsProtecting\templates\user.html" />
+    <Content Include="DialectsProtecting\templates\userFavorite.html" />
     <Content Include="DialectsProtecting\templates\userSidebar.html" />
+    <Content Include="DialectsProtecting\templates\userUploaded.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
