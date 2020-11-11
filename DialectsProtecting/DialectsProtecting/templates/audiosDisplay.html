@@ -1,4 +1,8 @@
-﻿{# 音频展示页 #}
+﻿{% if records|length == 0 %}
+抱歉，没有搜索到想要的结果。
+{% else %}
+
+{# 音频展示页 #}
 {# 需要的css文件 #}
 {# searchResult.css #}
 {# audioPlayer.css #}
@@ -165,3 +169,5 @@
         }
     }
 </script>
+
+{% endif %}

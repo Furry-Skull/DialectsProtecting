@@ -16,19 +16,20 @@ body {
     margin-top: 64px;
     /*
     需要背景图
-    background-image: url(/../static/content/image/map.png);
+    background-image: url(/static/content/image/map.png);
     background-size: 100%;
     background-attachment: fixed;
     */
     /*全局颜色*/
-    --backgroundcolor: #fbfbfb;
+    --backgroundcolor: #ffffffe6;
     --cardbackgroundcolor: #ffffff;
+    --userbackgroundcolor: #dda153;
     --shadowcolor: #727272;
     --tagcolor: #f1f1f1;
     --themecolor0: #833c0c;
     --themecolor1: #9e1815;
     --themecolor3: #bf570f;
-    --themecolor2: #843434;
+    --themecolor2: #ef8989;
     --guanhuacolor: #e96161;
     --jinyucolor: #ffa130;
     --wuyucolor: #e8e83a;

@@ -33,13 +33,12 @@
     display: inline-block;
     height: 100px;
     width: 300px;
-    background: var(--cardbackgroundcolor);
-    background-color: #6ad75b63;
     box-shadow: 3px 3px 3px var(--shadowcolor);
     padding: 20px;
     margin-bottom: 20px;
     margin-right: 20px;
     border-radius: 20px;
+    background-image: linear-gradient(90deg, var(--userbackgroundcolor), #dda15322);
 }
 
     .user-info .user-name {
@@ -89,10 +88,10 @@
     margin-right: 20px;
     margin-left: 30px;
     display: inline-block;
-    color: black;
+    color: white;
 }
 
     .user-btn a:hover {
         background-color: var(--themecolor2);
-        color: white;
+        color: black;
     }

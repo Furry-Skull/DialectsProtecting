@@ -70,13 +70,13 @@ li {
     height: 34px;
     background-color: var(--themecolor1);
     font-size: 14px;
-    color: black;
+    color: white;
     margin: 30px 0 20px 150px;
     border: 1.5px solid var(--themecolor3);
     transition: 0.14s all ease-in;
 }
 
     .btn:hover {
-        color: white;
+        color: black;
         background-color: var(--themecolor2);
     }

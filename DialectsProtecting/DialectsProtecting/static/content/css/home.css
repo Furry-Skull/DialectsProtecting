@@ -1,6 +1,12 @@
 /*只在主页有限制*/
 .content-box {
-    min-height: 550px;
+    min-height: 650px;
+}
+
+#map0 {
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 2px 2px 2px var(--shadowcolor);
 }
 
 .introduction {
@@ -38,7 +44,7 @@
         position: absolute;
         top: 75px;
         left: 15px;
-        width: 60%;
+        width: 55%;
     }
 
 .search1 {
@@ -55,7 +61,7 @@
     text-align: center;
     height: 30px;
     font-size: 18px;
-    margin-top: 30%;
+    margin-top: 36%;
 }
 
     .search1:hover {
