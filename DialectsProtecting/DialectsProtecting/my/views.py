@@ -3,7 +3,7 @@ from flask import render_template, request, redirect
 
 from DialectsProtecting.database import db
 from DialectsProtecting.my import my
-from DialectsProtecting.user.userUtils import checkUserLikeRecords, getUser
+from DialectsProtecting.user.userUtils import checkUserLikeRecords, getUser, uploadFileByCurrentUser
 
 #用户个人主页
 @my.route('/<username>/space')
