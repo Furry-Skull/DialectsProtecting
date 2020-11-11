@@ -29,6 +29,7 @@ def like():
         return render_template('page404.html')
 
     db.userLike(username, audioURL)
+    return ''
 
 #这个函数用于响应取消点赞的AJAX请求
 @detail.route('/cancelLike', methods=['POST'])
@@ -40,3 +41,4 @@ def cancelLike():
         return render_template('page404.html')
 
     db.userDislike(username, audioURL)
+    return ''

@@ -42,22 +42,46 @@
             </div>
             <!--阴影效果不佳-->
             <!--onmouseover="this.style='box-shadow: 2px 2px 2px var(--shadowcolor);'"
-            onmouseout="this.style='box-shadow: none;'"-->
+    onmouseout="this.style='box-shadow: none;'"-->
             <img id="playbtn"
                  src="/static/content/image/play.png"
                  width="60"
                  height="60"
                  style="cursor:pointer;"
                  onclick='addToAudioPlayer("{{ item.title }}","{{ item.audioURL }}")' />
-            <img id="likebtn"
-                 src="/static/content/image/like_normal.png"
-                 width="55"
-                 height="55"
-                 style="cursor:pointer;"
-                 onmouseover="this.src='/static/content/image/like.png'"
-                 onmouseout="this.src = '/static/content/image/like_normal.png'"
-                 onclick="like(this,'{{ item.audioURL }}');"/>
-            {{ item.like }}
+            {% if likes | length > 0 %}
+            {# 说明有用户登录，按照用户点赞的记录显示点赞图标 #}
+                {% if likes[loop.index0] == False %}
+                {# 该音频记录未点赞 #}
+                <img id="likebtn"
+                     src="/static/content/image/like_normal.png"
+                     width="55"
+                     height="55"
+                     style="cursor:pointer;"
+                     onmouseover="this.src = '/static/content/image/like.png'"
+                     onmouseout="this.src = '/static/content/image/like_normal.png'"
+                     onclick="if (this.id == 'likebtn') like(this, '{{ item.audioURL }}'); else if (this.id == 'cancellikebtn') cancelLike(this, '{{ item.audioURL }}');" />
+                点赞数：{{ item.like }}
+                {% else %}
+                {# 该音频记录已点赞 #}
+                <img id="cancellikebtn"
+                     src="/static/content/image/like.png"
+                     width="55"
+                     height="55"
+                     style="cursor:pointer;"
+                     onmouseover="this.src='/static/content/image/like.png'"
+                     onmouseout="this.src = '/static/content/image/like.png'"
+                     onclick="if (this.id == 'likebtn') like(this, '{{ item.audioURL }}'); else if (this.id == 'cancellikebtn') cancelLike(this, '{{ item.audioURL }}');" />
+                点赞数：{{ item.like }}
+                {% endif %}
+            {% else %}
+            {# 说明用户未登录，所有点赞图标不可点 #}
+                <img id="likebtn"
+                     src="/static/content/image/like_normal.png"
+                     width="55"
+                     height="55"
+                     style="cursor:pointer;"/>
+            {% endif %}
             <div class="username">
                 上传：<a href="/search/publisher={{ item.userName }}">{{ item.userName }}</a>
             </div>
@@ -79,24 +103,33 @@
             document.getElementById('playButton').click();
         }
         function like(btn, url) {
+            btn.id = 'cancellikebtn';
+            btn.src = '/static/content/image/like.png';
+            btn.onmouseover = "this.src='/static/content/image/like.png'";
+            btn.onmouseout = "this.src = '/static/content/image/like.png'";
             $.ajax({
                 data: {
                     audioURL: url
                 },
-                type: "POST",
                 dataType: "text",
-                url: "/detail/like"
+                type: "POST",
+                url: "/detail/like",
+                success: function (data) { }
             })
-            //修改点赞图标为蓝色
         }
         function cancelLike(btn, url) {
+            btn.id = 'likebtn';
+            btn.src = '/static/content/image/like_normal.png';
+            btn.onmouseover = "this.src='/static/content/image/like.png'";
+            btn.onmouseout = "this.src = '/static/content/image/like_normal.png'";
             $.ajax({
                 data: {
                     audioURL: url
                 },
-                type: "POST",
                 dataType: "text",
-                url: "/detail/cancelLike"
+                type: "POST",
+                url: "/detail/cancelLike",
+                success: function (data) { }
             })
         }
     </script>

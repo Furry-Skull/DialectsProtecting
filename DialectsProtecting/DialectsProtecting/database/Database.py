@@ -132,6 +132,22 @@ class Database:
             conn.close()
             return 0
 
+    #查询用户是否为此条录音点赞
+    def checkLike(self, userName, audioURL):
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        try:
+            sql_select = '''select * from likeURL where userName = ? and audioURL = ?'''
+            c.execute(sql_select, (userName,audioURL))
+            for row in c:
+                conn.close()
+                return True
+            conn.close()
+            return False
+        except:
+            conn.close()
+            return False
+
     #查询一个账号是否存在，存在返回1，不存在返回0
     def accountExist(self, account):
         conn = sqlite3.connect('database.db')
