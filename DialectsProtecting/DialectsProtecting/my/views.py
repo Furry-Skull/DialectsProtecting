@@ -3,7 +3,7 @@ from flask import render_template, request, redirect
 
 from DialectsProtecting.database import db
 from DialectsProtecting.my import my
-from DialectsProtecting.user.userUtils import uploadFileByCurrentUser, getUser
+from DialectsProtecting.user.userUtils import checkUserLikeRecords, getUser
 
 #用户个人主页
 @my.route('/<username>/space')
@@ -34,7 +34,7 @@ def userUploaded(username):
     if getUser() == username:
         #进入已上传页面，需要上传的records
         myRecords = db.searchUserPublish(username)
-        return render_template('userUploaded.html', myUploads = myRecords)
+        return render_template('userUploaded.html', records = myRecords, likes = checkUserLikeRecords(myRecords))
     else:
         #进入别人的个人页面，暂定显示404
         return render_template('page404.html')

@@ -26,5 +26,4 @@ def search(searchExpression):
         #表达式错误，返回404页面
         return render_template('page404.html')
 
-    liksses = checkUserLikeRecords(records)
     return render_template('searchResult.html', records = records, likes = checkUserLikeRecords(records))

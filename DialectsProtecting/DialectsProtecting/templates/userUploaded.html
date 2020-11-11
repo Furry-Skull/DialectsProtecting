@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <link rel="icon" href="/../static/content/image/LOGO.png" type="image/x-icon">
@@ -8,6 +8,8 @@
     <!--头格式-->
     <link rel="stylesheet" href="/../static/content/css/basic.css" />
     <link rel="stylesheet" href="/../static/content/css/user.css" />
+    <link rel="stylesheet" href="/static/content/css/searchResult.css" />
+    <link rel="stylesheet" href="/static/content/css/audioPlayer.css" />
 </head>
 <body>
     {% include 'navigate.html' %}
@@ -28,16 +30,8 @@
                 <a href="/search/loc={{ userInfo__location }}">{{ userInfo__location }}</a>
             </div>
         </div>
-        <div class="user-btn">
-            <div class="upload">
-                <a href="../upload">上传</a>
-            </div>
-            <div class="logout">
-                <a href="/user/logout">登出</a>
-            </div>
-        </div>
         -->
-    
+        {% include 'audiosDisplay.html' %}
     </div>
     {% include 'footer.html' %}
 </body>

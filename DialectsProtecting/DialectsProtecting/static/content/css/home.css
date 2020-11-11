@@ -1,11 +1,15 @@
 /*无法解决的排版问题，我覆盖掩盖了*/
-
 .nav-logo a {
     margin: -14px auto;
 }
 
 .user ul li a {
     line-height: 20px;
+}
+
+/*只在主页有限制*/
+.content-box {
+    min-height: 600px;
 }
 
 .introduction {
@@ -60,7 +64,7 @@
     text-align: center;
     height: 30px;
     font-size: 18px;
-    margin-top: 23%;
+    margin-top: 30%;
 }
 
     .search1:hover {

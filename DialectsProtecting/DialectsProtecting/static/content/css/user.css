@@ -1,7 +1,5 @@
 .sidebar li:nth-child(1) {
     border: none;
-    background-color: var(--themecolor2);
-    color: white;
 }
 
 .sidebar li:nth-child(1):hover {
