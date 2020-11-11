@@ -3,10 +3,12 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <link rel="icon" href="/../static/content/image/LOGO.png" type="image/x-icon">
     <title>搜索结果</title>
     <!--头格式-->
     <link rel="stylesheet" href="/static/content/css/basic.css" />
     <link rel="stylesheet" href="/static/content/css/searchResult.css" />
+    <link rel="stylesheet" href="/static/content/css/audioPlayer.css" />
 </head>
 <body>
     {% include 'navigate.html' %}
@@ -15,41 +17,7 @@
     {# 搜索记录呈现 #}
     <div class="content-box">
         <div class="heading">搜索结果</div>
-        {% for item in records %}
-        <div class="search-audio-box">
-            <h2>{{ item.title }}</h2>
-            <div class="info-box">
-                <span class="lang">
-                    <img src="/static/content/image/language.png" />
-                    <a href="/search/lang={{ item.language }}">{{ item.language }}</a>
-                </span>
-                <span class="language-family">
-                    <a href="/search/langFamily={{ item.languageFamily }}">{{ item.languageFamily }}</a>
-                </span>
-                <div class="location">
-                    <img src="/static/content/image/location.png" />
-                    <a href="/search/loc={{ item.location }}">{{ item.location }}</a>
-                </div>
-                {% for tag in item.tags %}
-                <div class="tag">
-                    <a href="/search/tag={{ tag }}">{{ tag }}</a>
-                </div>
-                {% endfor %}
-            </div>
-            <div class="translation">
-                {{ item.translation }}
-            </div>
-            <div class="username">
-                上传：<a href="/search/publisher={{ item.userName }}">{{ item.userName }}</a>
-            </div>
-            <div class="audio-box">
-                <audio controls>
-                    <source src="{{ item.audioURL }}" type="audio/mpeg">
-                </audio>
-            </div>
-        </div>
-
-        {% endfor %}
+        {% include 'audiosDisplay.html' %}
     </div>
     {% include 'footer.html' %}
     <script type="text/javascript">

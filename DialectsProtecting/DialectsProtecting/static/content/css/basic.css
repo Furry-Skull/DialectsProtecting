@@ -4,8 +4,12 @@ li {
 
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
+button {
+    cursor: pointer;
+}
 
 body {
     /*
@@ -15,7 +19,7 @@ body {
     background-attachment: fixed;
     */
     /*È«¾ÖÑÕÉ«*/
-    --backgroungcolor: #fbfbfb;
+    --backgroundcolor: #fbfbfb;
     --cardbackgroundcolor: #ffffff;
     --shadowcolor: #727272;
     --tagcolor: #f1f1f1;
@@ -150,7 +154,7 @@ header {
     .sidebar ul {
         list-style: none none;
         margin: 2px;
-        background-color: var(--backgroungcolor);
+        background-color: var(--backgroundcolor);
         border: 2px solid var(--themecolor3);
         border-left: none;
         border-bottom-right-radius: 2px;
@@ -167,47 +171,48 @@ header {
         transition: 0.14s all ease-in;
     }
 
-        .sidebar li:first-child {
+        .sidebar #a2 {
             border: none;
-        }
-
-        .sidebar li:nth-child(1):hover {
             background-color: var(--guanhuacolor);
         }
 
-        .sidebar li:nth-child(2):hover {
+        .sidebar #a2:hover {
+            background-color: var(--guanhuacolor);
+        }
+
+        .sidebar #b2:hover {
             background-color: var(--yueyucolor);
         }
 
-        .sidebar li:nth-child(3):hover {
+        .sidebar #c2:hover {
             background-color: var(--jinyucolor);
         }
 
-        .sidebar li:nth-child(4):hover {
+        .sidebar #d2:hover {
             background-color: var(--wuyucolor);
         }
 
-        .sidebar li:nth-child(5):hover {
+        .sidebar #e2:hover {
             background-color: var(--huiyucolor);
         }
 
-        .sidebar li:nth-child(6):hover {
+        .sidebar #f2:hover {
             background-color: var(--ganyucolor);
         }
 
-        .sidebar li:nth-child(7):hover {
+        .sidebar #g2:hover {
             background-color: var(--xiangyucolor);
         }
 
-        .sidebar li:nth-child(8):hover {
+        .sidebar #h2:hover {
             background-color: var(--minyucolor);
         }
 
-        .sidebar li:nth-child(9):hover {
+        .sidebar #i2:hover {
             background-color: var(--pinghuacolor);
         }
 
-        .sidebar li:nth-child(10):hover {
+        .sidebar #j2:hover {
             background-color: var(--kejiahuacolor);
         }
 
@@ -232,20 +237,17 @@ header {
         ±³¾°Í¼Ì«³ó£¬Òª¸ü»»
         background: url(../image/map.png) repeat;
     */
-    background-color: var(--backgroungcolor);
+    background-color: var(--backgroundcolor);
     background-size: 648px;
-    margin-top: 38px;
+    margin-top: 45px;
     margin-left: 118px;
     margin-right: 20px;
     padding: 20px;
-    height: 100%;
     border: 2px solid var(--themecolor3);
     border-bottom-right-radius: 2px;
     border-top-right-radius: 2px;
     border-bottom-left-radius: 2px;
     border-top-left-radius: 2px;
-    /*²âÊÔÓÃ*/
-    /*height: 1000px;*/
 }
 
     .content-box > .heading {

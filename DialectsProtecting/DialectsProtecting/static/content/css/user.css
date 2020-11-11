@@ -1,3 +1,7 @@
+.sidebar li:nth-child(1) {
+    border: none;
+}
+
 .sidebar li:nth-child(1):hover {
     background-color: var(--themecolor2);
     color: white;
@@ -13,40 +17,70 @@
     color: white;
 }
 
-.user_name {
-    font-size: 20px;
-    line-height: 20px;
-    padding-left: 30px;
-    padding-top: 10px;
-    height: 20px;
+.user-info {
+    display: inline-block;
+    height: 100px;
+    width: 300px;
+    background: var(--cardbackgroundcolor);
+    background-color: #6ad75b63;
+    box-shadow: 3px 3px 3px var(--shadowcolor);
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
 }
 
-.user_btn {
-    padding-left: 30px;
-    padding-top: 10px;
-}
-
-.upload {
-    float: left;
-    height: 20px;
-    width: 40px;
-    border: 1px solid black;
-}
-
-    .upload a {
-        line-height: 20px;
-        padding-left: 3px;
+    .user-info .user-name {
+        font-size: 18px;
+        padding-bottom: 4px;
     }
 
-.logout {
-    float: left;
-    height: 20px;
-    width: 40px;
-    margin-left: 10px;
-    border: 1px solid black;
+    .user-info .user-location {
+        height: 30px;
+        padding-top: 10px;
+    }
+
+    .user-info img {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        position: absolute;
+    }
+
+    .user-info a {
+        display: inline-block;
+        position: absolute;
+        margin-left: 30px;
+        color: black;
+        font-family: FZQKBYSJT;
+    }
+
+    .user-info .user-language {
+        height: 30px;
+        padding-top: 10px;
+    }
+
+.user-btn .upload, .logout {
+    display: inline-block;
 }
 
-    .logout a {
-        line-height: 20px;
-        padding-left: 3px;
+    .user-btn a {
+        background-color: var(--themecolor1);
+        border: 1.5px solid var(--themecolor3);
+        width: 100px;
+        height: 20px;
+        border-radius: 2px;
+        text-align: center;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        margin-bottom: 0;
+        margin-right: 20px;
+        margin-left: 30px;
+        display: inline-block;
+        color: black;
+    }
+
+    .user-btn a:hover {
+        background-color: var(--themecolor2);
+        color: white;
     }

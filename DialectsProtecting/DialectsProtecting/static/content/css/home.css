@@ -1,0 +1,73 @@
+/*无法解决的排版问题，我覆盖掩盖了*/
+.nav-logo a {
+    margin: -14px auto;
+}
+
+.user ul li a {
+    line-height: 20px;
+}
+
+/*只在主页有限制*/
+.content-box {
+    min-height: 600px;
+}
+
+.introduction {
+    font-family: FZQKBYSJT;
+}
+
+    .introduction .text {
+        position: absolute;
+        width: 9rem;
+        right: 20%;
+        text-align: center;
+        font-size: 3rem;
+        margin-top: 3%;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 4px;
+        background-color: white;
+        box-shadow: 1.5px 1.5px 1.5px var(--shadowcolor);
+        padding: 10px;
+    }
+
+    .introduction .intro-text {
+        position: absolute;
+        width: 30%;
+        right: 8%;
+        font-size: 1.5rem;
+        margin-top: 10%;
+        padding: 1rem;
+        background-color: white;
+        box-shadow: 1.5px 1.5px 1.5px var(--shadowcolor);
+        border-radius: 10px;
+    }
+
+    .introduction img {
+        position: absolute;
+        top: 140px;
+        left: 160px;
+        width: 45%;
+    }
+
+.search1 {
+    position: absolute;
+    right: 8%;
+    display: inline-block;
+    background: white;
+    border: 1.5px solid var(--themecolor3);
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: black;
+    line-height: 30px;
+    text-align: center;
+    height: 30px;
+    font-size: 18px;
+    margin-top: 30%;
+}
+
+    .search1:hover {
+        background-color: var(--themecolor2);
+        color: white;
+    }

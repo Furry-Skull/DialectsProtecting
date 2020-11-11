@@ -4,6 +4,7 @@ from flask import render_template, request, redirect
 
 from DialectsProtecting.search import search
 from DialectsProtecting.search.searchUtils import *
+from DialectsProtecting.user.userUtils import checkUserLikeRecords
 
 #搜索结果请求
 @search.route('/', methods=['POST'])
@@ -24,4 +25,5 @@ def search(searchExpression):
     if records == None:
         #表达式错误，返回404页面
         return render_template('page404.html')
-    return render_template('searchResult.html', records = records)
+
+    return render_template('searchResult.html', records = records, likes = checkUserLikeRecords(records))

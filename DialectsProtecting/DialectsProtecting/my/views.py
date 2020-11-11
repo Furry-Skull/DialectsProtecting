@@ -3,14 +3,17 @@ from flask import render_template, request, redirect
 
 from DialectsProtecting.database import db
 from DialectsProtecting.my import my
-from DialectsProtecting.user.userUtils import uploadFileByCurrentUser, getUser
+from DialectsProtecting.user.userUtils import checkUserLikeRecords, getUser
 
 #用户个人主页
 @my.route('/<username>/space')
 def userSpace(username):
     if getUser() == username:
         #进入自己的个人页面，显示个人信息
-        return render_template('user.html')
+        return render_template('user.html', 
+                               userInfo__userName = '用户名', 
+                               userInfo__location = '用户地域', 
+                               userInfo__language = '用户语言')
     else:
         #进入别人的个人页面，暂定显示404
         return render_template('page404.html')
@@ -20,7 +23,7 @@ def userSpace(username):
 def userFavorite(username):
     if getUser() == username:
         #进入收藏夹，需要收藏的records信息
-        return render_template('user.html')
+        return render_template('userFavorite.html')
     else:
         #进入别人的个人页面，暂定显示404
         return render_template('page404.html')
@@ -31,7 +34,7 @@ def userUploaded(username):
     if getUser() == username:
         #进入已上传页面，需要上传的records
         myRecords = db.searchUserPublish(username)
-        return render_template('user.html', myUploads = myRecords)
+        return render_template('userUploaded.html', records = myRecords, likes = checkUserLikeRecords(myRecords))
     else:
         #进入别人的个人页面，暂定显示404
         return render_template('page404.html')
@@ -77,7 +80,7 @@ def uploadAudio():
             tags = tags, 
             like = 0, 
             browse = 0)
-        #重定向至上传页面
-        return redirect('/my/upload')
+        #重定向至我的空间
+        return redirect('/my/' + publisher + '/space')
     else:
         return render_template('page404.html')

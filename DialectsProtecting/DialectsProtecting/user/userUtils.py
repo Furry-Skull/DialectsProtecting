@@ -7,6 +7,7 @@ import os
 import time
 
 from DialectsProtecting.config import UPLOAD_PATH, LOCAL_UPLOAD_PATH
+from DialectsProtecting.database import db
 
 #登录账户，在session留下记录
 def sessionLogin(username, password):
@@ -57,3 +58,16 @@ def uploadFileByCurrentUser(file):
         #相对地址
         uploadPath = '/' + UPLOAD_PATH + '/' + session['username'] + '/' + timestr + '-' + file.filename
         return uploadPath
+
+#输入音频记录数组，生成与records对应的，记录该用户是否给对应索引的音频点赞的数组
+def checkUserLikeRecords(records):
+    username = getUser()
+    isUserLikes = [] #与records对应的，记录该用户是否给对应索引的音频点赞
+    if username != None:
+        for item in records:
+            if db.checkLike(userName = username, audioURL = item.audioURL):
+                isUserLikes.append(True)
+            else:
+                isUserLikes.append(False)
+        return isUserLikes
+    return []
