@@ -40,16 +40,30 @@
                 </div>
                 {% endfor %}
             </div>
-            <img src="/static/content/image/play.png" width="80" height="80"/>
-            <img src="/static/content/image/like_normal.png" width="80" height="80" />
+            <!--阴影效果不佳-->
+            <!--onmouseover="this.style='box-shadow: 2px 2px 2px var(--shadowcolor);'"
+            onmouseout="this.style='box-shadow: none;'"-->
+            <img id="playbtn"
+                 src="/static/content/image/play.png"
+                 width="60"
+                 height="60"
+                 style="cursor:pointer;"
+                 onclick='addToAudioPlayer("{{ item.title }}","{{ item.audioURL }}")' />
+            <img id="likebtn"
+                 src="/static/content/image/like_normal.png"
+                 width="55"
+                 height="55"
+                 style="cursor:pointer;"
+                 onmouseover="this.src='/static/content/image/like.png'"
+                 onmouseout="this.src='/static/content/image/like_normal.png'"/>
             <div class="username">
                 上传：<a href="/search/publisher={{ item.userName }}">{{ item.userName }}</a>
             </div>
-            <button onclick='addToAudioPlayer("{{ item.audioURL }}")'></button>
         </div>
         {% endfor %}
     </div>
     <!-- 音乐播放器 -->
+    <span class="audio-title" id="audioTitle"></span>
     <div class="container" id="musicBoxContainer">
         <audio preload="auto" src='/'></audio>
     </div>
@@ -57,7 +71,8 @@
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="/static/scripts/audioPlayer.js"></script>
     <script>
-        function addToAudioPlayer(url) {
+        function addToAudioPlayer(title, url) {
+            document.getElementById('audioTitle').innerHTML = title;
             document.getElementById('musicBoxContainer').innerHTML = '<audio preload="auto" src="' + url + '"></audio>';
             $('audio').initAudioPlayer();
             document.getElementById('playButton').click();

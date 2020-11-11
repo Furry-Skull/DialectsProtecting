@@ -96,6 +96,7 @@
     <Content Include="DialectsProtecting\static\content\css\audioDetail.css" />
     <Content Include="DialectsProtecting\static\content\css\audioPlayer.css" />
     <Content Include="DialectsProtecting\static\content\css\basic.css" />
+    <Content Include="DialectsProtecting\static\content\css\home.css" />
     <Content Include="DialectsProtecting\static\content\css\searchResult.css" />
     <Content Include="DialectsProtecting\static\content\css\upload.css" />
     <Content Include="DialectsProtecting\static\content\css\user.css" />
