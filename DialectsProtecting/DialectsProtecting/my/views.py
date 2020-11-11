@@ -80,7 +80,7 @@ def uploadAudio():
             tags = tags, 
             like = 0, 
             browse = 0)
-        #重定向至上传页面
-        return redirect('/my/upload')
+        #重定向至我的空间
+        return redirect('/my/' + publisher + '/space')
     else:
         return render_template('page404.html')

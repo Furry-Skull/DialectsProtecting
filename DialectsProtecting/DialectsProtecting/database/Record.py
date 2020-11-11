@@ -11,7 +11,11 @@ class Record:
         self.location = location
         self.language = language
         self.title = title
-        self.tags = tags
+        #处理无tag时tag数组存在元素但是字符串为空的情况
+        if len(tags) == 1 and tags[0] == '':
+            self.tags = []
+        else:
+            self.tags = tags
         self.like = like
         self.browse = browse
         self.languageFamily = languageFamily

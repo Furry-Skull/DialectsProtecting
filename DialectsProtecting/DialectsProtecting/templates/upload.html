@@ -15,6 +15,7 @@
         <div class="heading">
             上传录音
         </div>
+        <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
         <script>
             function checkUpload() {
                 document.getElementById('hint').innerHTML = ''
@@ -30,6 +31,7 @@
                     document.getElementById('hint').innerHTML = '文件不能为空'
                     return false;
                 }
+                alert('音频上传成功!');
                 return true;
             }
 
@@ -41,6 +43,30 @@
             function onFileChange(target) {
                 var name = target.files[0].name; // 文件名
                 document.getElementById('fileHint').innerHTML = name //显示文件名
+            }
+
+            var maxTagLength = 5;
+            function removeTag(target) {
+                if (!document.getElementById('addButton')) {
+                    //如果增加的按钮不存在，则加回来
+                    $("#labelField").children().eq(maxTagLength - 1).after('<button type="button" onclick="addTag()" id="addButton"></button>')
+                }
+                target.remove();
+            }
+            function addTag() {
+                var count = document.getElementById('labelField').childElementCount - 1; //除去最后一个按钮
+                if (count == 0) {
+                    //在加号按钮前加
+                    $("#addButton").before('<span class="label"><input type="text" name="标签' + count + '" id="ptap"><button type="button" id="deleteButton" onclick="removeTag(this.parentNode);"></button></span>')
+                }
+                else if (count < maxTagLength) {
+                    //标签最多不能超过5个
+                    $("#labelField").children().eq(count - 1).after('<span class="label"><input type="text" name="标签' + count + '" id="ptap"><button type="button" id="deleteButton" onclick="removeTag(this.parentNode);"></button></span>');
+                }
+                if (count == maxTagLength - 1) {
+                    //添加最后一个标签时，将增加的按钮删掉
+                    $("#addButton").remove();
+                }
             }
         </script>
         <form action="/my/uploadform" method="post" enctype="multipart/form-data" onsubmit="return checkUpload()">
@@ -57,11 +83,13 @@
                       onfocus="if(placeholder=='请输入翻译')placeholder=''"
                       onblur="if(!placeholder)placeholder='请输入翻译'"
                       id="trans"></textarea>
-            <p><input type="text" name="地域" 
-                      placeholder="请输入地域"
-                      onfocus="if(placeholder=='请输入地域')placeholder=''"
-                      onblur="if(!placeholder)placeholder='请输入地域'"
-                      id="pspace"></p>
+            <p>
+                <input type="text" name="地域"
+                       placeholder="请输入地域"
+                       onfocus="if(placeholder=='请输入地域')placeholder=''"
+                       onblur="if(!placeholder)placeholder='请输入地域'"
+                       id="pspace">
+            </p>
             <p><input name="语言" type="hidden" id="lang" placeholder="请选择语言"></p>
             <div>
                 <span>
@@ -73,34 +101,8 @@
                     </select>
                 </span>
             </div>
-            <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-            <script>
-                var maxTagLength = 5;
-                function removeTag(target) {
-                    if (!document.getElementById('addButton')) {
-                        //如果增加的按钮不存在，则加回来
-                        $("#labelField").children().eq(maxTagLength - 1).after('<button onclick="addTag()" id="addButton"></button>')
-                    }
-                    target.remove();
-                }
-                function addTag() {
-                    var count = document.getElementById('labelField').childElementCount - 1; //除去最后一个按钮
-                    if (count == 0) {
-                        //在加号按钮前加
-                        $("#addButton").before('<span class="label"><input type="text" name="标签' + count + '" id="ptap"><button id="deleteButton" onclick="removeTag(this.parentNode);"></button></span>')
-                    }
-                    else if (count < maxTagLength) {
-                        //标签最多不能超过5个
-                        $("#labelField").children().eq(count - 1).after('<span class="label"><input type="text" name="标签' + count + '" id="ptap"><button id="deleteButton" onclick="removeTag(this.parentNode);"></button></span>');
-                    }
-                    if (count == maxTagLength - 1) {
-                        //添加最后一个标签时，将增加的按钮删掉
-                        $("#addButton").remove();
-                    }
-                }
-            </script>
             <div class="labelField" id="labelField">
-                <button onclick="addTag()" id="addButton"></button>
+                <button type="button" onclick="addTag()" id="addButton"></button>
             </div>
             <a href="javascript:;" class="file">
                 选择文件
