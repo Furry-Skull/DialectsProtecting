@@ -34,10 +34,10 @@ def home():
     db.insertLanguage('赣语','宁都话')
     db.insertLanguage('赣语','金溪话')
     db.insertLanguage('徽语','池州话')
-    db.insertLanguage('官语','北京话')
-    db.insertLanguage('官语','重庆话')
-    db.insertLanguage('官语','天津话')
-    db.insertLanguage('官语','四川话')
+    db.insertLanguage('官话','北京话')
+    db.insertLanguage('官话','重庆话')
+    db.insertLanguage('官话','天津话')
+    db.insertLanguage('官话','四川话')
     #获取用户状态，显示页面
     return render_template('home.html')
 

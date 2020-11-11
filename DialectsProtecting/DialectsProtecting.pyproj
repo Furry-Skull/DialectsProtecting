@@ -102,6 +102,7 @@
     <Content Include="DialectsProtecting\static\content\css\user.css" />
     <Content Include="DialectsProtecting\static\content\image\add.png" />
     <Content Include="DialectsProtecting\static\content\image\audioButton.png" />
+    <Content Include="DialectsProtecting\static\content\image\china.png" />
     <Content Include="DialectsProtecting\static\content\image\delete.png" />
     <Content Include="DialectsProtecting\static\content\image\language.png" />
     <Content Include="DialectsProtecting\static\content\image\like.png" />
@@ -110,12 +111,10 @@
     <Content Include="DialectsProtecting\static\content\image\LOGO.png" />
     <Content Include="DialectsProtecting\static\content\image\LOGO_main.png" />
     <Content Include="DialectsProtecting\static\content\image\LOGO_title.png" />
-    <Content Include="DialectsProtecting\static\content\image\map.png">
-      <Publish>False</Publish>
-    </Content>
     <Content Include="DialectsProtecting\static\content\css\register.css" />
     <Content Include="DialectsProtecting\static\content\image\logo.jpg" />
     <Content Include="DialectsProtecting\static\content\image\map_add.png" />
+    <Content Include="DialectsProtecting\static\content\image\map_merge.png" />
     <Content Include="DialectsProtecting\static\content\image\play.png" />
     <Content Include="DialectsProtecting\static\content\image\r_logo.jpg" />
     <Content Include="DialectsProtecting\static\content\fonts\FZQKBYSJT.TTF" />

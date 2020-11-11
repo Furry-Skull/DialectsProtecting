@@ -9,13 +9,6 @@
     box-shadow: 2px 2px 2px var(--shadowcolor);
 }
 
-#map1 {
-    width: 8%;
-    top: 388px;
-    left: 534px;
-    border-bottom-right-radius: 32px;
-}
-
 .introduction {
     font-family: FZQKBYSJT;
 }
