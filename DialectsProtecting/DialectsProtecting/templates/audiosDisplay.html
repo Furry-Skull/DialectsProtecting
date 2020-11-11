@@ -125,3 +125,43 @@
         })
     }
 </script>
+<script type="text/javascript">
+    //改变颜色
+    var boxes = document.getElementsByClassName('search-audio-box');
+    var languagefamilies = document.getElementsByClassName('language-family');
+    for (var i = 0; i < boxes.length; i++) {
+        if (languagefamilies[i].innerText == '官话') {
+            boxes[i].style = "border-left-color: var(--guanhuacolor);";
+        }
+        else if (languagefamilies[i].innerText == '粤语') {
+            boxes[i].style = "border-left-color: var(--yueyucolor);";
+        }
+        else if (languagefamilies[i].innerText == '晋语') {
+            boxes[i].style = "border-left-color: var(--jinyucolor);";
+        }
+        else if (languagefamilies[i].innerText == '吴语') {
+            boxes[i].style = "border-left-color: var(--wuyucolor);";
+        }
+        else if (languagefamilies[i].innerText == '徽语') {
+            boxes[i].style = "border-left-color: var(--huiyucolor);";
+        }
+        else if (languagefamilies[i].innerText == '赣语') {
+            boxes[i].style = "border-left-color: var(--ganyucolor);";
+        }
+        else if (languagefamilies[i].innerText == '湘语') {
+            boxes[i].style = "border-left-color: var(--xiangyucolor);";
+        }
+        else if (languagefamilies[i].innerText == '闽语') {
+            boxes[i].style = "border-left-color: var(--minyucolor);";
+        }
+        else if (languagefamilies[i].innerText == '平话') {
+            boxes[i].style = "border-left-color: var(--pinghuacolor);";
+        }
+        else if (languagefamilies[i].innerText == '客家话') {
+            boxes[i].style = "border-left-color: var(--kejiahuacolor);";
+        }
+        else {
+            boxes[i].style = "border-left-color: #919191;";
+        }
+    }
+</script>
