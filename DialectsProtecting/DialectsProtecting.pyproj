@@ -117,7 +117,7 @@
     <Content Include="DialectsProtecting\static\content\fonts\FZQKBYSJT.TTF" />
     <Content Include="DialectsProtecting\static\scripts\audioPlayer.js" />
     <Content Include="DialectsProtecting\templates\audioDetail.html" />
-    <Content Include="DialectsProtecting\templates\audioPlayer.html" />
+    <Content Include="DialectsProtecting\templates\audiosDisplay.html" />
     <Content Include="DialectsProtecting\templates\footer.html" />
     <Content Include="DialectsProtecting\templates\login.html" />
     <Content Include="DialectsProtecting\templates\page404.html" />
