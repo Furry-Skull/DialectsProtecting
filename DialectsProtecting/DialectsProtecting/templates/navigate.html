@@ -1,11 +1,11 @@
 ﻿{# 导航条，需要导航条功能的include自此模板 #}
 <header>
     <!--logo-->
-    <div class="nav-logo">
-        <h1>
-            <a href="/home" title="主界面"></a>
-        </h1>
-    </div>
+    <img id="logo-main"
+         src="../static/content/image/LOGO_main.png"
+         width="164"
+         height="62"
+         onclick="location.href='/home'"/>
     <!--搜索框-->
     <div class="search">
         <form method="post" action="/search">
@@ -13,7 +13,7 @@
                    placeholder="输入关键词"
                    onfocus="if(placeholder=='输入关键词')placeholder=''"
                    onblur="if(!placeholder)placeholder='输入关键词'"
-                   name="keywords"/>
+                   name="keywords" />
             <input type="submit" value="搜索">
         </form>
     </div>
@@ -32,15 +32,15 @@
                         if (data == '') {
                             document.getElementById("userMessage").innerHTML =
                                 '<ul>\
-                                        <li><a href="/user/register">注册</a></li>\
-                                        <li><a href="/user/login">登录</a></li>\
-                                    </ul>';
+                                            <li><a href="/user/register">注册</a></li>\
+                                            <li><a href="/user/login">登录</a></li>\
+                                        </ul>';
                         }
                         else {
                             document.getElementById("userMessage").innerHTML =
                                 '<ul>\
-                                        <li><a href="/my/' + data + '/space">' + data + '</a></li>\
-                                    </ul >';
+                                            <li><a href="/my/' + data + '/space">' + data + '</a></li>\
+                                        </ul >';
                         }
                     }
             })

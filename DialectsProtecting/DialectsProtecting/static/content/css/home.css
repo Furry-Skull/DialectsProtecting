@@ -1,15 +1,6 @@
-/*无法解决的排版问题，我覆盖掩盖了*/
-.nav-logo a {
-    margin: -14px auto;
-}
-
-.user ul li a {
-    line-height: 20px;
-}
-
 /*只在主页有限制*/
 .content-box {
-    min-height: 600px;
+    min-height: 550px;
 }
 
 .introduction {
@@ -18,10 +9,10 @@
 
     .introduction .text {
         position: absolute;
-        width: 9rem;
+        width: 5rem;
         right: 20%;
         text-align: center;
-        font-size: 3rem;
+        font-size: 26px;
         margin-top: 3%;
         padding-left: 20px;
         padding-right: 20px;
@@ -35,7 +26,7 @@
         position: absolute;
         width: 30%;
         right: 8%;
-        font-size: 1.5rem;
+        font-size: 16px;
         margin-top: 10%;
         padding: 1rem;
         background-color: white;
@@ -45,9 +36,9 @@
 
     .introduction img {
         position: absolute;
-        top: 140px;
-        left: 160px;
-        width: 45%;
+        top: 75px;
+        left: 15px;
+        width: 60%;
     }
 
 .search1 {
