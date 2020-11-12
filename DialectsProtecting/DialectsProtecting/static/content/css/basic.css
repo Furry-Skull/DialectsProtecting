@@ -172,43 +172,43 @@ header {
     }
 
     .sidebar #btn0:hover {
-        background-color: var(--guanhuacolor);
+        background-color: var(--guanhuacolor) !important;
     }
 
     .sidebar #btn1:hover {
-        background-color: var(--yueyucolor);
+        background-color: var(--yueyucolor) !important;
     }
 
     .sidebar #btn2:hover {
-        background-color: var(--jinyucolor);
+        background-color: var(--jinyucolor) !important;
     }
 
     .sidebar #btn3:hover {
-        background-color: var(--wuyucolor);
+        background-color: var(--wuyucolor) !important;
     }
 
     .sidebar #btn4:hover {
-        background-color: var(--huiyucolor);
+        background-color: var(--huiyucolor) !important;
     }
 
     .sidebar #btn5:hover {
-        background-color: var(--ganyucolor);
+        background-color: var(--ganyucolor) !important;
     }
 
     .sidebar #btn6:hover {
-        background-color: var(--xiangyucolor);
+        background-color: var(--xiangyucolor) !important;
     }
 
     .sidebar #btn7:hover {
-        background-color: var(--minyucolor);
+        background-color: var(--minyucolor) !important;
     }
 
     .sidebar #btn8:hover {
-        background-color: var(--pinghuacolor);
+        background-color: var(--pinghuacolor) !important;
     }
 
     .sidebar #btn9:hover {
-        background-color: var(--kejiahuacolor);
+        background-color: var(--kejiahuacolor) !important;
     }
 
     .sidebar #main-sidebar li a {
