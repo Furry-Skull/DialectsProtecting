@@ -82,7 +82,7 @@ header {
     border-bottom-right-radius: 2px;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
-    top: 2px;
+    top: 8px;
 }
 
     .search input {
@@ -133,9 +133,9 @@ header {
         .user ul li a {
             display: block;
             height: 25px;
-            padding-right: 5px;
-            line-height: 10px;
-            font-size: 14px;
+            padding-right: 20px;
+            line-height: 20px;
+            font-size: 17px;
         }
 
 .sidebar {
@@ -167,49 +167,49 @@ header {
         transition: 0.14s all ease-in;
     }
 
-        .sidebar #a2 {
-            border: none;
-        }
+    .sidebar #btn0 {
+        border: none;
+    }
 
-        .sidebar #a2:hover {
-            background-color: var(--guanhuacolor);
-        }
+    .sidebar #btn0:hover {
+        background-color: var(--guanhuacolor);
+    }
 
-        .sidebar #b2:hover {
-            background-color: var(--yueyucolor);
-        }
+    .sidebar #btn1:hover {
+        background-color: var(--yueyucolor);
+    }
 
-        .sidebar #c2:hover {
-            background-color: var(--jinyucolor);
-        }
+    .sidebar #btn2:hover {
+        background-color: var(--jinyucolor);
+    }
 
-        .sidebar #d2:hover {
-            background-color: var(--wuyucolor);
-        }
+    .sidebar #btn3:hover {
+        background-color: var(--wuyucolor);
+    }
 
-        .sidebar #e2:hover {
-            background-color: var(--huiyucolor);
-        }
+    .sidebar #btn4:hover {
+        background-color: var(--huiyucolor);
+    }
 
-        .sidebar #f2:hover {
-            background-color: var(--ganyucolor);
-        }
+    .sidebar #btn5:hover {
+        background-color: var(--ganyucolor);
+    }
 
-        .sidebar #g2:hover {
-            background-color: var(--xiangyucolor);
-        }
+    .sidebar #btn6:hover {
+        background-color: var(--xiangyucolor);
+    }
 
-        .sidebar #h2:hover {
-            background-color: var(--minyucolor);
-        }
+    .sidebar #btn7:hover {
+        background-color: var(--minyucolor);
+    }
 
-        .sidebar #i2:hover {
-            background-color: var(--pinghuacolor);
-        }
+    .sidebar #btn8:hover {
+        background-color: var(--pinghuacolor);
+    }
 
-        .sidebar #j2:hover {
-            background-color: var(--kejiahuacolor);
-        }
+    .sidebar #btn9:hover {
+        background-color: var(--kejiahuacolor);
+    }
 
     .sidebar #main-sidebar li a {
         text-align: center;
@@ -228,10 +228,6 @@ header {
         }
 
 .content-box {
-    /*
-        ±³¾°Í¼Ì«³ó£¬Òª¸ü»»
-        background: url(../image/map.png) repeat;
-    */
     background-color: var(--backgroundcolor);
     background-size: 648px;
     margin-left: 118px;

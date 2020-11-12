@@ -69,7 +69,8 @@
          src="/static/content/image/like_normal.png"
          width="55"
          height="55"
-         style="cursor:pointer;" />
+         style="cursor:pointer;" 
+         onclick="alert('请登录后进行点赞操作');"/>
     {% endif %}
     <div class="like-number" id="item{{ loop.index0 }}LikeNumber">
         {{ item.like }}

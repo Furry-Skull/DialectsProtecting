@@ -40,12 +40,17 @@ li {
     width: 242px;
     height: 37px;
     border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+.error_bottom {
+    color: #ff0000;
+    font-size: 16px;
+    padding: 0 0 0 210px;
 }
 
 .error {
     color: #ff0000;
-    font-size: 13px;
-    padding: 0 0 0 220px;
 }
 
 .success {

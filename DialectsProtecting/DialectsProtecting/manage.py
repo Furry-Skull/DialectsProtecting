@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-from flask import render_template, session
+from flask import render_template, session, redirect
 
 from DialectsProtecting import app
 from DialectsProtecting.user import user
@@ -40,6 +40,11 @@ def home():
     db.insertLanguage('官话','四川话')
     #获取用户状态，显示页面
     return render_template('home.html')
+
+#侧边栏选择按语系显示主页，并显示对应的语系
+@app.route('/home/<num>')
+def redirectToHomepage(num):
+    return render_template('home.html', index = num)
 
 #404页面
 @app.errorhandler(404)
