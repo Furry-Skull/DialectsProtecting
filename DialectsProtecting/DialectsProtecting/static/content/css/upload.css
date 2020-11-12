@@ -77,7 +77,7 @@
 }
 
     .content-box #psub:hover {
-        background-color: var(--themecolor3);
+        background-color: var(--themecolor2);
         color: black;
     }
 

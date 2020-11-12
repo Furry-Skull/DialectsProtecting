@@ -1,13 +1,13 @@
-﻿{% if records|length == 0 %}
+﻿{%- if records|length == 0 -%}
 抱歉，没有搜索到想要的结果。
-{% else %}
+{%- else -%}
 
-{# 音频展示页 #}
-{# 需要的css文件 #}
-{# searchResult.css #}
-{# audioPlayer.css #}
+{#- 音频展示页 -#}
+{#- 需要的css文件 -#}
+{#- searchResult.css -#}
+{#- audioPlayer.css -#}
 
-{% for item in records %}
+{%- for item in records -%}
 <div class="search-audio-box">
     <h2>{{ item.title }}</h2>
     <div class="translation">
@@ -79,7 +79,7 @@
         上传：<a href="/search/publisher={{ item.userName }}">{{ item.userName }}</a>
     </div>
 </div>
-{% endfor %}
+{%- endfor -%}
 
 <!-- 音乐播放器 -->
 <span class="audio-title" id="audioTitle"></span>
