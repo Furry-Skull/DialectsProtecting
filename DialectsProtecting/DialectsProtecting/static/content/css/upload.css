@@ -7,7 +7,7 @@
 }
 
 .content-box #ptitle {
-    margin: 0 20%;
+    margin: 0 0 0 1%;
     width: 60%;
     font-size: 20px;
     height: 40px;
@@ -17,10 +17,10 @@
 }
 
 .content-box #trans {
-    margin: 0 0 0 20%;
+    margin: 0 0 0 1.3%;
     width: 60%;
     height: 200px;
-    font-size: 16px;
+    font-size: 18px;
     resize: none;
     border-radius: 4px;
     outline: none;
@@ -28,8 +28,7 @@
 }
 
 .content-box #pspace {
-    margin: 0 0 0 20%;
-    float: left;
+    margin: 0 0 0 1%;
     font-size: 18px;
     width: 15%;
     height: 30px;
@@ -40,7 +39,7 @@
 
 .content-box #langSelect {
     width: 15%;
-    margin: 0 0 0 80px;
+    margin: 0 0 0 1%;
     font-size: 18px;
     height: 34px;
     border-radius: 4px;
@@ -93,7 +92,10 @@
 }
 
 .content-box .labelField {
-    margin: 30px 0 20px 20%;
+    width: 70%;
+    display: inline-block;
+    margin-left: 1%;
+    margin-bottom: 20px;
 }
 
     .content-box .labelField .label {
@@ -170,4 +172,35 @@
     outline: none;
     padding: 10px;
     background-position: 2px 2px;
+}
+
+.upload-title {
+    display: inline-block;
+    font-size: 18px;
+    margin-left: 160px;
+}
+
+.upload-translation {
+    display: inline-block;
+    font-size: 18px;
+    margin-left: 160px;
+    float: left;
+}
+
+.upload-location {
+    display: inline-block;
+    font-size: 18px;
+    margin-left: 160px;
+}
+
+.upload-language {
+    display: inline-block;
+    font-size: 18px;
+    margin-left: 160px;
+}
+
+.upload-tag {
+    display: inline-block;
+    font-size: 18px;
+    margin-left: 160px;
 }

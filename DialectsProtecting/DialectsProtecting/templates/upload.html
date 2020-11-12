@@ -71,6 +71,9 @@
         </script>
         <form action="/my/uploadform" method="post" enctype="multipart/form-data" onsubmit="return checkUpload()">
             <p>
+                <div class="upload-title">
+                    标题
+                </div>
                 <input type="text"
                        name="标题"
                        placeholder="请输入标题"
@@ -78,32 +81,44 @@
                        onblur="if(!placeholder)placeholder='请输入标题'"
                        id="ptitle">
             </p>
+            <div class="upload-translation">
+                翻译
+            </div>
             <textarea name="翻译"
                       placeholder="请输入翻译"
                       onfocus="if(placeholder=='请输入翻译')placeholder=''"
                       onblur="if(!placeholder)placeholder='请输入翻译'"
                       id="trans"></textarea>
             <p>
+                <div class="upload-location">
+                    地域
+                </div>
                 <input type="text" name="地域"
                        placeholder="请输入地域"
                        onfocus="if(placeholder=='请输入地域')placeholder=''"
                        onblur="if(!placeholder)placeholder='请输入地域'"
                        id="pspace">
             </p>
-            <p><input name="语言" type="hidden" id="lang" placeholder="请选择语言"></p>
-            <div>
-                <span>
-                    <select onchange="selectLanguage()" id="langSelect" name="语言1">
-                        <option>请选择语言</option>
-                        {% for item in languageOptions %}
-                        <option value="{{ item }}">{{ item }}</option>
-                        {% endfor %}
-                    </select>
-                </span>
-            </div>
-            <div class="labelField" id="labelField">
-                <button type="button" onclick="addTag()" id="addButton"></button>
-            </div>
+            <p>
+                <div class="upload-language">
+                    语言
+                </div>
+                <input name="语言" type="hidden" id="lang" placeholder="请选择语言">
+                <select onchange="selectLanguage()" id="langSelect" name="语言1">
+                    <option>请选择语言</option>
+                    {% for item in languageOptions %}
+                    <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                </select>
+            </p>
+            <p>
+                <div class="upload-tag">
+                    标签
+                </div>
+                <div class="labelField" id="labelField">
+                    <button type="button" onclick="addTag()" id="addButton"></button>
+                </div>
+            </p>
             <a href="javascript:;" class="file">
                 选择文件
                 <input type="file" name="record_file" id="psubmit" onchange="onFileChange(this)" accept="audio/mp3">
