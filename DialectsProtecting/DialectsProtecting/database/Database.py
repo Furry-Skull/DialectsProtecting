@@ -75,6 +75,24 @@ class Database:
             conn.close()
             return 0
     
+    def test(self):
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        try:
+            sql_insert = '''
+            update lang
+                set languageFamily = "官话"
+            where
+                languageFamily = "官语";
+            '''
+            c.execute(sql_insert)
+            conn.commit()
+            conn.close()
+            return 1
+        except:
+            conn.close()
+            return 0
+
     #插入一种语言的语系
     def insertLanguage(self, languageFamily, language):
         conn = sqlite3.connect('database.db')
