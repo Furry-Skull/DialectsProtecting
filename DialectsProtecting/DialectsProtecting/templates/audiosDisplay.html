@@ -42,7 +42,7 @@
          onclick='addToAudioPlayer("{{ item.title }}","{{ item.audioURL }}")' />
     {% if likes | length > 0 %}
     {# 说明有用户登录，按照用户点赞的记录显示点赞图标 #}
-    {% if likes[loop.index0] == False %}
+    {% if likes[loop.index0] == 0 %}
     {# 该音频记录未点赞 #}
     <img id="likebtn"
          src="/static/content/image/like_normal.png"
@@ -52,7 +52,7 @@
          onmouseover="this.src = '/static/content/image/like.png';"
          onmouseout="this.src = '/static/content/image/like_normal.png';"
          onclick="if (this.id == 'likebtn') like(this, '{{ item.audioURL }}', {{ loop.index0 }}); else if (this.id == 'cancellikebtn') cancelLike(this, '{{ item.audioURL }}', {{ loop.index0 }});" />
-    {% else %}
+    {% elif likes[loop.index0] == 1 %}
     {# 该音频记录已点赞 #}
     <img id="cancellikebtn"
          src="/static/content/image/like.png"
@@ -62,6 +62,9 @@
          onmouseover="this.src = '/static/content/image/like.png';"
          onmouseout="this.src = '/static/content/image/like.png';"
          onclick="if (this.id == 'likebtn') like(this, '{{ item.audioURL }}', {{ loop.index0 }}); else if (this.id == 'cancellikebtn') cancelLike(this, '{{ item.audioURL }}', {{ loop.index0 }});" />
+    {% elif likes[loop.index0] == -1 %}
+    {# 该音频记录已点踩 #}
+
     {% endif %}
     {% else %}
     {# 说明用户未登录，所有点赞图标不可点 #}
@@ -69,8 +72,8 @@
          src="/static/content/image/like_normal.png"
          width="55"
          height="55"
-         style="cursor:pointer;" 
-         onclick="alert('请登录后进行点赞操作');"/>
+         style="cursor:pointer;"
+         onclick="alert('请登录后进行点赞操作');" />
     {% endif %}
     <div class="like-number" id="item{{ loop.index0 }}LikeNumber">
         {{ item.like }}
@@ -95,11 +98,11 @@
         $('audio').initAudioPlayer();
         document.getElementById('playButton').click();
     }
-    function like(btn, url, index) {
-        btn.id = 'cancellikebtn';
-        btn.src = '/static/content/image/like.png';
-        btn.onmouseover = "this.src = '/static/content/image/like.png';";
-        btn.onmouseout = "this.src = '/static/content/image/like.png';";
+    function like(btnLike, btnDislike, url, index) {
+        btnLike.id = 'cancellikebtn';
+        btnLike.src = '/static/content/image/like.png';
+        btnLike.onmouseover = "this.src = '/static/content/image/like.png';";
+        btnLike.onmouseout = "this.src = '/static/content/image/like.png';";
         num = document.getElementById('item' + index + 'LikeNumber').innerHTML * 1;
         document.getElementById('item' + index + 'LikeNumber').innerHTML = num + 1;
         $.ajax({
@@ -112,11 +115,11 @@
             success: function (data) { }
         })
     }
-    function cancelLike(btn, url, index) {
-        btn.id = 'likebtn';
-        btn.src = '/static/content/image/like_normal.png';
-        btn.onmouseover = "this.src = '/static/content/image/like.png';";
-        btn.onmouseout = "this.src = '/static/content/image/like_normal.png';";
+    function cancelLike(btnLike, btnDislike, url, index) {
+        btnLike.id = 'likebtn';
+        btnLike.src = '/static/content/image/like_normal.png';
+        btnLike.onmouseover = "this.src = '/static/content/image/like.png';";
+        btnLike.onmouseout = "this.src = '/static/content/image/like_normal.png';";
         num = document.getElementById('item' + index + 'LikeNumber').innerHTML * 1;
         document.getElementById('item' + index + 'LikeNumber').innerHTML = num - 1;
         $.ajax({

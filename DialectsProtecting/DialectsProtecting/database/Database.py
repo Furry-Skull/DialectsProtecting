@@ -134,9 +134,8 @@ class Database:
             conn.close()
             return 0
 
-
     #取消用户点赞
-    def userDislike(self, userName, audioURL):
+    def userCancelLike(self, userName, audioURL):
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
         try:
@@ -151,7 +150,7 @@ class Database:
             conn.close()
             return 0
 
-    #查询用户是否为此条录音点赞
+    #查询用户为这条记录是点赞（返回1）还是点踩（返回-1）还是未操作（返回0）（待添加点踩查询）
     def checkLike(self, userName, audioURL):
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
@@ -160,12 +159,24 @@ class Database:
             c.execute(sql_select, (userName,audioURL))
             for row in c:
                 conn.close()
-                return True
+                return 1
             conn.close()
-            return False
+            return 0
         except:
             conn.close()
-            return False
+            return 0
+
+    #点踩功能
+    def userDislike(self, userName, audioURL):
+        #待填写（删除pass语句）
+        pass
+
+    #取消用户点踩
+    def userCancelDislike(self, userName, audioURL):
+        #待填写（删除pass语句）
+        pass
+
+
 
     #查询一个账号是否存在，存在返回1，不存在返回0
     def accountExist(self, account):

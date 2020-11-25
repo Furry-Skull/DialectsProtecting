@@ -59,15 +59,13 @@ def uploadFileByCurrentUser(file):
         uploadPath = '/' + UPLOAD_PATH + '/' + session['username'] + '/' + timestr + '-' + file.filename
         return uploadPath
 
-#输入音频记录数组，生成与records对应的，记录该用户是否给对应索引的音频点赞的数组
+#输入音频记录数组，生成与records对应的，记录该用户给对应索引的音频点赞/未操作/点踩的数组
 def checkUserLikeRecords(records):
     username = getUser()
-    isUserLikes = [] #与records对应的，记录该用户是否给对应索引的音频点赞
+    likeStates = [] #与records对应的，记录该用户给对应索引的音频点赞/未操作/点踩的数组
     if username != None:
         for item in records:
-            if db.checkLike(userName = username, audioURL = item.audioURL):
-                isUserLikes.append(True)
-            else:
-                isUserLikes.append(False)
-        return isUserLikes
+            likeStates.append(db.checkLike(userName = username, audioURL = item.audioURL))
+
+        return likeStates
     return []

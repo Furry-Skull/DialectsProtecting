@@ -104,6 +104,8 @@
     <Content Include="DialectsProtecting\static\content\image\audioButton.png" />
     <Content Include="DialectsProtecting\static\content\image\china.png" />
     <Content Include="DialectsProtecting\static\content\image\delete.png" />
+    <Content Include="DialectsProtecting\static\content\image\dislike.png" />
+    <Content Include="DialectsProtecting\static\content\image\dislike_normal.png" />
     <Content Include="DialectsProtecting\static\content\image\language.png" />
     <Content Include="DialectsProtecting\static\content\image\like.png" />
     <Content Include="DialectsProtecting\static\content\image\like_normal.png" />
