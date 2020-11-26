@@ -199,8 +199,24 @@
     margin-left: 160px;
 }
 
-.upload-tag {
+.add-lang {
     display: inline-block;
     font-size: 18px;
     margin-left: 160px;
+}
+
+.upload-tag {
+    display: inline-block;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+#addlang {
+    margin: 0 0 0 1%;
+    font-size: 18px;
+    width: 60%;
+    height: 30px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid black;
 }
