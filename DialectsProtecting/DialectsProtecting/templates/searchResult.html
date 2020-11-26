@@ -7,7 +7,8 @@
     <title>搜索结果</title>
     <!--头格式-->
     <link rel="stylesheet" href="/static/content/css/basic.css" />
-    <link rel="stylesheet" href="/static/content/css/searchResult.css" />
+    <!--<link rel="stylesheet" href="/static/content/css/searchResult.css" />-->
+    <link rel="stylesheet" href="/static/content/css/searchResultMini.css" />
     <link rel="stylesheet" href="/static/content/css/audioPlayer.css" />
 </head>
 <body>
@@ -16,7 +17,8 @@
     {# 可能需要搜索条件 #}
     {# 搜索记录呈现 #}
     <div class="content-box">
-        <div class="heading">搜索结果</div>{% include 'audiosDisplay.html' %}
+        <div class="heading">搜索结果</div>
+        {% include 'audiosDisplay.html' %}
     </div>
     {% include 'footer.html' %}
 </body>
