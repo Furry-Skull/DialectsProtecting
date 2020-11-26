@@ -47,6 +47,14 @@ class Database:
                 );''')
         except :
             a="数据库已被创建"
+
+        try:
+            c.execute('''create table dislikeURL
+                (userName char(16) not null,
+                audioURL char(64) not null
+                );''')
+        except :
+            a="数据库已被创建"
         c.close()
 
     #userName为用户姓名，audioURL为音频路径，translation为译文翻译，暂定支持最大char为64，tags是标签，暂定使用数组的方式
@@ -128,6 +136,7 @@ class Database:
             sql_update = '''update dialect set like = like + 1 where audioURL = ?'''
             c.execute(sql_update, (audioURL,))
             conn.commit()
+            self.userCancelDislike(userName,audioURL)
             conn.close()
             return 1
         except:
@@ -160,6 +169,11 @@ class Database:
             for row in c:
                 conn.close()
                 return 1
+            sql_select = '''select * from dislikeURL where userName = ? and audioURL = ?'''
+            c.execute(sql_select, (userName,audioURL))
+            for row in c:
+                conn.close()
+                return -1
             conn.close()
             return 0
         except:
@@ -168,13 +182,41 @@ class Database:
 
     #点踩功能
     def userDislike(self, userName, audioURL):
-        #待填写（删除pass语句）
-        pass
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        try:
+            sql_insert = '''
+            insert into
+                dislikeURL
+            values
+                (?, ?);
+            '''
+            c.execute(sql_insert, (userName,audioURL))
+            sql_update = '''update dialect set like = like - 1 where audioURL = ?'''
+            c.execute(sql_update, (audioURL,))
+            conn.commit()
+            self.userCancelLike(userName,audioURL)
+            conn.close()
+            return 1
+        except:
+            conn.close()
+            return 0
 
     #取消用户点踩
     def userCancelDislike(self, userName, audioURL):
-        #待填写（删除pass语句）
-        pass
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        try:
+            sql_delete = '''delete from dislikeURL where userName = ? and audioURL = ?'''
+            c.execute(sql_delete, (userName,audioURL))
+            sql_update = '''update dialect set like = like + 1 where audioURL = ?'''
+            c.execute(sql_update, (audioURL,))
+            conn.commit()
+            conn.close()
+            return 1
+        except:
+            conn.close()
+            return 0
 
 
 
