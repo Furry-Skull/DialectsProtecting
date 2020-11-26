@@ -30,13 +30,20 @@
     }
 
     .search-audio-box #playbtn {
-        left: 73%;
+        left: 65%;
         top: 40%;
     }
 
-    .search-audio-box #likebtn, #cancellikebtn {
-        left: 80%;
-        top: 40%;
+    .search-audio-box .likebtn {
+        position: relative;
+        margin-left: 72%;
+        margin-top: 25px;
+    }
+
+    .search-audio-box .dislikebtn {
+        position: relative;
+        margin-left: 82%;
+        margin-top: -60px;
     }
 
     .search-audio-box .info-box {
@@ -139,8 +146,8 @@
 
     .search-audio-box .like-number {
         position: relative;
-        left: 85%;
-        top: 18%;
+        left: 78.5%;
+        top: -30%;
         font-size: 30px;
         font-weight: 500;
         width: 30px;

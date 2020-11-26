@@ -43,37 +43,86 @@
     {% if likes | length > 0 %}
     {# 说明有用户登录，按照用户点赞的记录显示点赞图标 #}
     {% if likes[loop.index0] == 0 %}
-    {# 该音频记录未点赞 #}
-    <img id="likebtn"
-         src="/static/content/image/like_normal.png"
-         width="55"
-         height="55"
-         style="cursor:pointer;"
-         onmouseover="this.src = '/static/content/image/like.png';"
-         onmouseout="this.src = '/static/content/image/like_normal.png';"
-         onclick="if (this.id == 'likebtn') like(this, '{{ item.audioURL }}', {{ loop.index0 }}); else if (this.id == 'cancellikebtn') cancelLike(this, '{{ item.audioURL }}', {{ loop.index0 }});" />
+    {# 该音频记录未进行任何操作 #}
+    <div class="likebtn">
+        <img id="likebtn{{ loop.index0 }}"
+             src="/static/content/image/like_normal.png"
+             width="55"
+             height="55"
+             style="cursor:pointer;"
+             onmouseover="this.src = '/static/content/image/like.png';"
+             onmouseout="this.src = '/static/content/image/like_normal.png';"
+             onclick="if (id == 'likebtn{{ loop.index0 }}') like('{{ item.audioURL }}', {{ loop.index0 }}, 1); else cancelLike('{{ item.audioURL }}', {{ loop.index0 }})" />
+    </div>
+    <div class="dislikebtn">
+        <img id="dislikebtn{{ loop.index0 }}"
+             src="/static/content/image/dislike_normal.png"
+             width="55"
+             height="55"
+             style="cursor:pointer;"
+             onmouseover="this.src = '/static/content/image/dislike.png';"
+             onmouseout="this.src = '/static/content/image/dislike_normal.png';"
+             onclick="if (id == 'dislikebtn{{ loop.index0 }}') dislike('{{ item.audioURL }}', {{ loop.index0 }}, 1); else cancelDislike('{{ item.audioURL }}', {{ loop.index0 }})" />
+    </div>
     {% elif likes[loop.index0] == 1 %}
     {# 该音频记录已点赞 #}
-    <img id="cancellikebtn"
-         src="/static/content/image/like.png"
-         width="55"
-         height="55"
-         style="cursor:pointer;"
-         onmouseover="this.src = '/static/content/image/like.png';"
-         onmouseout="this.src = '/static/content/image/like.png';"
-         onclick="if (this.id == 'likebtn') like(this, '{{ item.audioURL }}', {{ loop.index0 }}); else if (this.id == 'cancellikebtn') cancelLike(this, '{{ item.audioURL }}', {{ loop.index0 }});" />
+    <div class="likebtn">
+        <img id="cancellikebtn{{ loop.index0 }}"
+             src="/static/content/image/like.png"
+             width="55"
+             height="55"
+             style="cursor:pointer;"
+             onclick="if (id == 'likebtn{{ loop.index0 }}') like('{{ item.audioURL }}', {{ loop.index0 }}, 1); else cancelLike('{{ item.audioURL }}', {{ loop.index0 }})" />
+    </div>
+    <div class="dislikebtn">
+        <img id="dislikebtn{{ loop.index0 }}"
+             src="/static/content/image/dislike_normal.png"
+             width="55"
+             height="55"
+             style="cursor:pointer;"
+             onmouseover="this.src = '/static/content/image/dislike.png';"
+             onmouseout="this.src = '/static/content/image/dislike_normal.png';"
+             onclick="if (id == 'dislikebtn{{ loop.index0 }}') dislike('{{ item.audioURL }}', {{ loop.index0 }}, 2); else cancelDislike('{{ item.audioURL }}', {{ loop.index0 }})" />
+    </div>
     {% elif likes[loop.index0] == -1 %}
     {# 该音频记录已点踩 #}
-
+    <div class="likebtn">
+        <img id="likebtn{{ loop.index0 }}"
+             src="/static/content/image/like_normal.png"
+             width="55"
+             height="55"
+             style="cursor:pointer;"
+             onmouseover="this.src = '/static/content/image/like.png';"
+             onmouseout="this.src = '/static/content/image/like_normal.png';"
+             onclick="if (id == 'likebtn{{ loop.index0 }}') like('{{ item.audioURL }}', {{ loop.index0 }}, 2); else cancelLike('{{ item.audioURL }}', {{ loop.index0 }})" />
+    </div>
+    <div class="dislikebtn">
+        <img id="dislikebtn{{ loop.index0 }}"
+             src="/static/content/image/dislike.png"
+             width="55"
+             height="55"
+             style="cursor:pointer;"
+             onclick="if (id == 'dislikebtn{{ loop.index0 }}') dislike('{{ item.audioURL }}', {{ loop.index0 }}, 1); else cancelDislike('{{ item.audioURL }}', {{ loop.index0 }})" />
+    </div>
     {% endif %}
     {% else %}
     {# 说明用户未登录，所有点赞图标不可点 #}
-    <img id="likebtn"
-         src="/static/content/image/like_normal.png"
-         width="55"
-         height="55"
-         style="cursor:pointer;"
-         onclick="alert('请登录后进行点赞操作');" />
+    <div class="likebtn">
+        <img id="likebtn{{ loop.index0 }}"
+             src="/static/content/image/like_normal.png"
+             width="55"
+             height="55"
+             style="cursor:pointer;"
+             onclick="alert('请登录后进行点赞操作');" />
+    </div>
+    <div class="dislikebtn">
+        <img id="dislikebtn{{ loop.index0 }}"
+             src="/static/content/image/dislike_normal.png"
+             width="55"
+             height="55"
+             style="cursor:pointer;"
+             onclick="alert('请登录后进行点踩操作');" />
+    </div>
     {% endif %}
     <div class="like-number" id="item{{ loop.index0 }}LikeNumber">
         {{ item.like }}
@@ -98,13 +147,13 @@
         $('audio').initAudioPlayer();
         document.getElementById('playButton').click();
     }
-    function like(btnLike, btnDislike, url, index) {
-        btnLike.id = 'cancellikebtn';
-        btnLike.src = '/static/content/image/like.png';
-        btnLike.onmouseover = "this.src = '/static/content/image/like.png';";
-        btnLike.onmouseout = "this.src = '/static/content/image/like.png';";
+    function like(url, index, likeAddNum) {
+        //likeAddNum是点赞一次会增加的点赞数
+        document.getElementById('likebtn' + index).src = '/static/content/image/like.png';
+        document.getElementById('likebtn' + index).onmouseover = '';
+        document.getElementById('likebtn' + index).onmouseout = '';
         num = document.getElementById('item' + index + 'LikeNumber').innerHTML * 1;
-        document.getElementById('item' + index + 'LikeNumber').innerHTML = num + 1;
+        document.getElementById('item' + index + 'LikeNumber').innerHTML = num + likeAddNum;
         $.ajax({
             data: {
                 audioURL: url
@@ -115,11 +164,10 @@
             success: function (data) { }
         })
     }
-    function cancelLike(btnLike, btnDislike, url, index) {
-        btnLike.id = 'likebtn';
-        btnLike.src = '/static/content/image/like_normal.png';
-        btnLike.onmouseover = "this.src = '/static/content/image/like.png';";
-        btnLike.onmouseout = "this.src = '/static/content/image/like_normal.png';";
+    function cancelLike(url, index) {
+        document.getElementById('likebtn' + index).src = '/static/content/image/like_normal.png';
+        document.getElementById('likebtn' + index).onmouseover = "this.src = '/static/content/image/like.png';";
+        document.getElementById('likebtn' + index).onmouseout = "this.src = '/static/content/image/like_normal.png';";
         num = document.getElementById('item' + index + 'LikeNumber').innerHTML * 1;
         document.getElementById('item' + index + 'LikeNumber').innerHTML = num - 1;
         $.ajax({
@@ -129,6 +177,39 @@
             dataType: "text",
             type: "POST",
             url: "/detail/cancelLike",
+            success: function (data) { }
+        })
+    }
+    function dislike(url, index, dislikeRemoveNum) {
+        //dislikeRemoveNum是点踩一次会减少的点赞数
+        document.getElementById('dislikebtn' + index).src = '/static/content/image/dislike.png';
+        document.getElementById('dislikebtn' + index).onmouseover = '';
+        document.getElementById('dislikebtn' + index).onmouseout = '';
+        num = document.getElementById('item' + index + 'LikeNumber').innerHTML * 1;
+        document.getElementById('item' + index + 'LikeNumber').innerHTML = num - dislikeRemoveNum;
+        $.ajax({
+            data: {
+                audioURL: url
+            },
+            dataType: "text",
+            type: "POST",
+            url: "/detail/dislike",
+            success: function (data) { }
+        })
+    }
+    function cancelDislike(url, index) {
+        document.getElementById('dislikebtn' + index).src = '/static/content/image/dislike_normal.png';
+        document.getElementById('dislikebtn' + index).onmouseover = "this.src = '/static/content/image/dislike.png';";
+        document.getElementById('dislikebtn' + index).onmouseout = "this.src = '/static/content/image/dislike_normal.png';";
+        num = document.getElementById('item' + index + 'LikeNumber').innerHTML * 1;
+        document.getElementById('item' + index + 'LikeNumber').innerHTML = num + 1;
+        $.ajax({
+            data: {
+                audioURL: url
+            },
+            dataType: "text",
+            type: "POST",
+            url: "/detail/cancelDislike",
             success: function (data) { }
         })
     }
