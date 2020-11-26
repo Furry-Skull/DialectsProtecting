@@ -8,45 +8,42 @@
 {#- audioPlayer.css -#}
 
 {%- for item in records -%}
-    <div class="search-audio-box">
-        <h2>{{ item.title }}</h2>
-        <div class="translation">
-            {{ item.translation }}
+<div class="search-audio-box">
+    <h2>{{ item.title }}</h2>
+    <div class="translation">
+        {{ item.translation }}
+    </div>
+    <div class="mini-info-box">
+        <span class="lang">
+            <img src="/static/content/image/language.png" />
+            <a href="/search/lang={{ item.language }}">{{ item.language }}</a>
+        </span>
+        <span class="language-family">
+            <a href="/search/langFamily={{ item.languageFamily }}">{{ item.languageFamily }}</a>
+        </span>
+        <div class="location">
+            <img src="/static/content/image/location.png" />
+            <a href="/search/loc={{ item.location }}">{{ item.location }}</a>
         </div>
-        <div class="mini-info-box">
-            <span class="lang">
-                <img src="/static/content/image/language.png" />
-                <a href="/search/lang={{ item.language }}">{{ item.language }}</a>
-            </span>
-            <span class="language-family">
-                <a href="/search/langFamily={{ item.languageFamily }}">{{ item.languageFamily }}</a>
-            </span>
-            <div class="location">
-                <img src="/static/content/image/location.png" />
-                <a href="/search/loc={{ item.location }}">{{ item.location }}</a>
-            </div>
+    </div>
+    <div class="info-box">
+        <span class="lang">
+            <img src="/static/content/image/language.png" />
+            <a href="/search/lang={{ item.language }}">{{ item.language }}</a>
+        </span>
+        <span class="language-family-need">
+            <a href="/search/langFamily={{ item.languageFamily }}">{{ item.languageFamily }}</a>
+        </span>
+        <div class="location">
+            <img src="/static/content/image/location.png" />
+            <a href="/search/loc={{ item.location }}">{{ item.location }}</a>
         </div>
-        <div class="info-box">
-            <span class="lang">
-                <img src="/static/content/image/language.png" />
-                <a href="/search/lang={{ item.language }}">{{ item.language }}</a>
-            </span>
-            <span class="language-family-need">
-                <a href="/search/langFamily={{ item.languageFamily }}">{{ item.languageFamily }}</a>
-            </span>
-            <div class="location">
-                <img src="/static/content/image/location.png" />
-                <a href="/search/loc={{ item.location }}">{{ item.location }}</a>
-            </div>
-            {% for tag in item.tags %}
-            <div class="tag">
-                <a href="/search/tag={{ tag }}">{{ tag }}</a>
-            </div>
-            {% endfor %}
+        {% for tag in item.tags %}
+        <div class="tag">
+            <a href="/search/tag={{ tag }}">{{ tag }}</a>
         </div>
-        <!--阴影效果不佳-->
-        <!--onmouseover="this.style='box-shadow: 2px 2px 2px var(--shadowcolor);'"
-    onmouseout="this.style='box-shadow: none;'"-->
+        {% endfor %}
+    </div>
     <img id="playbtn"
          src="/static/content/image/play.png"
          width="60"
@@ -143,12 +140,12 @@
     <div class="username">
         上传：<a href="/search/publisher={{ item.userName }}">{{ item.userName }}</a>
     </div>
-{%- endfor -%}
+</div>
+    {%- endfor -%}
 
 <!-- 音乐播放器 -->
 <span class="audio-title" id="audioTitle"></span>
-<div class="container" id="musicBoxContainer">
-</div>
+<div class="container" id="musicBoxContainer"></div>
 <!-- 音乐播放器代码 -->
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="/static/scripts/audioPlayer.js"></script>

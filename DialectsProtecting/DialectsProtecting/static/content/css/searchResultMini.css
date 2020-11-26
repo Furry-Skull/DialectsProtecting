@@ -40,6 +40,22 @@
             display: inline-block;
         }
 
+        .search-audio-box:hover #playbtn {
+            display: block;
+        }
+
+        .search-audio-box:hover .likebtn {
+            display: block;
+        }
+
+        .search-audio-box:hover .dislikebtn {
+            display: block;
+        }
+
+        .search-audio-box:hover .like-number {
+            display: block;
+        }
+
     .search-audio-box h2 {
         margin-top: 5px;
         margin-bottom: 10px;
@@ -55,16 +71,22 @@
 
     .search-audio-box #playbtn {
         display: none;
-        left: 73%;
-        top: 40%;
+        left: 63%;
+        top: 38%;
     }
 
-    .search-audio-box #likebtn, #cancellikebtn {
-        left: 80%;
-        top: 6px;
-        height: 30px;
-        width: 30px;
-        pointer-events: none;
+    .search-audio-box .likebtn {
+        position: absolute;
+        top: 38%;
+        left: 72%;
+        display: none;
+    }
+
+    .search-audio-box .dislikebtn {
+        position: absolute;
+        top: 38%;
+        left: 82%;
+        display: none;
     }
 
     .search-audio-box .info-box {
@@ -132,7 +154,6 @@
             Ð§¹û²»¼Ñ
             box-shadow: 1px 1px 1px var(--shadowcolor);
         */
-        color: var(--)
     }
 
     .search-audio-box .language-family a {
@@ -192,11 +213,11 @@
     }
 
     .search-audio-box .like-number {
+        display: none;
         position: absolute;
-        left: 85%;
-        top: 10px;
-        font-size: 20px;
+        left: 78%;
+        top: 45%;
+        font-size: 30px;
         font-weight: 500;
         width: 30px;
-        display: inline;
     }
