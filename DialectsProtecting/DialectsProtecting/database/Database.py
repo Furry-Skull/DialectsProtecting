@@ -125,6 +125,8 @@ class Database:
     def userLike(self, userName, audioURL):
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
+        if self.checkLike(userName,audioURL)==1:
+            return 0
         try:
             sql_insert = '''
             insert into
@@ -145,9 +147,10 @@ class Database:
 
     #取消用户点赞
     def userCancelLike(self, userName, audioURL):
+        type = self.checkLike(userName,audioURL)
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
-        try:
+        if type==1:
             sql_delete = '''delete from likeURL where userName = ? and audioURL = ?'''
             c.execute(sql_delete, (userName,audioURL))
             sql_update = '''update dialect set like = like - 1 where audioURL = ?'''
@@ -155,10 +158,10 @@ class Database:
             conn.commit()
             conn.close()
             return 1
-        except:
+        else :
             conn.close()
             return 0
-
+    
     #查询用户为这条记录是点赞（返回1）还是点踩（返回-1）还是未操作（返回0）（待添加点踩查询）
     def checkLike(self, userName, audioURL):
         conn = sqlite3.connect('database.db')
@@ -184,6 +187,8 @@ class Database:
     def userDislike(self, userName, audioURL):
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
+        if self.checkLike(userName,audioURL)==-1:
+            return 0
         try:
             sql_insert = '''
             insert into
@@ -204,9 +209,10 @@ class Database:
 
     #取消用户点踩
     def userCancelDislike(self, userName, audioURL):
+        type = self.checkLike(userName,audioURL)
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
-        try:
+        if type == -1:
             sql_delete = '''delete from dislikeURL where userName = ? and audioURL = ?'''
             c.execute(sql_delete, (userName,audioURL))
             sql_update = '''update dialect set like = like + 1 where audioURL = ?'''
@@ -214,7 +220,7 @@ class Database:
             conn.commit()
             conn.close()
             return 1
-        except:
+        else:
             conn.close()
             return 0
 
