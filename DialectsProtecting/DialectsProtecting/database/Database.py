@@ -123,10 +123,14 @@ class Database:
 
     #点赞功能
     def userLike(self, userName, audioURL):
+        type = self.checkLike(userName,audioURL)
+        if type == 1:
+            self.__userCancelLike(userName,audioURL)
+            return 0
+        elif type == -1:
+            self.__userCancelDislike(userName,audioURL)
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
-        if self.checkLike(userName,audioURL)==1:
-            self.__userCancelLike(userName,audioURL)
         try:
             sql_insert = '''
             insert into
@@ -135,9 +139,9 @@ class Database:
                 (?, ?);
             '''
             c.execute(sql_insert, (userName,audioURL))
+            conn.commit()
             sql_update = '''update dialect set like = like + 1 where audioURL = ?'''
             c.execute(sql_update, (audioURL,))
-            conn.commit()
             self.__userCancelDislike(userName,audioURL)
             conn.close()
             return 1
@@ -153,9 +157,9 @@ class Database:
         if type==1:
             sql_delete = '''delete from likeURL where userName = ? and audioURL = ?'''
             c.execute(sql_delete, (userName,audioURL))
+            conn.commit()
             sql_update = '''update dialect set like = like - 1 where audioURL = ?'''
             c.execute(sql_update, (audioURL,))
-            conn.commit()
             conn.close()
             return 1
         else :
@@ -185,10 +189,14 @@ class Database:
 
     #点踩功能
     def userDislike(self, userName, audioURL):
+        type = self.checkLike(userName,audioURL)
+        if type == -1:
+            self.__userCancelDislike(userName,audioURL)
+            return 0
+        elif type == 1:
+            self.__userCancelLike(userName,audioURL)
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
-        if self.checkLike(userName,audioURL)==-1:
-            self.__userCancelDislike(userName,audioURL)
         try:
             sql_insert = '''
             insert into
@@ -197,9 +205,9 @@ class Database:
                 (?, ?);
             '''
             c.execute(sql_insert, (userName,audioURL))
+            conn.commit()
             sql_update = '''update dialect set like = like - 1 where audioURL = ?'''
             c.execute(sql_update, (audioURL,))
-            conn.commit()
             self.__userCancelLike(userName,audioURL)
             conn.close()
             return 1
@@ -215,9 +223,9 @@ class Database:
         if type == -1:
             sql_delete = '''delete from dislikeURL where userName = ? and audioURL = ?'''
             c.execute(sql_delete, (userName,audioURL))
+            conn.commit()
             sql_update = '''update dialect set like = like + 1 where audioURL = ?'''
             c.execute(sql_update, (audioURL,))
-            conn.commit()
             conn.close()
             return 1
         else:
@@ -419,7 +427,7 @@ class Database:
             publisherStr="userName like '%%'"
 
         sql_select1 = '''
-        select * from dialect where (('''+tagStr+''') and ('''+translationStr+''') and ('''+languageStr+''') and ('''+locationStr+''') and ('''+publisherStr+'''));
+        select * from dialect where (('''+tagStr+''') and ('''+translationStr+''') and ('''+languageStr+''') and ('''+locationStr+''') and ('''+publisherStr+''')) order by like DESC;
         '''
         c.execute(sql_select1)  
         for row in c:
