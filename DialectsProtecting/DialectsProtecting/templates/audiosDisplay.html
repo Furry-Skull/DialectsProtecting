@@ -13,12 +13,25 @@
     <div class="translation">
         {{ item.translation }}
     </div>
-    <div class="info-box">
+    <div class="mini-info-box">
         <span class="lang">
             <img src="/static/content/image/language.png" />
             <a href="/search/lang={{ item.language }}">{{ item.language }}</a>
         </span>
         <span class="language-family">
+            <a href="/search/langFamily={{ item.languageFamily }}">{{ item.languageFamily }}</a>
+        </span>
+        <div class="location">
+            <img src="/static/content/image/location.png" />
+            <a href="/search/loc={{ item.location }}">{{ item.location }}</a>
+        </div>
+    </div>
+    <div class="info-box">
+        <span class="lang">
+            <img src="/static/content/image/language.png" />
+            <a href="/search/lang={{ item.language }}">{{ item.language }}</a>
+        </span>
+        <span class="language-family-need">
             <a href="/search/langFamily={{ item.languageFamily }}">{{ item.languageFamily }}</a>
         </span>
         <div class="location">
@@ -31,9 +44,6 @@
         </div>
         {% endfor %}
     </div>
-    <!--阴影效果不佳-->
-    <!--onmouseover="this.style='box-shadow: 2px 2px 2px var(--shadowcolor);'"
-    onmouseout="this.style='box-shadow: none;'"-->
     <img id="playbtn"
          src="/static/content/image/play.png"
          width="60"
@@ -131,12 +141,11 @@
         上传：<a href="/search/publisher={{ item.userName }}">{{ item.userName }}</a>
     </div>
 </div>
-{%- endfor -%}
+    {%- endfor -%}
 
 <!-- 音乐播放器 -->
 <span class="audio-title" id="audioTitle"></span>
-<div class="container" id="musicBoxContainer">
-</div>
+<div class="container" id="musicBoxContainer"></div>
 <!-- 音乐播放器代码 -->
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="/static/scripts/audioPlayer.js"></script>
@@ -244,34 +253,34 @@
     var boxes = document.getElementsByClassName('search-audio-box');
     var languagefamilies = document.getElementsByClassName('language-family');
     for (var i = 0; i < boxes.length; i++) {
-        if (languagefamilies[i].innerText == '官话') {
+        if (languagefamilies[i].innerText.substring(0, 2) == '官话') {
             boxes[i].style = "border-left-color: var(--guanhuacolor);";
         }
-        else if (languagefamilies[i].innerText == '粤语') {
+        else if (languagefamilies[i].innerText.substring(0, 2) == '粤语') {
             boxes[i].style = "border-left-color: var(--yueyucolor);";
         }
-        else if (languagefamilies[i].innerText == '晋语') {
+        else if (languagefamilies[i].innerText.substring(0, 2) == '晋语') {
             boxes[i].style = "border-left-color: var(--jinyucolor);";
         }
-        else if (languagefamilies[i].innerText == '吴语') {
+        else if (languagefamilies[i].innerText.substring(0, 2) == '吴语') {
             boxes[i].style = "border-left-color: var(--wuyucolor);";
         }
-        else if (languagefamilies[i].innerText == '徽语') {
+        else if (languagefamilies[i].innerText.substring(0, 2) == '徽语') {
             boxes[i].style = "border-left-color: var(--huiyucolor);";
         }
-        else if (languagefamilies[i].innerText == '赣语') {
+        else if (languagefamilies[i].innerText.substring(0, 2) == '赣语') {
             boxes[i].style = "border-left-color: var(--ganyucolor);";
         }
-        else if (languagefamilies[i].innerText == '湘语') {
+        else if (languagefamilies[i].innerText.substring(0, 2) == '湘语') {
             boxes[i].style = "border-left-color: var(--xiangyucolor);";
         }
-        else if (languagefamilies[i].innerText == '闽语') {
+        else if (languagefamilies[i].innerText.substring(0, 2) == '闽语') {
             boxes[i].style = "border-left-color: var(--minyucolor);";
         }
-        else if (languagefamilies[i].innerText == '平话') {
+        else if (languagefamilies[i].innerText.substring(0, 2) == '平话') {
             boxes[i].style = "border-left-color: var(--pinghuacolor);";
         }
-        else if (languagefamilies[i].innerText == '客家话') {
+        else if (languagefamilies[i].innerText.substring(0, 3) == '客家话') {
             boxes[i].style = "border-left-color: var(--kejiahuacolor);";
         }
         else {

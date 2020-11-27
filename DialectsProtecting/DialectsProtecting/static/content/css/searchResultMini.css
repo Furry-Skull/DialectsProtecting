@@ -1,0 +1,223 @@
+.search-audio-box {
+    position: relative;
+    display: inline-block;
+    /*
+        border: 2px solid black;
+    */
+    border-left: 15px solid black;
+    width: 95%;
+    height: 44px;
+    /*
+        overflow-y: scroll;
+    */
+    margin-right: 20px;
+    margin-bottom: 15px;
+    padding-left: 20px;
+    background-color: var(--cardbackgroundcolor);
+    box-shadow: 3px 3px 3px var(--shadowcolor);
+    border-radius: 5px;
+    transition: 0.2s all cubic-bezier(.08,.82,.17,1);
+}
+
+    .search-audio-box:hover {
+        height: 160px;
+    }
+
+        .search-audio-box:hover .translation {
+            padding: 10px;
+            height: 86px;
+        }
+
+        .search-audio-box:hover h2 {
+            display: block;
+        }
+
+        .search-audio-box:hover .mini-info-box {
+            display: none;
+        }
+
+        .search-audio-box:hover .info-box {
+            display: inline-block;
+        }
+
+        .search-audio-box:hover #playbtn {
+            display: block;
+        }
+
+        .search-audio-box:hover .likebtn {
+            display: block;
+        }
+
+        .search-audio-box:hover .dislikebtn {
+            display: block;
+        }
+
+        .search-audio-box:hover .like-number {
+            display: block;
+        }
+
+    .search-audio-box h2 {
+        margin-top: 5px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        display: inline-block;
+        width: 50%;
+    }
+
+    .search-audio-box > img {
+        position: absolute;
+    }
+
+    .search-audio-box #playbtn {
+        display: none;
+        left: 63%;
+        top: 38%;
+    }
+
+    .search-audio-box .likebtn {
+        position: absolute;
+        top: 38%;
+        left: 72%;
+        display: none;
+    }
+
+    .search-audio-box .dislikebtn {
+        position: absolute;
+        top: 38%;
+        left: 82%;
+        display: none;
+    }
+
+    .search-audio-box .info-box {
+        display: none;
+        height: 100px;
+        width: 40%;
+        margin-left: 40%;
+        position: absolute;
+    }
+
+        .search-audio-box .info-box img {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+        }
+
+        .search-audio-box .info-box .lang {
+            margin: 5px;
+        }
+
+        .search-audio-box .info-box .location {
+            margin: 5px;
+        }
+
+        .search-audio-box .info-box .language-family-need {
+            margin: 5px;
+        }
+
+        .search-audio-box .info-box .tag {
+            display: inline-block;
+            border: 1px solid;
+            border-radius: 15px;
+            padding-left: 6px;
+            padding-right: 6px;
+            padding-top: 1px;
+            padding-bottom: 1px;
+            margin-top: 5px;
+            background-color: var(--tagcolor);
+            margin-right: 5px;
+        }
+
+    .search-audio-box .mini-info-box {
+        width: 40%;
+        left: 50%;
+        position: absolute;
+        top: 12px;
+    }
+
+    .search-audio-box a {
+        text-decoration: none;
+        color: black;
+        font-family: FZQKBYSJT;
+    }
+
+    .search-audio-box .lang a, .location a {
+        margin-left: 7%;
+    }
+
+    .search-audio-box .language-family a {
+        margin-left: 0%;
+    }
+
+    .search-audio-box a:hover {
+        /*
+            Ð§¹û²»¼Ñ
+            box-shadow: 1px 1px 1px var(--shadowcolor);
+        */
+    }
+
+    .search-audio-box .language-family a {
+        margin-left: 0%;
+    }
+
+    .search-audio-box .mini-info-box img {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+    }
+
+    .search-audio-box .mini-info-box .lang {
+        margin: 5px;
+    }
+
+    .search-audio-box .mini-info-box .location {
+        margin: 5px;
+        display: inline;
+    }
+
+    .search-audio-box .mini-info-box .language-family {
+        margin: 5px;
+    }
+
+    .search-audio-box .audio-box {
+        width: 700px;
+        margin-top: 20px;
+    }
+
+        .search-audio-box .audio-box audio {
+            position: absolute;
+            width: 60%;
+        }
+
+    .search-audio-box .translation {
+        background: #f0f0f0;
+        display: inline-block;
+        font-family: FZQKBYSJT;
+        position: absolute;
+        margin: 10px;
+        width: 35%;
+        height: 0px;
+        padding: 0px;
+        border-radius: 2px;
+        top: 32px;
+        overflow-y: auto;
+        overflow-wrap: break-word;
+        transition: 0.12s all cubic-bezier(.08,.82,.17,1);
+    }
+
+    .search-audio-box .username {
+        display: inline-block;
+        position: absolute;
+        right: 10px;
+        bottom: 12px;
+    }
+
+    .search-audio-box .like-number {
+        display: none;
+        position: absolute;
+        left: 78%;
+        top: 45%;
+        font-size: 30px;
+        font-weight: 500;
+        width: 30px;
+    }
