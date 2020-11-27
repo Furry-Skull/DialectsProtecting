@@ -46,20 +46,34 @@
             transition: 0.2s all cubic-bezier(.86,0,.07,1);
         }
 
-        .search-audio-box:hover .likebtn {
-            opacity: 1;
-            transition: 0.2s all cubic-bezier(.86,0,.07,1);
-        }
+    .search-audio-box .likebtn {
+        opacity: 1;
+        transition: 0.2s all cubic-bezier(.86,0,.07,1);
+        position: relative;
+        margin-left: 72%;
+        margin-top: 25px;
+    }
 
-        .search-audio-box:hover .dislikebtn {
-            opacity: 1;
-            transition: 0.2s all cubic-bezier(.86,0,.07,1);
-        }
+    .search-audio-box:hover .likebtn > img:hover {
+        content: url('/static/content/image/like.png');
+    }
 
-        .search-audio-box:hover .like-number {
-            opacity: 1;
-            transition: 0.2s all cubic-bezier(.86,0,.07,1);
-        }
+    .search-audio-box .dislikebtn {
+        opacity: 1;
+        transition: 0.2s all cubic-bezier(.86,0,.07,1);
+        position: relative;
+        margin-left: 85%;
+        margin-top: -60px;
+    }
+
+    .search-audio-box:hover .dislikebtn > img:hover {
+        content: url('/static/content/image/dislike.png');
+    }
+
+    .search-audio-box:hover .like-number {
+        opacity: 1;
+        transition: 0.2s all cubic-bezier(.86,0,.07,1);
+    }
 
     .search-audio-box h2 {
         margin-top: 5px;

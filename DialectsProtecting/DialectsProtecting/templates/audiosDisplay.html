@@ -60,8 +60,6 @@
              width="55"
              height="55"
              style="cursor:pointer;"
-             onmouseover="this.src = '/static/content/image/like.png';"
-             onmouseout="this.src = '/static/content/image/like_normal.png';"
              onclick="like('{{ item.audioURL }}', {{ loop.index0 }});" />
     </div>
     <div class="dislikebtn">
@@ -70,8 +68,6 @@
              width="55"
              height="55"
              style="cursor:pointer;"
-             onmouseover="this.src = '/static/content/image/dislike.png';"
-             onmouseout="this.src = '/static/content/image/dislike_normal.png';"
              onclick="dislike('{{ item.audioURL }}', {{ loop.index0 }});" />
     </div>
     {% elif likes[loop.index0] == 1 %}
@@ -90,8 +86,6 @@
              width="55"
              height="55"
              style="cursor:pointer;"
-             onmouseover="this.src = '/static/content/image/dislike.png';"
-             onmouseout="this.src = '/static/content/image/dislike_normal.png';"
              onclick="dislike('{{ item.audioURL }}', {{ loop.index0 }});" />
     </div>
     {% elif likes[loop.index0] == -1 %}
@@ -102,12 +96,10 @@
              width="55"
              height="55"
              style="cursor:pointer;"
-             onmouseover="this.src = '/static/content/image/like.png';"
-             onmouseout="this.src = '/static/content/image/like_normal.png';"
              onclick="like('{{ item.audioURL }}', {{ loop.index0 }});" />
     </div>
     <div class="dislikebtn">
-        <img id="dislikebtn{{ loop.index0 }}"
+        <img id="canceldislikebtn{{ loop.index0 }}"
              src="/static/content/image/dislike.png"
              width="55"
              height="55"
@@ -165,7 +157,6 @@
         if (likeButton && dislikeButton) {
             //说明之前未进行任何操作，此时点赞
             likeButton.src = '/static/content/image/like.png';
-            likeButton.onmouseout = "this.src = '/static/content/image/like.png';";
             likeButton.id = "cancellikebtn" + index;
             num = likeNum.innerHTML * 1;
             likeNum.innerHTML = num + 1;
@@ -173,7 +164,6 @@
         else if (cancelLikeButton) {
             //之前已点赞，取消点赞
             cancelLikeButton.src = '/static/content/image/like_normal.png';
-            cancelLikeButton.onmouseout = "this.src = '/static/content/image/like_normal.png';";
             cancelLikeButton.id = "likebtn" + index;
             num = likeNum.innerHTML * 1;
             likeNum.innerHTML = num - 1;
@@ -181,10 +171,8 @@
         else if (cancelDislikeButton) {
             //之前已点踩，取消点踩并点赞
             cancelDislikeButton.src = '/static/content/image/dislike_normal.png';
-            cancelDislikeButton.onmouseout = "this.src = '/static/content/image/dislike_normal.png';";
             cancelDislikeButton.id = "dislikebtn" + index;
-            likeButton.src = '/static/content/image/like_normal.png';
-            likeButton.onmouseout = "this.src = '/static/content/image/like.png';";
+            likeButton.src = '/static/content/image/like.png';
             likeButton.id = "cancellikebtn" + index;
             num = likeNum.innerHTML * 1;
             likeNum.innerHTML = num + 2;
@@ -211,7 +199,6 @@
         if (likeButton && dislikeButton) {
             //说明之前未进行任何操作，此时点踩
             dislikeButton.src = '/static/content/image/dislike.png';
-            dislikeButton.onmouseout = "this.src = '/static/content/image/dislike.png';";
             dislikeButton.id = "canceldislikebtn" + index;
             num = likeNum.innerHTML * 1;
             likeNum.innerHTML = num - 1;
@@ -219,7 +206,6 @@
         else if (cancelDislikeButton) {
             //之前已点踩，取消点踩
             cancelDislikeButton.src = '/static/content/image/dislike_normal.png';
-            cancelDislikeButton.onmouseout = "this.src = '/static/content/image/dislike_normal.png';";
             cancelDislikeButton.id = "dislikebtn" + index;
             num = likeNum.innerHTML * 1;
             likeNum.innerHTML = num + 1;
@@ -227,10 +213,8 @@
         else if (cancelLikeButton) {
             //之前已点赞，取消点赞并点踩
             cancelLikeButton.src = '/static/content/image/like_normal.png';
-            cancelLikeButton.onmouseout = "this.src = '/static/content/image/like_normal.png';";
             cancelLikeButton.id = "likebtn" + index;
             dislikeButton.src = '/static/content/image/dislike.png';
-            dislikeButton.onmouseout = "this.src = '/static/content/image/dislike.png';";
             dislikeButton.id = "canceldislikebtn" + index;
             num = likeNum.innerHTML * 1;
             likeNum.innerHTML = num - 2;
