@@ -139,10 +139,9 @@ class Database:
                 (?, ?);
             '''
             c.execute(sql_insert, (userName,audioURL))
-            conn.commit()
             sql_update = '''update dialect set like = like + 1 where audioURL = ?'''
             c.execute(sql_update, (audioURL,))
-            self.__userCancelDislike(userName,audioURL)
+            conn.commit()
             conn.close()
             return 1
         except:
@@ -157,9 +156,9 @@ class Database:
         if type==1:
             sql_delete = '''delete from likeURL where userName = ? and audioURL = ?'''
             c.execute(sql_delete, (userName,audioURL))
-            conn.commit()
             sql_update = '''update dialect set like = like - 1 where audioURL = ?'''
             c.execute(sql_update, (audioURL,))
+            conn.commit()
             conn.close()
             return 1
         else :
@@ -205,10 +204,9 @@ class Database:
                 (?, ?);
             '''
             c.execute(sql_insert, (userName,audioURL))
-            conn.commit()
             sql_update = '''update dialect set like = like - 1 where audioURL = ?'''
             c.execute(sql_update, (audioURL,))
-            self.__userCancelLike(userName,audioURL)
+            conn.commit()
             conn.close()
             return 1
         except:
@@ -223,9 +221,9 @@ class Database:
         if type == -1:
             sql_delete = '''delete from dislikeURL where userName = ? and audioURL = ?'''
             c.execute(sql_delete, (userName,audioURL))
-            conn.commit()
             sql_update = '''update dialect set like = like + 1 where audioURL = ?'''
             c.execute(sql_update, (audioURL,))
+            conn.commit()
             conn.close()
             return 1
         else:
