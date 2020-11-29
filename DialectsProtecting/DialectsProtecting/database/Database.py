@@ -131,6 +131,8 @@ class Database:
             self.__userCancelDislike(userName,audioURL)
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
+        if self.checkLike(userName,audioURL)==1:
+            return 0
         try:
             sql_insert = '''
             insert into
@@ -142,6 +144,7 @@ class Database:
             sql_update = '''update dialect set like = like + 1 where audioURL = ?'''
             c.execute(sql_update, (audioURL,))
             conn.commit()
+            self.userCancelDislike(userName,audioURL)
             conn.close()
             return 1
         except:
@@ -207,6 +210,7 @@ class Database:
             sql_update = '''update dialect set like = like - 1 where audioURL = ?'''
             c.execute(sql_update, (audioURL,))
             conn.commit()
+            self.userCancelLike(userName,audioURL)
             conn.close()
             return 1
         except:

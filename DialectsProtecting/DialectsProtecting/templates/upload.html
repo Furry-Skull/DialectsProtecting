@@ -131,8 +131,11 @@
             <p><input type="submit" value="确认上传" id="psub"></p>
         </form>
         <form action="/my/addNewLanguage" method="post" enctype="multipart/form-data">
-            没有您家乡的语言？在此添加：
+            <p id="hint"></p>
             <div class="add-lang">
+                <div class="text-addlang">
+                    没有您家乡的语言？在此添加：
+                </div>
                 <input type="text" name="语系"
                        placeholder="添加语系"
                        onfocus="if(placeholder=='添加语系')placeholder=''"
@@ -144,9 +147,10 @@
                        onblur="if(!placeholder)placeholder='添加语言'"
                        id="addlang">
             </div>
-            <input type="submit" value="确认添加" id="psub">
+            <p>
+                <input type="submit" value="确认添加" id="psub">
+            </p>
         </form>
-        <p id="hint"></p>
     </div>
     {% include 'footer.html' %}
 </body>
