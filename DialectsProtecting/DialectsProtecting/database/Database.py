@@ -123,6 +123,12 @@ class Database:
 
     #点赞功能
     def userLike(self, userName, audioURL):
+        type = self.checkLike(userName,audioURL)
+        if type == 1:
+            self.__userCancelLike(userName,audioURL)
+            return 0
+        elif type == -1:
+            self.__userCancelDislike(userName,audioURL)
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
         if self.checkLike(userName,audioURL)==1:
@@ -146,7 +152,7 @@ class Database:
             return 0
 
     #取消用户点赞
-    def userCancelLike(self, userName, audioURL):
+    def __userCancelLike(self, userName, audioURL):
         type = self.checkLike(userName,audioURL)
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
@@ -185,10 +191,14 @@ class Database:
 
     #点踩功能
     def userDislike(self, userName, audioURL):
+        type = self.checkLike(userName,audioURL)
+        if type == -1:
+            self.__userCancelDislike(userName,audioURL)
+            return 0
+        elif type == 1:
+            self.__userCancelLike(userName,audioURL)
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
-        if self.checkLike(userName,audioURL)==-1:
-            return 0
         try:
             sql_insert = '''
             insert into
@@ -208,7 +218,7 @@ class Database:
             return 0
 
     #取消用户点踩
-    def userCancelDislike(self, userName, audioURL):
+    def __userCancelDislike(self, userName, audioURL):
         type = self.checkLike(userName,audioURL)
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
@@ -419,7 +429,7 @@ class Database:
             publisherStr="userName like '%%'"
 
         sql_select1 = '''
-        select * from dialect where (('''+tagStr+''') and ('''+translationStr+''') and ('''+languageStr+''') and ('''+locationStr+''') and ('''+publisherStr+'''));
+        select * from dialect where (('''+tagStr+''') and ('''+translationStr+''') and ('''+languageStr+''') and ('''+locationStr+''') and ('''+publisherStr+''')) order by like DESC;
         '''
         c.execute(sql_select1)  
         for row in c:
