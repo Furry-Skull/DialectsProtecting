@@ -85,3 +85,13 @@ def uploadAudio():
         return redirect('/my/' + publisher + '/space')
     else:
         return render_template('page404.html')
+
+#上传页面
+@my.route('/addNewLanguage', methods=['POST'])
+def addLanguage():
+    languageFamily = request.form['语系']
+    language = request.form['语言']
+    if languageFamily == '' or language == '':
+        return redirect('upload');
+    db.insertLanguage(languageFamily, language)
+    return redirect('upload');
