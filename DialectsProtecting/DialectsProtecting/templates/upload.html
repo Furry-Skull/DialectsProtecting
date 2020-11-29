@@ -46,22 +46,26 @@
             }
 
             var maxTagLength = 5;
+            var availableNumbers = new Array("4", "3", "2", "1", "0");
             function removeTag(target) {
                 if (!document.getElementById('addButton')) {
                     //如果增加的按钮不存在，则加回来
                     $("#labelField").children().eq(maxTagLength - 1).after('<button type="button" onclick="addTag()" id="addButton"></button>')
                 }
                 target.remove();
+                availableNumbers.push(target.id)
             }
             function addTag() {
                 var count = document.getElementById('labelField').childElementCount - 1; //除去最后一个按钮
                 if (count == 0) {
                     //在加号按钮前加
-                    $("#addButton").before('<span class="label"><input type="text" name="标签' + count + '" id="ptap"><button type="button" id="deleteButton" onclick="removeTag(this.parentNode);"></button></span>')
+                    var num = availableNumbers.pop();
+                    $("#addButton").before('<span class="label" id="' + num + '"><input type="text" name="标签' + num + '"id="ptap"><button type="button" id="deleteButton" onclick="removeTag(this.parentNode);"></button></span>')
                 }
                 else if (count < maxTagLength) {
                     //标签最多不能超过5个
-                    $("#labelField").children().eq(count - 1).after('<span class="label"><input type="text" name="标签' + count + '" id="ptap"><button type="button" id="deleteButton" onclick="removeTag(this.parentNode);"></button></span>');
+                    var num = availableNumbers.pop();
+                    $("#labelField").children().eq(count - 1).after('<span class="label" id="' + num + '"><input type="text" name="标签' + num + '"id="ptap"><button type="button" id="deleteButton" onclick="removeTag(this.parentNode);"></button></span>');
                 }
                 if (count == maxTagLength - 1) {
                     //添加最后一个标签时，将增加的按钮删掉
