@@ -40,18 +40,10 @@
         margin-top: 25px;
     }
 
-    .search-audio-box .likebtn > img:hover{
-        content: url('/static/content/image/like.png');
-    }
-
     .search-audio-box .dislikebtn {
         position: relative;
-        margin-left: 85%;
+        margin-left: 82%;
         margin-top: -60px;
-    }
-
-    .search-audio-box .dislikebtn > img:hover {
-        content: url('/static/content/image/dislike.png');
     }
 
     .search-audio-box .info-box {
@@ -81,6 +73,7 @@
             Ð§¹û²»¼Ñ
             box-shadow: 1px 1px 1px var(--shadowcolor);
         */
+        color: var(--)
     }
 
     .search-audio-box .language-family a {
@@ -153,7 +146,7 @@
 
     .search-audio-box .like-number {
         position: relative;
-        left: 78%;
+        left: 78.5%;
         top: -30%;
         font-size: 30px;
         font-weight: 500;

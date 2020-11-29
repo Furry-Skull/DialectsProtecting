@@ -31,6 +31,18 @@ def like():
     db.userLike(username, audioURL)
     return ''
 
+#这个函数用于响应取消点赞的AJAX请求
+@detail.route('/cancelLike', methods=['POST'])
+def cancelLike():
+    #点赞的音频和用户
+    audioURL = request.values.get('audioURL')
+    username = getUser()
+    if audioURL == None or audioURL == '' or username == None or username == '':
+        return render_template('page404.html')
+
+    db.userCancelLike(username, audioURL)
+    return ''
+
 #这个函数用于响应点踩的AJAX请求
 @detail.route('/dislike', methods=['POST'])
 def dislike():
@@ -41,4 +53,16 @@ def dislike():
         return render_template('page404.html')
 
     db.userDislike(username, audioURL)
+    return ''
+
+#这个函数用于响应取消点踩的AJAX请求
+@detail.route('/cancelDislike', methods=['POST'])
+def cancelDislike():
+    #点踩的音频和用户
+    audioURL = request.values.get('audioURL')
+    username = getUser()
+    if audioURL == None or audioURL == '' or username == None or username == '':
+        return render_template('page404.html')
+
+    db.userCancelDislike(username, audioURL)
     return ''

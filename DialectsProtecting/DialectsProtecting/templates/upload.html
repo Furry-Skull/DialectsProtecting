@@ -110,6 +110,13 @@
                     <option value="{{ item }}">{{ item }}</option>
                     {% endfor %}
                 </select>
+                <div class="add-lang">
+                    <input type="text" name="添加语言"
+                           placeholder="添加语言"
+                           onfocus="if(placeholder=='添加语言')placeholder=''"
+                           onblur="if(!placeholder)placeholder='添加语言'"
+                           id="addlang">
+                </div>
             </p>
             <p>
                 <div class="upload-tag">
@@ -125,22 +132,6 @@
             </a>
             <span class="fileHint" id="fileHint"></span>
             <p><input type="submit" value="确认上传" id="psub"></p>
-        </form>
-        <form action="/my/addNewLanguage" method="post" enctype="multipart/form-data">
-            没有您家乡的语言？在此添加：
-            <div class="add-lang">
-                <input type="text" name="语系"
-                       placeholder="添加语系"
-                       onfocus="if(placeholder=='添加语系')placeholder=''"
-                       onblur="if(!placeholder)placeholder='添加语系'"
-                       id="addlang">
-                <input type="text" name="语言"
-                       placeholder="添加语言"
-                       onfocus="if(placeholder=='添加语言')placeholder=''"
-                       onblur="if(!placeholder)placeholder='添加语言'"
-                       id="addlang">
-            </div>
-            <input type="submit" value="确认添加" id="psub">
         </form>
         <p id="hint"></p>
     </div>

@@ -13,25 +13,12 @@
     <div class="translation">
         {{ item.translation }}
     </div>
-    <div class="mini-info-box">
-        <span class="lang">
-            <img src="/static/content/image/language.png" />
-            <a href="/search/lang={{ item.language }}">{{ item.language }}</a>
-        </span>
-        <span class="language-family">
-            <a href="/search/langFamily={{ item.languageFamily }}">{{ item.languageFamily }}</a>
-        </span>
-        <div class="location">
-            <img src="/static/content/image/location.png" />
-            <a href="/search/loc={{ item.location }}">{{ item.location }}</a>
-        </div>
-    </div>
     <div class="info-box">
         <span class="lang">
             <img src="/static/content/image/language.png" />
             <a href="/search/lang={{ item.language }}">{{ item.language }}</a>
         </span>
-        <span class="language-family-need">
+        <span class="language-family">
             <a href="/search/langFamily={{ item.languageFamily }}">{{ item.languageFamily }}</a>
         </span>
         <div class="location">
@@ -44,6 +31,9 @@
         </div>
         {% endfor %}
     </div>
+    <!--阴影效果不佳-->
+    <!--onmouseover="this.style='box-shadow: 2px 2px 2px var(--shadowcolor);'"
+    onmouseout="this.style='box-shadow: none;'"-->
     <img id="playbtn"
          src="/static/content/image/play.png"
          width="60"
@@ -60,7 +50,9 @@
              width="55"
              height="55"
              style="cursor:pointer;"
-             onclick="like('{{ item.audioURL }}', {{ loop.index0 }});" />
+             onmouseover="this.src = '/static/content/image/like.png';"
+             onmouseout="this.src = '/static/content/image/like_normal.png';"
+             onclick="if (id == 'likebtn{{ loop.index0 }}') like('{{ item.audioURL }}', {{ loop.index0 }}, 1); else cancelLike('{{ item.audioURL }}', {{ loop.index0 }})" />
     </div>
     <div class="dislikebtn">
         <img id="dislikebtn{{ loop.index0 }}"
@@ -68,7 +60,9 @@
              width="55"
              height="55"
              style="cursor:pointer;"
-             onclick="dislike('{{ item.audioURL }}', {{ loop.index0 }});" />
+             onmouseover="this.src = '/static/content/image/dislike.png';"
+             onmouseout="this.src = '/static/content/image/dislike_normal.png';"
+             onclick="if (id == 'dislikebtn{{ loop.index0 }}') dislike('{{ item.audioURL }}', {{ loop.index0 }}, 1); else cancelDislike('{{ item.audioURL }}', {{ loop.index0 }})" />
     </div>
     {% elif likes[loop.index0] == 1 %}
     {# 该音频记录已点赞 #}
@@ -78,7 +72,7 @@
              width="55"
              height="55"
              style="cursor:pointer;"
-             onclick="like('{{ item.audioURL }}', {{ loop.index0 }});" />
+             onclick="if (id == 'likebtn{{ loop.index0 }}') like('{{ item.audioURL }}', {{ loop.index0 }}, 1); else cancelLike('{{ item.audioURL }}', {{ loop.index0 }})" />
     </div>
     <div class="dislikebtn">
         <img id="dislikebtn{{ loop.index0 }}"
@@ -86,7 +80,9 @@
              width="55"
              height="55"
              style="cursor:pointer;"
-             onclick="dislike('{{ item.audioURL }}', {{ loop.index0 }});" />
+             onmouseover="this.src = '/static/content/image/dislike.png';"
+             onmouseout="this.src = '/static/content/image/dislike_normal.png';"
+             onclick="if (id == 'dislikebtn{{ loop.index0 }}') dislike('{{ item.audioURL }}', {{ loop.index0 }}, 2); else cancelDislike('{{ item.audioURL }}', {{ loop.index0 }})" />
     </div>
     {% elif likes[loop.index0] == -1 %}
     {# 该音频记录已点踩 #}
@@ -96,15 +92,17 @@
              width="55"
              height="55"
              style="cursor:pointer;"
-             onclick="like('{{ item.audioURL }}', {{ loop.index0 }});" />
+             onmouseover="this.src = '/static/content/image/like.png';"
+             onmouseout="this.src = '/static/content/image/like_normal.png';"
+             onclick="if (id == 'likebtn{{ loop.index0 }}') like('{{ item.audioURL }}', {{ loop.index0 }}, 2); else cancelLike('{{ item.audioURL }}', {{ loop.index0 }})" />
     </div>
     <div class="dislikebtn">
-        <img id="canceldislikebtn{{ loop.index0 }}"
+        <img id="dislikebtn{{ loop.index0 }}"
              src="/static/content/image/dislike.png"
              width="55"
              height="55"
              style="cursor:pointer;"
-             onclick="dislike('{{ item.audioURL }}', {{ loop.index0 }});" />
+             onclick="if (id == 'dislikebtn{{ loop.index0 }}') dislike('{{ item.audioURL }}', {{ loop.index0 }}, 1); else cancelDislike('{{ item.audioURL }}', {{ loop.index0 }})" />
     </div>
     {% endif %}
     {% else %}
@@ -133,11 +131,12 @@
         上传：<a href="/search/publisher={{ item.userName }}">{{ item.userName }}</a>
     </div>
 </div>
-    {%- endfor -%}
+{%- endfor -%}
 
 <!-- 音乐播放器 -->
 <span class="audio-title" id="audioTitle"></span>
-<div class="container" id="musicBoxContainer"></div>
+<div class="container" id="musicBoxContainer">
+</div>
 <!-- 音乐播放器代码 -->
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="/static/scripts/audioPlayer.js"></script>
@@ -148,37 +147,13 @@
         $('audio').initAudioPlayer();
         document.getElementById('playButton').click();
     }
-    function like(url, index) {
-        var likeButton = document.getElementById('likebtn' + index);
-        var dislikeButton = document.getElementById('dislikebtn' + index);
-        var cancelLikeButton = document.getElementById('cancellikebtn' + index);
-        var cancelDislikeButton = document.getElementById('canceldislikebtn' + index);
-        var likeNum = document.getElementById('item' + index + 'LikeNumber');
-        if (likeButton && dislikeButton) {
-            //说明之前未进行任何操作，此时点赞
-            likeButton.src = '/static/content/image/like.png';
-            likeButton.id = "cancellikebtn" + index;
-            num = likeNum.innerHTML * 1;
-            likeNum.innerHTML = num + 1;
-        }
-        else if (cancelLikeButton) {
-            //之前已点赞，取消点赞
-            cancelLikeButton.src = '/static/content/image/like_normal.png';
-            cancelLikeButton.id = "likebtn" + index;
-            num = likeNum.innerHTML * 1;
-            likeNum.innerHTML = num - 1;
-        }
-        else if (cancelDislikeButton) {
-            //之前已点踩，取消点踩并点赞
-            cancelDislikeButton.src = '/static/content/image/dislike_normal.png';
-            cancelDislikeButton.id = "dislikebtn" + index;
-            likeButton.src = '/static/content/image/like.png';
-            likeButton.id = "cancellikebtn" + index;
-            num = likeNum.innerHTML * 1;
-            likeNum.innerHTML = num + 2;
-        }
-
-        //发送点赞AJAX请求
+    function like(url, index, likeAddNum) {
+        //likeAddNum是点赞一次会增加的点赞数
+        document.getElementById('likebtn' + index).src = '/static/content/image/like.png';
+        document.getElementById('likebtn' + index).onmouseover = '';
+        document.getElementById('likebtn' + index).onmouseout = '';
+        num = document.getElementById('item' + index + 'LikeNumber').innerHTML * 1;
+        document.getElementById('item' + index + 'LikeNumber').innerHTML = num + likeAddNum;
         $.ajax({
             data: {
                 audioURL: url
@@ -189,38 +164,29 @@
             success: function (data) { }
         })
     }
-
-    function dislike(url, index) {
-        var likeButton = document.getElementById('likebtn' + index);
-        var dislikeButton = document.getElementById('dislikebtn' + index);
-        var cancelLikeButton = document.getElementById('cancellikebtn' + index);
-        var cancelDislikeButton = document.getElementById('canceldislikebtn' + index);
-        var likeNum = document.getElementById('item' + index + 'LikeNumber');
-        if (likeButton && dislikeButton) {
-            //说明之前未进行任何操作，此时点踩
-            dislikeButton.src = '/static/content/image/dislike.png';
-            dislikeButton.id = "canceldislikebtn" + index;
-            num = likeNum.innerHTML * 1;
-            likeNum.innerHTML = num - 1;
-        }
-        else if (cancelDislikeButton) {
-            //之前已点踩，取消点踩
-            cancelDislikeButton.src = '/static/content/image/dislike_normal.png';
-            cancelDislikeButton.id = "dislikebtn" + index;
-            num = likeNum.innerHTML * 1;
-            likeNum.innerHTML = num + 1;
-        }
-        else if (cancelLikeButton) {
-            //之前已点赞，取消点赞并点踩
-            cancelLikeButton.src = '/static/content/image/like_normal.png';
-            cancelLikeButton.id = "likebtn" + index;
-            dislikeButton.src = '/static/content/image/dislike.png';
-            dislikeButton.id = "canceldislikebtn" + index;
-            num = likeNum.innerHTML * 1;
-            likeNum.innerHTML = num - 2;
-        }
-
-        //发送点踩AJAX请求
+    function cancelLike(url, index) {
+        document.getElementById('likebtn' + index).src = '/static/content/image/like_normal.png';
+        document.getElementById('likebtn' + index).onmouseover = "this.src = '/static/content/image/like.png';";
+        document.getElementById('likebtn' + index).onmouseout = "this.src = '/static/content/image/like_normal.png';";
+        num = document.getElementById('item' + index + 'LikeNumber').innerHTML * 1;
+        document.getElementById('item' + index + 'LikeNumber').innerHTML = num - 1;
+        $.ajax({
+            data: {
+                audioURL: url
+            },
+            dataType: "text",
+            type: "POST",
+            url: "/detail/cancelLike",
+            success: function (data) { }
+        })
+    }
+    function dislike(url, index, dislikeRemoveNum) {
+        //dislikeRemoveNum是点踩一次会减少的点赞数
+        document.getElementById('dislikebtn' + index).src = '/static/content/image/dislike.png';
+        document.getElementById('dislikebtn' + index).onmouseover = '';
+        document.getElementById('dislikebtn' + index).onmouseout = '';
+        num = document.getElementById('item' + index + 'LikeNumber').innerHTML * 1;
+        document.getElementById('item' + index + 'LikeNumber').innerHTML = num - dislikeRemoveNum;
         $.ajax({
             data: {
                 audioURL: url
@@ -231,40 +197,56 @@
             success: function (data) { }
         })
     }
+    function cancelDislike(url, index) {
+        document.getElementById('dislikebtn' + index).src = '/static/content/image/dislike_normal.png';
+        document.getElementById('dislikebtn' + index).onmouseover = "this.src = '/static/content/image/dislike.png';";
+        document.getElementById('dislikebtn' + index).onmouseout = "this.src = '/static/content/image/dislike_normal.png';";
+        num = document.getElementById('item' + index + 'LikeNumber').innerHTML * 1;
+        document.getElementById('item' + index + 'LikeNumber').innerHTML = num + 1;
+        $.ajax({
+            data: {
+                audioURL: url
+            },
+            dataType: "text",
+            type: "POST",
+            url: "/detail/cancelDislike",
+            success: function (data) { }
+        })
+    }
 </script>
 <script type="text/javascript">
     //改变颜色
     var boxes = document.getElementsByClassName('search-audio-box');
     var languagefamilies = document.getElementsByClassName('language-family');
     for (var i = 0; i < boxes.length; i++) {
-        if (languagefamilies[i].innerText.substring(0, 2) == '官话') {
+        if (languagefamilies[i].innerText == '官话') {
             boxes[i].style = "border-left-color: var(--guanhuacolor);";
         }
-        else if (languagefamilies[i].innerText.substring(0, 2) == '粤语') {
+        else if (languagefamilies[i].innerText == '粤语') {
             boxes[i].style = "border-left-color: var(--yueyucolor);";
         }
-        else if (languagefamilies[i].innerText.substring(0, 2) == '晋语') {
+        else if (languagefamilies[i].innerText == '晋语') {
             boxes[i].style = "border-left-color: var(--jinyucolor);";
         }
-        else if (languagefamilies[i].innerText.substring(0, 2) == '吴语') {
+        else if (languagefamilies[i].innerText == '吴语') {
             boxes[i].style = "border-left-color: var(--wuyucolor);";
         }
-        else if (languagefamilies[i].innerText.substring(0, 2) == '徽语') {
+        else if (languagefamilies[i].innerText == '徽语') {
             boxes[i].style = "border-left-color: var(--huiyucolor);";
         }
-        else if (languagefamilies[i].innerText.substring(0, 2) == '赣语') {
+        else if (languagefamilies[i].innerText == '赣语') {
             boxes[i].style = "border-left-color: var(--ganyucolor);";
         }
-        else if (languagefamilies[i].innerText.substring(0, 2) == '湘语') {
+        else if (languagefamilies[i].innerText == '湘语') {
             boxes[i].style = "border-left-color: var(--xiangyucolor);";
         }
-        else if (languagefamilies[i].innerText.substring(0, 2) == '闽语') {
+        else if (languagefamilies[i].innerText == '闽语') {
             boxes[i].style = "border-left-color: var(--minyucolor);";
         }
-        else if (languagefamilies[i].innerText.substring(0, 2) == '平话') {
+        else if (languagefamilies[i].innerText == '平话') {
             boxes[i].style = "border-left-color: var(--pinghuacolor);";
         }
-        else if (languagefamilies[i].innerText.substring(0, 3) == '客家话') {
+        else if (languagefamilies[i].innerText == '客家话') {
             boxes[i].style = "border-left-color: var(--kejiahuacolor);";
         }
         else {
